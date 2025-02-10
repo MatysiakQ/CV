@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Jastrzębski - CV</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- dodaj ikone pod mema-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <span class="logo-white">PORT</span><span class="logo-orange">folio</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">O MNIE</a></li>
+          <li><a href="#">PROJEKTY</a></li>
+          <li><a href="#">SKILLS</a></li>
+          <li><a href="#" id="contact-link">KONTAKT</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-right">
+      <button class="follow-btn">Obserwuj</button>
+    </div>
+  </header>
+
+  <!-- Główna zawartość -->
+  <main>
+    <div class="content">
+      <!-- Lewa kolumna: teksty i kafelki -->
+      <div class="left-column">
+        <div class="intro-text">
+          <p>Cześć, Nazywam się</p>
+          <h1>Adam <span class="orange-text">Jastrzębski</span></h1>
+        </div>
+        <div class="social-icons">
+          <!-- Kafelek 1: LinkedIn -->
+          <div class="social-tile">
+            <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.92 0 54.27 0 24.62 24.09 0 53.79 0c29.68 0 53.79 24.62 53.79 54.27 0 29.65-24.11 53.83-53.79 53.83zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.3-79.3-48.3 0-55.7 37.7-55.7 76.7V448h-92.68V148.9h88.98v40.8h1.3c12.4-23.5 42.6-48.3 87.66-48.3 93.8 0 111.1 61.7 111.1 141.9V448z"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Kafelek 2: GitHub -->
+          <div class="social-tile">
+            <a href="https://www.github.com" target="_blank" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 496 512">
+                <path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.7-5.2 3.7-3 0-5.2-1.7-5.2-3.7 0-2 2.3-3.7 5.2-3.7 2.9 0 5.2 1.7 5.2 3.7zm-32.1-7.9c-.7 1.6-2.7 2.1-4.5 1-1.8-1.1-2.7-3.1-2-4.7.7-1.6 2.7-2.1 4.5-1 1.8 1.1 2.7 3.1 2 4.7zm44.2-1.7c-1.2 1.6-3.8.8-5-1.7-1.2-2.5-.5-5.5 1.2-7.1 1.7-1.6 4.3-1.3 5.5.3 1.2 1.6.5 4.5-1.2 7.1zm32.7-5.5c-.7 1.8-3 2.4-5 .9-2-1.5-2.7-4.1-2-5.9.7-1.8 3-2.4 5-.9 2 1.5 2.7 4.1 2 5.9zm34.7-3.7c-.3 1.8-2.5 2.9-5 2.4-2.5-.5-4.2-2.3-3.9-4.1.3-1.8 2.5-2.9 5-2.4 2.5.5 4.2 2.3 3.9 4.1zm-81.3-14.3c-1.1 1.8-3.8 2.2-6.2 1.1-2.5-1.1-3.9-3.1-2.8-4.9 1.1-1.8 3.8-2.2 6.2-1.1 2.5 1.1 3.9 3.1 2.8 4.9zm39.2-1.2c-.5 1.8-2.9 2.5-5.4 1.7-2.5-.8-4.2-2.7-3.7-4.5.5-1.8 2.9-2.5 5.4-1.7 2.5.8 4.2 2.7 3.7 4.5zM248 8C111 8 0 119 0 256c0 110.5 71.4 204 170.4 237.1 12.5 2.3 17.1-5.4 17.1-12 0-6-0.2-21.8-0.3-42.8-69.4 15.1-84-33.4-84-33.4-11.4-29-27.8-36.7-27.8-36.7-22.7-15.5 1.7-15.2 1.7-15.2 25.1 1.8 38.3 25.8 38.3 25.8 22.3 38.2 58.5 27.1 72.8 20.8 2.3-16.2 8.7-27.1 15.8-33.3-55.4-6.3-113.6-27.7-113.6-123.5 0-27.2 9.7-49.4 25.6-66.8-2.6-6.3-11.1-31.8 2.4-66.4 0 0 20.9-6.7 68.5 25.5 19.8-5.5 41-8.3 62.1-8.4 21.1.1 42.3 2.9 62.1 8.4 47.6-32.2 68.5-25.5 68.5-25.5 13.5 34.6 5 60.1 2.4 66.4 15.9 17.4 25.6 39.6 25.6 66.8 0 95.9-58.3 117-113.8 123.2 9 7.8 17 23.3 17 46.9 0 33.9-.3 61.2-.3 69.5 0 6.7 4.5 14.6 17.2 12.1C424.6 460 496 366.5 496 256 496 119 385 8 248 8z"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Kafelek 3: Gmail -->
+          <div class="social-tile">
+            <a href="mailto:example@gmail.com" target="_blank" title="Gmail">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M502.3 190.8L327.4 338.1c-20.7 17.7-51.7 17.7-72.4 0L9.7 190.8C3.4 186.2 0 178.5 0 170.4V112c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v58.4c0 8.1-3.4 15.8-9.7 20.4zM464 128H48v42.3l192 164.3 192-164.3V128zm-1.7 271.2L331.4 342.5c-29.3-24.6-74.6-24.6-103.9 0L49.7 399.2C42.1 403.7 32 394.8 32 385.4V224l160 137.1c18.3 15.7 46.8 15.7 65.1 0L480 224v161.4c0 9.4-10.1 18.3-17.7 13.8z"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Kafelek 4: Twitter (przykładowo) -->
+          <div class="social-tile">
+            <a href="https://www.twitter.com" target="_blank" title="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M459.4 151.7c.32 4.54.32 9.1.32 13.67 0 139.3-105.84 300.22-300.22 300.22-59.69 0-115.21-17.27-161.81-47.19 8.44.98 16.83 1.31 25.67 1.31 49.18 0 94.3-16.83 130.48-45.36-46.1-.98-84.79-31.34-98.06-73.15 6.5.98 13.01 1.63 19.82 1.63 9.59 0 18.99-1.31 27.8-3.65-48.38-9.75-84.79-52.41-84.79-103.74v-1.31c14.17 7.87 30.5 12.7 47.76 13.31-28.37-18.99-47.05-51.05-47.05-87.44 0-19.26 5.21-37.34 14.37-52.88 52.45 64.2 131.13 106.2 219.41 110.88-1.63-7.87-2.6-15.73-2.6-23.58 0-57.17 46.3-103.47 103.47-103.47 29.79 0 56.68 12.7 75.62 33.14 23.58-4.54 45.36-13.31 65.01-25.67-7.87 24.6-24.6 45.36-46.4 58.48 20.7-2.26 40.5-7.87 58.8-15.73-13.86 20.7-31.4 38.93-51.57 53.33z"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Kafelek 5: Instagram (przykładowo) -->
+          <div class="social-tile">
+            <a href="https://www.instagram.com" target="_blank" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.3 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.4 74.7-74.7 74.7zm146.4-194.3c0 14.9-12.1 27-27 27-14.9 0-27-12.1-27-27 0-14.9 12.1-27 27-27 14.9 0 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.2-93.6S386.6 32.7 350.9 31c-35.7-1.7-142.8-1.7-178.5 0-35.7 1.7-67.3 9.9-93.6 36.2S32.7 125.4 31 161.1c-1.7 35.7-1.7 142.8 0 178.5 1.7 35.7 9.9 67.3 36.2 93.6s57.9 34.5 93.6 36.2c35.7 1.7 142.8 1.7 178.5 0 35.7-1.7 67.3-9.9 93.6-36.2s34.5-57.9 36.2-93.6c1.7-35.7 1.7-142.8 0-178.5zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.2 9s-102.7 2.6-132.2-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.2s-2.6-102.7 9-132.2c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.2-9s102.7-2.7 132.2 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.2s2.7 102.7-9 132.2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Przycisk do pobrania CV -->
+        <div class="download-cv">
+          <button id="download-cv-btn">Pobierz CV</button>
+        </div>
+      </div>
+      <!-- Prawa kolumna: zdjęcie wewnątrz pomarańczowej plamki -->
+      <div class="right-column">
+        <div class="photo-container">
+          <div class="photo-blob">
+            <!-- Tutaj możesz podmienić adres obrazu na swoje zdjęcie -->
+            <img src="https://via.placeholder.com/400" alt="Moje zdjęcie">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal z formularzem kontaktowym -->
+  <div id="contact-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Kontakt</h2>
+      <form id="contact-form">
+        <label for="name">Imię:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Wyślij</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
