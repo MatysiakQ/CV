@@ -5,8 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Download, Mail, Github, Linkedin, Instagram, Send } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Home = () => {
+  const { t } = useLanguage();
+
   const handleDownloadCV = () => {
     // In a real application, this would download the actual CV file
     console.log("Downloading CV...");
@@ -25,7 +28,7 @@ const Home = () => {
             {/* Profile Image */}
             <div className="mb-8 relative">
               <div className="w-48 h-48 mx-auto relative">
-                <div className="absolute inset-0 bg-gradient-primary rounded-full animate-spin [animation-duration:8s]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-full animate-spin [animation-duration:8s]"></div>
                 <div className="absolute inset-2 bg-background rounded-full"></div>
                 <img 
                   src="/lovable-uploads/c37ccb7a-5662-447b-9d38-c871374ff306.png"
@@ -36,11 +39,11 @@ const Home = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="gradient-text">Alex Developer</span>
+              <span className="gradient-text">Adam Jastrzębski</span>
             </h1>
             
             <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-muted-foreground">
-              Junior <span className="text-accent">Front-End Developer</span>
+              {t('home.hero.title')}
             </h2>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -51,11 +54,11 @@ const Home = () => {
                 onClick={handleDownloadCV}
               >
                 <Download className="h-5 w-5 mr-2" />
-                Download CV
+                {t('home.hero.downloadCV')}
               </Button>
               <Button variant="glass" size="lg" className="text-lg px-8 py-6">
                 <Mail className="h-5 w-5 mr-2" />
-                Contact Me
+                {t('home.hero.contactMe')}
               </Button>
             </div>
 
@@ -80,21 +83,15 @@ const Home = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              About <span className="gradient-text">Me</span>
+              {t('home.about.title')}
             </h2>
           </div>
           
           <Card className="glass-effect card-glow">
             <CardContent className="p-8">
               <div className="text-center max-w-2xl mx-auto">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  I'm a passionate Junior Front-End Developer with a strong foundation in modern web technologies. 
-                  I love creating beautiful, responsive, and user-friendly interfaces that provide exceptional user experiences.
-                </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  My journey in web development began with curiosity and has evolved into a dedication to crafting 
-                  clean, efficient code. I'm always eager to learn new technologies and take on challenging projects 
-                  that push my skills to the next level.
+                  {t('home.about.description')}
                 </p>
               </div>
             </CardContent>
@@ -107,10 +104,10 @@ const Home = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">Contact Me</span>
+              <span className="gradient-text">{t('home.contact.title')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Let's discuss your next project or collaboration opportunity
+              {t('home.contact.subtitle')}
             </p>
           </div>
 
@@ -119,32 +116,32 @@ const Home = () => {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" />
+                    <Label htmlFor="name">{t('home.contact.name')}</Label>
+                    <Input id="name" placeholder={t('home.contact.namePlaceholder')} />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
+                    <Label htmlFor="email">{t('home.contact.email')}</Label>
+                    <Input id="email" type="email" placeholder={t('home.contact.emailPlaceholder')} />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project discussion" />
+                  <Label htmlFor="subject">{t('home.contact.subject')}</Label>
+                  <Input id="subject" placeholder={t('home.contact.subjectPlaceholder')} />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">{t('home.contact.message')}</Label>
                   <Textarea 
                     id="message" 
-                    placeholder="Tell me about your project..."
+                    placeholder={t('home.contact.messagePlaceholder')}
                     className="min-h-[120px]"
                   />
                 </div>
 
                 <Button variant="gradient" className="w-full" size="lg">
                   <Send className="h-4 w-4 mr-2" />
-                  Send Message
+                  {t('home.contact.send')}
                 </Button>
               </form>
             </CardContent>

@@ -1,7 +1,11 @@
+
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background effects */}
@@ -14,7 +18,7 @@ const Hero = () => {
           {/* Profile image */}
           <div className="mb-8 relative">
             <div className="w-48 h-48 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-full animate-spin [animation-duration:8s]"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-full animate-spin [animation-duration:8s]"></div>
               <div className="absolute inset-2 bg-background rounded-full"></div>
               <img 
                 src="/lovable-uploads/c37ccb7a-5662-447b-9d38-c871374ff306.png"
@@ -26,25 +30,24 @@ const Hero = () => {
 
           {/* Main heading */}
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            <span className="gradient-text">Cześć!</span>
+            <span className="gradient-text">Adam Jastrzębski</span>
           </h1>
           
           <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-muted-foreground">
-            Jestem <span className="text-accent">Deweloperem</span>
+            {t('home.hero.title')}
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            Tworzę nowoczesne aplikacje webowe i mobilne. 
-            Specjalizuję się w React, TypeScript i nowoczesnych technologiach frontendowych.
+            {t('home.hero.description')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button variant="gradient" size="lg" className="text-lg px-8 py-6">
-              Zobacz moje projekty
+              {t('home.hero.viewProjects')}
             </Button>
             <Button variant="glass" size="lg" className="text-lg px-8 py-6">
-              Skontaktuj się ze mną
+              {t('home.hero.contactMe')}
             </Button>
           </div>
 
