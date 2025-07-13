@@ -401,7 +401,7 @@ const Courses = () => {
   const getCategoryTranslation = (category: string) => {
     switch (category) {
       case "All": return t('courses.filterAll');
-      case "Featured": return "Wyróżnione";
+      case "Featured": return language === 'pl' ? 'Wyróżnione' : 'Featured';
       case "IT": return t('courses.filterIT');
       case "Business": return t('courses.filterBusiness');
       case "Personal Development": return t('courses.filterPersonal');

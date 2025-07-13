@@ -7,8 +7,37 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchGitHubRepos } from "@/services/github";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// Opisy projektów: klucz = nazwa repo, wartości: { pl, en }
+const projectDescriptions: Record<string, { pl: string; en: string }> = {
+  // Portfolio
+  "portfolio": {
+    pl: "Strona mojego portfolio",
+    en: "My portfolio website"
+  },
+  // CV
+  "CV": {
+    pl: "Strona mojego portfolio",
+    en: "My portfolio website"
+  },
+  // E-faktura
+  "E-faktura": {
+    pl: "Aplikacja mobilna",
+    en: "Mobile application"
+  },
+  // Next-Ai
+  "Next-Ai": {
+    pl: "Strona internetowa mojego startupowego projektu",
+    en: "Website for my startup project"
+  },
+  // PrintWall
+  "PrintWall": {
+    pl: "Pierwszy duży projekt, strona internetowa dla firmy z nadrukiem ściennym",
+    en: "My first big project, a website for a wall print company"
+  },
+};
+
 const Portfolio = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const { data: projects, isLoading, error } = useQuery({
     queryKey: ['github-repos', 'MatysiakQ'],
@@ -54,7 +83,7 @@ const Portfolio = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t('portfolio.title')}
+            {t('portfolio.title').split(' ')[0]} <span className="gradient-text">{t('portfolio.title').split(' ')[1]}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('portfolio.subtitle')}
@@ -83,7 +112,11 @@ const Portfolio = () => {
                   </div>
                 </CardTitle>
                 <CardDescription className="text-muted-foreground">
-                  {project.description || t('portfolio.noDescription')}
+                  {projectDescriptions[
+                    Object.keys(projectDescriptions).find(
+                      key => key.toLowerCase().replace(/[^a-z0-9]/gi, '') === project.name.toLowerCase().replace(/[^a-z0-9]/gi, '')
+                    ) || ''
+                  ]?.[language] || t('portfolio.noDescription')}
                 </CardDescription>
               </CardHeader>
 
