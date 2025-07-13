@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Award, Filter } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { t } = useLanguage();
 
   const categories = [
     "All",
@@ -97,15 +99,27 @@ const Courses = () => {
     ? courses 
     : courses.filter(course => course.category === selectedCategory);
 
+  const getCategoryTranslation = (category: string) => {
+    switch (category) {
+      case "All": return t('courses.filterAll');
+      case "IT": return t('courses.filterIT');
+      case "Business": return t('courses.filterBusiness');
+      case "Personal Development": return t('courses.filterPersonal');
+      case "Language": return t('courses.filterLanguage');
+      case "Other": return t('courses.filterOther');
+      default: return category;
+    }
+  };
+
   return (
     <div className="min-h-screen py-20 px-6">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="gradient-text">Courses</span>
+            {t('courses.title').split(' ')[0]} <span className="gradient-text">{t('courses.title').split(' ')[1]}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Continuous learning and professional development through various courses and certifications
+            {t('courses.subtitle')}
           </p>
         </div>
 
@@ -125,7 +139,7 @@ const Courses = () => {
                 onClick={() => setSelectedCategory(category)}
                 className="transition-all duration-300"
               >
-                {category}
+                {getCategoryTranslation(category)}
               </Button>
             ))}
           </div>
@@ -140,7 +154,7 @@ const Courses = () => {
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
                       <Badge variant="secondary" className="text-xs">
-                        {course.category}
+                        {getCategoryTranslation(course.category)}
                       </Badge>
                       <Award className="h-5 w-5 text-accent" />
                     </div>
@@ -190,7 +204,7 @@ const Courses = () => {
                     <div>
                       <span className="font-medium text-muted-foreground">Category:</span>
                       <Badge variant="secondary" className="ml-2">
-                        {course.category}
+                        {getCategoryTranslation(course.category)}
                       </Badge>
                     </div>
                     <div>
