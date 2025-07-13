@@ -4,15 +4,18 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/portfolio", label: "Portfolio" },
-    { path: "/courses", label: "Courses" },
+    { path: "/", label: t('nav.home') },
+    { path: "/portfolio", label: t('nav.portfolio') },
+    { path: "/courses", label: t('nav.courses') },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -26,7 +29,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -39,17 +42,20 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
+            <LanguageSwitcher />
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
