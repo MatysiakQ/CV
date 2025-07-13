@@ -1,17 +1,29 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
-      value: "kontakt@example.com",
-      href: "mailto:kontakt@example.com"
+      value: "ajastrzebski2104@gmail.com",
+      href: "mailto:ajastrzebski2104@gmail.com"
     },
     {
       icon: Phone,
@@ -26,6 +38,36 @@ const Contact = () => {
       href: "#"
     }
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // For now, we'll just show a message about Supabase integration
+      toast({
+        title: "Message Received",
+        description: "Thank you for your message! To enable email sending, please connect this project to Supabase.",
+        variant: "default",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 px-6">
@@ -80,35 +122,65 @@ const Contact = () => {
               <CardTitle className="text-2xl">Wyślij wiadomość</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Imię</Label>
-                  <Input id="name" placeholder="Twoje imię" />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Imię</Label>
+                    <Input 
+                      id="name" 
+                      placeholder="Twoje imię"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="twoj@email.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
                 </div>
+                
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="twoj@email.com" />
+                  <Label htmlFor="subject">Temat</Label>
+                  <Input 
+                    id="subject" 
+                    placeholder="Temat wiadomości"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="subject">Temat</Label>
-                <Input id="subject" placeholder="Temat wiadomości" />
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Wiadomość</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Opisz swój projekt lub zadaj pytanie..."
-                  className="min-h-[120px]"
-                />
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Wiadomość</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Opisz swój projekt lub zadaj pytanie..."
+                    className="min-h-[120px]"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
 
-              <Button variant="gradient" className="w-full" size="lg">
-                <Send className="h-4 w-4 mr-2" />
-                Wyślij wiadomość
-              </Button>
+                <Button 
+                  variant="gradient" 
+                  className="w-full" 
+                  size="lg"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  <Send className="h-4 w-4 mr-2" />
+                  {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </div>

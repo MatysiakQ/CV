@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
@@ -53,14 +53,45 @@ const Hero = () => {
 
           {/* Social links */}
           <div className="flex justify-center space-x-6 mb-12">
-            <Button variant="ghost" size="icon" className="hover:text-primary">
-              <Github className="h-6 w-6" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:text-primary"
+              asChild
+            >
+              <a href="https://github.com/MatysiakQ" target="_blank" rel="noopener noreferrer">
+                <Github className="h-6 w-6" />
+              </a>
             </Button>
-            <Button variant="ghost" size="icon" className="hover:text-primary">
-              <Linkedin className="h-6 w-6" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:text-primary"
+              asChild
+            >
+              <a href="https://www.linkedin.com/in/adamjastrzębski" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-6 w-6" />
+              </a>
             </Button>
-            <Button variant="ghost" size="icon" className="hover:text-primary">
-              <Mail className="h-6 w-6" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:text-primary"
+              asChild
+            >
+              <a href="https://instagram.com/adamtheantagonist" target="_blank" rel="noopener noreferrer">
+                <Instagram className="h-6 w-6" />
+              </a>
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:text-primary"
+              asChild
+            >
+              <a href="mailto:ajastrzebski2104@gmail.com">
+                <Mail className="h-6 w-6" />
+              </a>
             </Button>
           </div>
 

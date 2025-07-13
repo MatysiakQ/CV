@@ -6,13 +6,53 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Download, Mail, Github, Linkedin, Instagram, Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Home = () => {
   const { t } = useLanguage();
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleDownloadCV = () => {
     // In a real application, this would download the actual CV file
     console.log("Downloading CV...");
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // For now, we'll just show a message about Supabase integration
+      toast({
+        title: "Message Received",
+        description: "Thank you for your message! To enable email sending, please connect this project to Supabase.",
+        variant: "default",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,14 +104,35 @@ const Home = () => {
 
             {/* Social Links */}
             <div className="flex justify-center space-x-6">
-              <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Github className="h-6 w-6" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="hover:text-primary"
+                asChild
+              >
+                <a href="https://github.com/MatysiakQ" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-6 w-6" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Linkedin className="h-6 w-6" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="hover:text-primary"
+                asChild
+              >
+                <a href="https://www.linkedin.com/in/adamjastrzębski" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-6 w-6" />
+                </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:text-primary">
-                <Instagram className="h-6 w-6" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="hover:text-primary"
+                asChild
+              >
+                <a href="https://instagram.com/adamtheantagonist" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-6 w-6" />
+                </a>
               </Button>
             </div>
           </div>
@@ -113,21 +174,40 @@ const Home = () => {
 
           <Card className="glass-effect card-glow max-w-2xl mx-auto">
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">{t('home.contact.name')}</Label>
-                    <Input id="name" placeholder={t('home.contact.namePlaceholder')} />
+                    <Input 
+                      id="name" 
+                      placeholder={t('home.contact.namePlaceholder')}
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">{t('home.contact.email')}</Label>
-                    <Input id="email" type="email" placeholder={t('home.contact.emailPlaceholder')} />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder={t('home.contact.emailPlaceholder')}
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <Label htmlFor="subject">{t('home.contact.subject')}</Label>
-                  <Input id="subject" placeholder={t('home.contact.subjectPlaceholder')} />
+                  <Input 
+                    id="subject" 
+                    placeholder={t('home.contact.subjectPlaceholder')}
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
@@ -136,12 +216,21 @@ const Home = () => {
                     id="message" 
                     placeholder={t('home.contact.messagePlaceholder')}
                     className="min-h-[120px]"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
 
-                <Button variant="gradient" className="w-full" size="lg">
+                <Button 
+                  variant="gradient" 
+                  className="w-full" 
+                  size="lg"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
                   <Send className="h-4 w-4 mr-2" />
-                  {t('home.contact.send')}
+                  {isSubmitting ? 'Sending...' : t('home.contact.send')}
                 </Button>
               </form>
             </CardContent>
