@@ -461,7 +461,7 @@ const Courses = () => {
                       <Badge variant="secondary" className="text-xs">
                         {getCategoryTranslation(course.category)}
                       </Badge>
-                      <Award className="h-5 w-5 text-accent" />
+                      {course.featured && <Award className="h-5 w-5 text-accent" />}
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
                       {course.title}

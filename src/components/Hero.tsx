@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, ArrowDown, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -21,9 +21,9 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-spin [animation-duration:8s]"></div>
               <div className="absolute inset-2 bg-background rounded-full"></div>
               <img 
-                src="/lovable-uploads/c37ccb7a-5662-447b-9d38-c871374ff306.png"
-                alt="Profile"
-                className="absolute inset-4 w-40 h-40 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+                alt="IT Vibe"
+                className="absolute inset-4 w-40 h-40 rounded-full object-cover shadow-lg"
               />
             </div>
           </div>
@@ -49,6 +49,15 @@ const Hero = () => {
             <Button variant="glass" size="lg" className="text-lg px-8 py-6">
               {t('home.hero.contactMe')}
             </Button>
+            <a
+              href={language === 'pl' ? '/lovable-uploads/Adam Jastrzębski CV.pdf' : '/lovable-uploads/Adam Jastrzębski CV English.pdf'}
+              download
+              className="inline-block"
+            >
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+                {t('home.hero.downloadCV')}
+              </Button>
+            </a>
           </div>
 
           {/* Social links */}
