@@ -18,7 +18,7 @@ const Hero = () => {
           {/* Profile image */}
           <div className="mb-8 relative">
             <div className="w-48 h-48 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-full animate-spin [animation-duration:8s]"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-spin [animation-duration:8s]"></div>
               <div className="absolute inset-2 bg-background rounded-full"></div>
               <img 
                 src="/lovable-uploads/c37ccb7a-5662-447b-9d38-c871374ff306.png"
