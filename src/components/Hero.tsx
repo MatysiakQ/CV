@@ -46,7 +46,17 @@ const Hero = () => {
             <Button variant="gradient" size="lg" className="text-lg px-8 py-6">
               {t('home.hero.viewProjects')}
             </Button>
-            <Button variant="glass" size="lg" className="text-lg px-8 py-6">
+            <Button 
+              variant="glass" 
+              size="lg" 
+              className="text-lg px-8 py-6"
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               {t('home.hero.contactMe')}
             </Button>
             <a
