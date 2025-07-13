@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,10 +8,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const categories = [
     "All",
+    "Featured",
     "IT",
     "Business", 
     "Personal Development",
@@ -20,7 +20,21 @@ const Courses = () => {
     "Other"
   ];
 
-  const courses = [
+  // Lista tytułów kursów wyróżnionych
+  const featuredTitles = [
+    "Algorytmy i struktury danych",
+    "Marketing Automation",
+    "Nauka konguracji sprzętu i zarządzania sieciami komputerowymi",
+    "Projektowanie Witryn Internetowych",
+    "Harvard Business Publishing - Business for All",
+    "Azure Fundamentals",
+    "Autodesk Certified User Inventor",
+    "Networking Fundamentals",
+    "Visual Design Using Adobe Photoshop",
+    "Windows Server Administration Fundamentals"
+  ];
+
+  const coursesRaw = [
     {
       title: "Algorytmy i struktury danych",
       category: "IT",
@@ -291,15 +305,7 @@ const Courses = () => {
       provider: "Business Academy",
       completedDate: "2024"
     },
-    {
-      title: "szkolenie_santander___business_for_all_2025_-_harvard_business_publishing",
-      category: "Business",
-      description: "Szkolenie Harvard Business Publishing.",
-      certificate: "/lovable-uploads/szkolenie_santander___business_for_all_2025_-_harvard_business_publishing.png",
-      duration: "10h",
-      provider: "Harvard Business Publishing",
-      completedDate: "2025"
-    },
+    // Usunięto duplikat kursu Harvard Business Publishing - Business for All
     {
       title: "Workplace well-being and stress",
       category: "Personal Development",
@@ -318,15 +324,84 @@ const Courses = () => {
       provider: "IT Academy",
       completedDate: "2024"
     }
+    ,
+    // Nowe kursy/certyfikaty
+    {
+      title: "Autodesk Certified User Inventor",
+      category: "IT",
+      description: "Certyfikat Autodesk Inventor.",
+      certificate: "/lovable-uploads/Autodesk Certified User Inventor_page-0001.jpg",
+      duration: "10h",
+      provider: "Autodesk",
+      completedDate: "2024"
+    },
+    {
+      title: "Azure Fundamentals",
+      category: "IT",
+      description: "Podstawy Microsoft Azure.",
+      certificate: "/lovable-uploads/Azure Fundamentals_page-0001.jpg",
+      duration: "8h",
+      provider: "Microsoft",
+      completedDate: "2024"
+    },
+    {
+      title: "Harvard Business Publishing - Business for All",
+      category: "Business",
+      description: "Szkolenie Harvard Business Publishing.",
+      certificate: "/lovable-uploads/Harvard Business Publishing - Business for All.png",
+      duration: "10h",
+      provider: "Harvard Business Publishing",
+      completedDate: "2025"
+    },
+    {
+      title: "Introduction to Cybersecurity",
+      category: "IT",
+      description: "Wprowadzenie do cyberbezpieczeństwa.",
+      certificate: "/lovable-uploads/Introduction to Cybersecurity_page-0001.jpg",
+      duration: "8h",
+      provider: "Cyber Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Networking Fundamentals",
+      category: "IT",
+      description: "Podstawy sieci komputerowych.",
+      certificate: "/lovable-uploads/Networking Fundamentals_page-0001.jpg",
+      duration: "8h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Visual Design Using Adobe Photoshop",
+      category: "IT",
+      description: "Projektowanie graficzne w Adobe Photoshop.",
+      certificate: "/lovable-uploads/Visual Design Using Adobe Photoshop_page-0001.jpg",
+      duration: "10h",
+      provider: "Adobe",
+      completedDate: "2024"
+    },
+    {
+      title: "Windows Server Administration Fundamentals",
+      category: "IT",
+      description: "Podstawy administracji Windows Server.",
+      certificate: "/lovable-uploads/Windows Server Administration Fundamentals_page-0001.jpg",
+      duration: "10h",
+      provider: "Microsoft",
+      completedDate: "2024"
+    }
   ];
+  const courses = coursesRaw.map(course => ({ ...course, featured: featuredTitles.includes(course.title) }));
 
-  const filteredCourses = selectedCategory === "All" 
-    ? courses 
-    : courses.filter(course => course.category === selectedCategory);
+  const filteredCourses = selectedCategory === "All"
+    ? courses
+    : selectedCategory === "Featured"
+      ? courses.filter(course => course.featured)
+      : courses.filter(course => course.category === selectedCategory);
 
   const getCategoryTranslation = (category: string) => {
     switch (category) {
       case "All": return t('courses.filterAll');
+      case "Featured": return "Wyróżnione";
       case "IT": return t('courses.filterIT');
       case "Business": return t('courses.filterBusiness');
       case "Personal Development": return t('courses.filterPersonal');
@@ -335,6 +410,12 @@ const Courses = () => {
       default: return category;
     }
   };
+
+  // Tłumaczenia etykiet na podstawie języka z kontekstu
+  const lang = language || 'en';
+  const labelDuration = lang === 'pl' ? 'Czas Trwania' : 'Duration';
+  const labelProvider = lang === 'pl' ? 'Organizator' : 'Provider';
+  const labelCompleted = lang === 'pl' ? 'Ukończony' : 'Completed';
 
   return (
     <div className="min-h-screen py-20 px-6">
@@ -354,7 +435,6 @@ const Courses = () => {
             <Filter className="h-5 w-5 text-muted-foreground" />
             <span className="text-sm font-medium text-muted-foreground">Filter by category:</span>
           </div>
-          
           <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <Button
@@ -390,26 +470,24 @@ const Courses = () => {
                       {course.description}
                     </CardDescription>
                   </CardHeader>
-                  
                   <CardContent>
                     <div className="space-y-2 text-sm text-muted-foreground">
                       <div className="flex justify-between">
-                        <span>Duration:</span>
+                        <span>{labelDuration}:</span>
                         <span className="font-medium">{course.duration}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Provider:</span>
+                        <span>{labelProvider}:</span>
                         <span className="font-medium">{course.provider}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Completed:</span>
+                        <span>{labelCompleted}:</span>
                         <span className="font-medium">{course.completedDate}</span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              
               <DialogContent className="max-w-2xl">
                 <DialogHeader>
                   <DialogTitle className="text-2xl mb-2">{course.title}</DialogTitle>
@@ -417,14 +495,12 @@ const Courses = () => {
                     {course.description}
                   </DialogDescription>
                 </DialogHeader>
-                
                 <div className="mt-6">
                   <img 
                     src={course.certificate} 
                     alt={`${course.title} Certificate`}
                     className="w-full h-64 object-cover rounded-lg mb-4"
                   />
-                  
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="font-medium text-muted-foreground">Category:</span>
@@ -433,15 +509,15 @@ const Courses = () => {
                       </Badge>
                     </div>
                     <div>
-                      <span className="font-medium text-muted-foreground">Duration:</span>
+                      <span className="font-medium text-muted-foreground">{labelDuration}:</span>
                       <span className="ml-2">{course.duration}</span>
                     </div>
                     <div>
-                      <span className="font-medium text-muted-foreground">Provider:</span>
+                      <span className="font-medium text-muted-foreground">{labelProvider}:</span>
                       <span className="ml-2">{course.provider}</span>
                     </div>
                     <div>
-                      <span className="font-medium text-muted-foreground">Completed:</span>
+                      <span className="font-medium text-muted-foreground">{labelCompleted}:</span>
                       <span className="ml-2">{course.completedDate}</span>
                     </div>
                   </div>
