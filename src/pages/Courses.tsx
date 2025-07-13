@@ -22,76 +22,301 @@ const Courses = () => {
 
   const courses = [
     {
-      title: "React Fundamentals",
+      title: "Algorytmy i struktury danych",
       category: "IT",
-      description: "Comprehensive course covering React basics, hooks, and state management",
-      certificate: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&h=300&fit=crop",
-      duration: "40 hours",
-      provider: "Tech Academy",
+      description: "Kurs z algorytmów i struktur danych.",
+      certificate: "/lovable-uploads/Algorytmy i struktury danych-page-00001.jpg",
+      duration: "30h",
+      provider: "Akademia",
       completedDate: "2024"
     },
     {
-      title: "JavaScript ES6+",
-      category: "IT",
-      description: "Advanced JavaScript concepts including async/await, destructuring, and modules",
-      certificate: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop",
-      duration: "30 hours",
-      provider: "Code Institute",
-      completedDate: "2023"
-    },
-    {
-      title: "Project Management Basics",
-      category: "Business",
-      description: "Fundamentals of project management methodologies and tools",
-      certificate: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop",
-      duration: "25 hours",
-      provider: "Business School",
-      completedDate: "2024"
-    },
-    {
-      title: "CSS Grid & Flexbox",
-      category: "IT",
-      description: "Modern CSS layout techniques for responsive web design",
-      certificate: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop",
-      duration: "20 hours",
-      provider: "Design Academy",
-      completedDate: "2023"
-    },
-    {
-      title: "Leadership Skills",
-      category: "Personal Development",
-      description: "Developing leadership qualities and team management skills",
-      certificate: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
-      duration: "35 hours",
-      provider: "Leadership Institute",
-      completedDate: "2024"
-    },
-    {
-      title: "English for Business",
+      title: "Business English 1",
       category: "Language",
-      description: "Professional English communication for business environments",
-      certificate: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=300&fit=crop",
-      duration: "60 hours",
-      provider: "Language Center",
-      completedDate: "2023"
-    },
-    {
-      title: "UX/UI Design Principles",
-      category: "IT",
-      description: "User experience and interface design fundamentals",
-      certificate: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=300&fit=crop",
-      duration: "45 hours",
-      provider: "Design Studio",
+      description: "Business English - poziom 1.",
+      certificate: "/lovable-uploads/Business English 1-page-00001.jpg",
+      duration: "20h",
+      provider: "Language School",
       completedDate: "2024"
     },
     {
-      title: "Digital Marketing",
+      title: "Business English 2",
+      category: "Language",
+      description: "Business English - poziom 2.",
+      certificate: "/lovable-uploads/Business English 2-page-00001.jpg",
+      duration: "20h",
+      provider: "Language School",
+      completedDate: "2024"
+    },
+    {
+      title: "Business English 3",
+      category: "Language",
+      description: "Business English - poziom 3.",
+      certificate: "/lovable-uploads/Business English 3-page-00001.jpg",
+      duration: "20h",
+      provider: "Language School",
+      completedDate: "2024"
+    },
+    {
+      title: "Consumer Behavior Essentials",
       category: "Business",
-      description: "Online marketing strategies and social media management",
-      certificate: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=500&h=300&fit=crop",
-      duration: "30 hours",
+      description: "Podstawy zachowań konsumenckich.",
+      certificate: "/lovable-uploads/Consumer Behavior Essentials-page-00001.jpg",
+      duration: "10h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Copilot",
+      category: "IT",
+      description: "Kurs Copilot.",
+      certificate: "/lovable-uploads/Copilot-page-00001.jpg",
+      duration: "5h",
+      provider: "Microsoft",
+      completedDate: "2024"
+    },
+    {
+      title: "Digital Transformation",
+      category: "Business",
+      description: "Transformacja cyfrowa w biznesie.",
+      certificate: "/lovable-uploads/Digital Transformation-page-00001.jpg",
+      duration: "8h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Efektywna komunikacja pisemna w biznesie",
+      category: "Business",
+      description: "Komunikacja pisemna w środowisku biznesowym.",
+      certificate: "/lovable-uploads/Efektywna komunikacja pisemna w biznesie-page-00001.jpg",
+      duration: "6h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Efektywna komunikacja",
+      category: "Personal Development",
+      description: "Kurs efektywnej komunikacji.",
+      certificate: "/lovable-uploads/Efektywna komunikacja-page-00001.jpg",
+      duration: "6h",
+      provider: "Personal Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Excel - Od Podstaw do zaawansowanego użytkownika",
+      category: "IT",
+      description: "Kurs Excela od podstaw do poziomu zaawansowanego.",
+      certificate: "/lovable-uploads/Excel - Od Podstaw do zaawansowanego użytkownika-page-00001.jpg",
+      duration: "15h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Google Artificial intelligence and productivity",
+      category: "IT",
+      description: "Sztuczna inteligencja Google i produktywność.",
+      certificate: "/lovable-uploads/Google Artificial intelligence and productivity-page-00001.jpg",
+      duration: "4h",
+      provider: "Google",
+      completedDate: "2024"
+    },
+    {
+      title: "Introduction to Data Science",
+      category: "IT",
+      description: "Wprowadzenie do Data Science.",
+      certificate: "/lovable-uploads/Introduction to Data Science-page-00001.jpg",
+      duration: "12h",
+      provider: "Data Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Krytyczne myślenie i rozwiązywanie problemów",
+      category: "Personal Development",
+      description: "Kurs krytycznego myślenia i rozwiązywania problemów.",
+      certificate: "/lovable-uploads/Krytyczne myślenie i rozwiązywanie problemów-page-00001.jpg",
+      duration: "8h",
+      provider: "Personal Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Leading in a Digital World",
+      category: "Business",
+      description: "Przywództwo w cyfrowym świecie.",
+      certificate: "/lovable-uploads/Leading in a Digital World-page-00001.jpg",
+      duration: "10h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Marketing Automation",
+      category: "Business",
+      description: "Automatyzacja marketingu.",
+      certificate: "/lovable-uploads/Marketing Automation-page-00001.jpg",
+      duration: "7h",
       provider: "Marketing Academy",
-      completedDate: "2023"
+      completedDate: "2024"
+    },
+    {
+      title: "Mindfulness & Worklife balance",
+      category: "Personal Development",
+      description: "Mindfulness i równowaga w pracy.",
+      certificate: "/lovable-uploads/Mindfulness & Worklife balance-page-00001.jpg",
+      duration: "6h",
+      provider: "Personal Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Myślenie strategiczne i nastawienie strategiczne",
+      category: "Personal Development",
+      description: "Kurs myślenia strategicznego.",
+      certificate: "/lovable-uploads/Myślenie strategiczne i nastawienie strategiczne-page-00001.jpg",
+      duration: "8h",
+      provider: "Personal Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Nauka konguracji sprzętu i zarządzania sieciami komputerowymi",
+      category: "IT",
+      description: "Konfiguracja sprzętu i zarządzanie sieciami komputerowymi.",
+      certificate: "/lovable-uploads/Nauka konguracji sprzętu i zarządzania sieciami komputerowymi-page-00001.jpg",
+      duration: "10h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Negocjacje",
+      category: "Business",
+      description: "Kurs negocjacji.",
+      certificate: "/lovable-uploads/Negocjacje-page-00001.jpg",
+      duration: "6h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Podstawy ChatGPT",
+      category: "IT",
+      description: "Podstawy korzystania z ChatGPT.",
+      certificate: "/lovable-uploads/Podstawy ChatGPT-page-00001.jpg",
+      duration: "4h",
+      provider: "OpenAI",
+      completedDate: "2024"
+    },
+    {
+      title: "Podstawy języka Javascript - języka przeglądarek internetowych",
+      category: "IT",
+      description: "Podstawy JavaScript dla przeglądarek.",
+      certificate: "/lovable-uploads/Podstawy języka Javascript - języka przeglądarek internetowych-page-00001.jpg",
+      duration: "10h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Podstawy Pythona",
+      category: "IT",
+      description: "Podstawy języka Python.",
+      certificate: "/lovable-uploads/Podstawy Pythona-page-00001.jpg",
+      duration: "10h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Podstawy Scruma - zwinne zarządzanie projektami",
+      category: "Business",
+      description: "Podstawy Scruma i zwinnego zarządzania projektami.",
+      certificate: "/lovable-uploads/Podstawy Scruma - zwinne zarządzanie projektami-page-00001.jpg",
+      duration: "8h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Power BI",
+      category: "IT",
+      description: "Kurs Power BI.",
+      certificate: "/lovable-uploads/Power BI-page-00001.jpg",
+      duration: "10h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Projektowanie Witryn Internetowych",
+      category: "IT",
+      description: "Projektowanie stron internetowych.",
+      certificate: "/lovable-uploads/Projektowanie Witryn Internetowych-page-00001.jpg",
+      duration: "12h",
+      provider: "IT Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Przywództwo",
+      category: "Personal Development",
+      description: "Kurs przywództwa.",
+      certificate: "/lovable-uploads/Przywództwo-page-00001.jpg",
+      duration: "8h",
+      provider: "Personal Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Responsible prompting maximize AI in your business",
+      category: "Business",
+      description: "Odpowiedzialne korzystanie z AI w biznesie.",
+      certificate: "/lovable-uploads/Responsible prompting maximize AI in your business-page-00001.jpg",
+      duration: "4h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "SEO and Content Marketing",
+      category: "Business",
+      description: "SEO i marketing treści.",
+      certificate: "/lovable-uploads/SEO and Content Marketing-page-00001.jpg",
+      duration: "8h",
+      provider: "Marketing Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Storytelling for Digital Marketing",
+      category: "Business",
+      description: "Storytelling w marketingu cyfrowym.",
+      certificate: "/lovable-uploads/Storytelling for Digital Marketing-page-00001.jpg",
+      duration: "6h",
+      provider: "Marketing Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Strategic Communication & Teamwork",
+      category: "Business",
+      description: "Komunikacja strategiczna i praca zespołowa.",
+      certificate: "/lovable-uploads/Strategic Communication & Teamwork-page-00001.jpg",
+      duration: "8h",
+      provider: "Business Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "szkolenie_santander___business_for_all_2025_-_harvard_business_publishing",
+      category: "Business",
+      description: "Szkolenie Harvard Business Publishing.",
+      certificate: "/lovable-uploads/szkolenie_santander___business_for_all_2025_-_harvard_business_publishing.png",
+      duration: "10h",
+      provider: "Harvard Business Publishing",
+      completedDate: "2025"
+    },
+    {
+      title: "Workplace well-being and stress",
+      category: "Personal Development",
+      description: "Dobrostan w miejscu pracy i stres.",
+      certificate: "/lovable-uploads/Workplace well-being and stress-page-00001.jpg",
+      duration: "6h",
+      provider: "Personal Academy",
+      completedDate: "2024"
+    },
+    {
+      title: "Wprowadzenie do sieci komputerowych",
+      category: "IT",
+      description: "Wprowadzenie do sieci komputerowych.",
+      certificate: "/lovable-uploads/Wprowadzenie do sieci komputerowych-page-00001.jpg",
+      duration: "10h",
+      provider: "IT Academy",
+      completedDate: "2024"
     }
   ];
 
