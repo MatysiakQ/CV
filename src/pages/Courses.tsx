@@ -22,10 +22,22 @@ const Courses = () => {
 
   // Lista tytułów kursów wyróżnionych
   const featuredTitles = [
+    // PL
     "Algorytmy i struktury danych",
-    "Marketing Automation",
-    "Nauka konguracji sprzętu i zarządzania sieciami komputerowymi",
+    "Automatyzacja marketingu",
+    "Nauka konfiguracji sprzętu i zarządzania sieciami komputerowymi",
     "Projektowanie Witryn Internetowych",
+    "Harvard Business Publishing - Business for All",
+    "Podstawy Microsoft Azure",
+    "Autodesk Certified User Inventor",
+    "Podstawy sieci komputerowych",
+    "Projektowanie graficzne w Adobe Photoshop",
+    "Podstawy administracji Windows Server",
+    // EN
+    "Algorithms and Data Structures",
+    "Marketing Automation",
+    "Hardware Configuration and Network Management",
+    "Web Design",
     "Harvard Business Publishing - Business for All",
     "Azure Fundamentals",
     "Autodesk Certified User Inventor",
@@ -36,7 +48,8 @@ const Courses = () => {
 
   const coursesRaw = [
     {
-      title: "Algorytmy i struktury danych",
+      titlePl: "Algorytmy i struktury danych",
+      titleEn: "Algorithms and Data Structures",
       category: "IT",
       description: "Kurs z algorytmów i struktur danych.",
       certificate: "/lovable-uploads/Algorytmy i struktury danych-page-00001.jpg",
@@ -45,7 +58,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Business English 1",
+      titlePl: "Business English 1",
+      titleEn: "Business English 1",
       category: "Language",
       description: "Business English - poziom 1.",
       certificate: "/lovable-uploads/Business English 1-page-00001.jpg",
@@ -54,7 +68,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Business English 2",
+      titlePl: "Business English 2",
+      titleEn: "Business English 2",
       category: "Language",
       description: "Business English - poziom 2.",
       certificate: "/lovable-uploads/Business English 2-page-00001.jpg",
@@ -63,7 +78,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Business English 3",
+      titlePl: "Business English 3",
+      titleEn: "Business English 3",
       category: "Language",
       description: "Business English - poziom 3.",
       certificate: "/lovable-uploads/Business English 3-page-00001.jpg",
@@ -72,7 +88,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Consumer Behavior Essentials",
+      titlePl: "Podstawy zachowań konsumenckich",
+      titleEn: "Consumer Behavior Essentials",
       category: "Business",
       description: "Podstawy zachowań konsumenckich.",
       certificate: "/lovable-uploads/Consumer Behavior Essentials-page-00001.jpg",
@@ -81,7 +98,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Copilot",
+      titlePl: "Copilot",
+      titleEn: "Copilot",
       category: "IT",
       description: "Kurs Copilot.",
       certificate: "/lovable-uploads/Copilot-page-00001.jpg",
@@ -90,7 +108,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Digital Transformation",
+      titlePl: "Transformacja cyfrowa w biznesie",
+      titleEn: "Digital Transformation",
       category: "Business",
       description: "Transformacja cyfrowa w biznesie.",
       certificate: "/lovable-uploads/Digital Transformation-page-00001.jpg",
@@ -99,7 +118,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Efektywna komunikacja pisemna w biznesie",
+      titlePl: "Efektywna komunikacja pisemna w biznesie",
+      titleEn: "Effective Written Communication in Business",
       category: "Business",
       description: "Komunikacja pisemna w środowisku biznesowym.",
       certificate: "/lovable-uploads/Efektywna komunikacja pisemna w biznesie-page-00001.jpg",
@@ -108,7 +128,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Efektywna komunikacja",
+      titlePl: "Efektywna komunikacja",
+      titleEn: "Effective Communication",
       category: "Personal Development",
       description: "Kurs efektywnej komunikacji.",
       certificate: "/lovable-uploads/Efektywna komunikacja-page-00001.jpg",
@@ -117,7 +138,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Excel - Od Podstaw do zaawansowanego użytkownika",
+      titlePl: "Excel - Od Podstaw do zaawansowanego użytkownika",
+      titleEn: "Excel - From Basics to Advanced",
       category: "IT",
       description: "Kurs Excela od podstaw do poziomu zaawansowanego.",
       certificate: "/lovable-uploads/Excel - Od Podstaw do zaawansowanego użytkownika-page-00001.jpg",
@@ -126,7 +148,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Google Artificial intelligence and productivity",
+      titlePl: "Sztuczna inteligencja Google i produktywność",
+      titleEn: "Google Artificial Intelligence and Productivity",
       category: "IT",
       description: "Sztuczna inteligencja Google i produktywność.",
       certificate: "/lovable-uploads/Google Artificial intelligence and productivity-page-00001.jpg",
@@ -135,7 +158,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Introduction to Data Science",
+      titlePl: "Wprowadzenie do Data Science",
+      titleEn: "Introduction to Data Science",
       category: "IT",
       description: "Wprowadzenie do Data Science.",
       certificate: "/lovable-uploads/Introduction to Data Science-page-00001.jpg",
@@ -144,7 +168,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Krytyczne myślenie i rozwiązywanie problemów",
+      titlePl: "Krytyczne myślenie i rozwiązywanie problemów",
+      titleEn: "Critical Thinking and Problem Solving",
       category: "Personal Development",
       description: "Kurs krytycznego myślenia i rozwiązywania problemów.",
       certificate: "/lovable-uploads/Krytyczne myślenie i rozwiązywanie problemów-page-00001.jpg",
@@ -153,7 +178,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Leading in a Digital World",
+      titlePl: "Przywództwo w cyfrowym świecie",
+      titleEn: "Leading in a Digital World",
       category: "Business",
       description: "Przywództwo w cyfrowym świecie.",
       certificate: "/lovable-uploads/Leading in a Digital World-page-00001.jpg",
@@ -162,7 +188,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Marketing Automation",
+      titlePl: "Automatyzacja marketingu",
+      titleEn: "Marketing Automation",
       category: "Business",
       description: "Automatyzacja marketingu.",
       certificate: "/lovable-uploads/Marketing Automation-page-00001.jpg",
@@ -171,7 +198,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Mindfulness & Worklife balance",
+      titlePl: "Mindfulness i równowaga w pracy",
+      titleEn: "Mindfulness & Worklife Balance",
       category: "Personal Development",
       description: "Mindfulness i równowaga w pracy.",
       certificate: "/lovable-uploads/Mindfulness & Worklife balance-page-00001.jpg",
@@ -180,7 +208,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Myślenie strategiczne i nastawienie strategiczne",
+      titlePl: "Myślenie strategiczne i nastawienie strategiczne",
+      titleEn: "Strategic Thinking and Mindset",
       category: "Personal Development",
       description: "Kurs myślenia strategicznego.",
       certificate: "/lovable-uploads/Myślenie strategiczne i nastawienie strategiczne-page-00001.jpg",
@@ -189,7 +218,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Nauka konguracji sprzętu i zarządzania sieciami komputerowymi",
+      titlePl: "Nauka konfiguracji sprzętu i zarządzania sieciami komputerowymi",
+      titleEn: "Hardware Configuration and Network Management",
       category: "IT",
       description: "Konfiguracja sprzętu i zarządzanie sieciami komputerowymi.",
       certificate: "/lovable-uploads/Nauka konguracji sprzętu i zarządzania sieciami komputerowymi-page-00001.jpg",
@@ -198,7 +228,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Negocjacje",
+      titlePl: "Negocjacje",
+      titleEn: "Negotiations",
       category: "Business",
       description: "Kurs negocjacji.",
       certificate: "/lovable-uploads/Negocjacje-page-00001.jpg",
@@ -207,7 +238,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Podstawy ChatGPT",
+      titlePl: "Podstawy ChatGPT",
+      titleEn: "ChatGPT Basics",
       category: "IT",
       description: "Podstawy korzystania z ChatGPT.",
       certificate: "/lovable-uploads/Podstawy ChatGPT-page-00001.jpg",
@@ -216,7 +248,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Podstawy języka Javascript - języka przeglądarek internetowych",
+      titlePl: "Podstawy języka Javascript - języka przeglądarek internetowych",
+      titleEn: "JavaScript Basics for Browsers",
       category: "IT",
       description: "Podstawy JavaScript dla przeglądarek.",
       certificate: "/lovable-uploads/Podstawy języka Javascript - języka przeglądarek internetowych-page-00001.jpg",
@@ -225,7 +258,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Podstawy Pythona",
+      titlePl: "Podstawy Pythona",
+      titleEn: "Python Basics",
       category: "IT",
       description: "Podstawy języka Python.",
       certificate: "/lovable-uploads/Podstawy Pythona-page-00001.jpg",
@@ -234,7 +268,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Podstawy Scruma - zwinne zarządzanie projektami",
+      titlePl: "Podstawy Scruma - zwinne zarządzanie projektami",
+      titleEn: "Scrum Basics - Agile Project Management",
       category: "Business",
       description: "Podstawy Scruma i zwinnego zarządzania projektami.",
       certificate: "/lovable-uploads/Podstawy Scruma - zwinne zarządzanie projektami-page-00001.jpg",
@@ -243,7 +278,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Power BI",
+      titlePl: "Power BI",
+      titleEn: "Power BI",
       category: "IT",
       description: "Kurs Power BI.",
       certificate: "/lovable-uploads/Power BI-page-00001.jpg",
@@ -252,7 +288,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Projektowanie Witryn Internetowych",
+      titlePl: "Projektowanie Witryn Internetowych",
+      titleEn: "Web Design",
       category: "IT",
       description: "Projektowanie stron internetowych.",
       certificate: "/lovable-uploads/Projektowanie Witryn Internetowych-page-00001.jpg",
@@ -261,7 +298,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Przywództwo",
+      titlePl: "Przywództwo",
+      titleEn: "Leadership",
       category: "Personal Development",
       description: "Kurs przywództwa.",
       certificate: "/lovable-uploads/Przywództwo-page-00001.jpg",
@@ -270,7 +308,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Responsible prompting maximize AI in your business",
+      titlePl: "Odpowiedzialne korzystanie z AI w biznesie",
+      titleEn: "Responsible Prompting: Maximize AI in Your Business",
       category: "Business",
       description: "Odpowiedzialne korzystanie z AI w biznesie.",
       certificate: "/lovable-uploads/Responsible prompting maximize AI in your business-page-00001.jpg",
@@ -279,7 +318,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "SEO and Content Marketing",
+      titlePl: "SEO i marketing treści",
+      titleEn: "SEO and Content Marketing",
       category: "Business",
       description: "SEO i marketing treści.",
       certificate: "/lovable-uploads/SEO and Content Marketing-page-00001.jpg",
@@ -288,7 +328,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Storytelling for Digital Marketing",
+      titlePl: "Storytelling w marketingu cyfrowym",
+      titleEn: "Storytelling for Digital Marketing",
       category: "Business",
       description: "Storytelling w marketingu cyfrowym.",
       certificate: "/lovable-uploads/Storytelling for Digital Marketing-page-00001.jpg",
@@ -297,7 +338,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Strategic Communication & Teamwork",
+      titlePl: "Komunikacja strategiczna i praca zespołowa",
+      titleEn: "Strategic Communication & Teamwork",
       category: "Business",
       description: "Komunikacja strategiczna i praca zespołowa.",
       certificate: "/lovable-uploads/Strategic Communication & Teamwork-page-00001.jpg",
@@ -305,9 +347,9 @@ const Courses = () => {
       provider: "Business Academy",
       completedDate: "2024"
     },
-    // Usunięto duplikat kursu Harvard Business Publishing - Business for All
     {
-      title: "Workplace well-being and stress",
+      titlePl: "Dobrostan w miejscu pracy i stres",
+      titleEn: "Workplace Well-being and Stress",
       category: "Personal Development",
       description: "Dobrostan w miejscu pracy i stres.",
       certificate: "/lovable-uploads/Workplace well-being and stress-page-00001.jpg",
@@ -316,18 +358,20 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Wprowadzenie do sieci komputerowych",
+      titlePl: "Wprowadzenie do sieci komputerowych",
+      titleEn: "Introduction to Computer Networks",
       category: "IT",
       description: "Wprowadzenie do sieci komputerowych.",
       certificate: "/lovable-uploads/Wprowadzenie do sieci komputerowych-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
       completedDate: "2024"
-    }
+    },
     ,
     // Nowe kursy/certyfikaty
     {
-      title: "Autodesk Certified User Inventor",
+      titlePl: "Autodesk Certified User Inventor",
+      titleEn: "Autodesk Certified User Inventor",
       category: "IT",
       description: "Certyfikat Autodesk Inventor.",
       certificate: "/lovable-uploads/Autodesk Certified User Inventor_page-0001.jpg",
@@ -336,7 +380,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Azure Fundamentals",
+      titlePl: "Podstawy Microsoft Azure",
+      titleEn: "Azure Fundamentals",
       category: "IT",
       description: "Podstawy Microsoft Azure.",
       certificate: "/lovable-uploads/Azure Fundamentals_page-0001.jpg",
@@ -345,7 +390,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Harvard Business Publishing - Business for All",
+      titlePl: "Harvard Business Publishing - Business for All",
+      titleEn: "Harvard Business Publishing - Business for All",
       category: "Business",
       description: "Szkolenie Harvard Business Publishing.",
       certificate: "/lovable-uploads/Harvard Business Publishing - Business for All.png",
@@ -354,7 +400,8 @@ const Courses = () => {
       completedDate: "2025"
     },
     {
-      title: "Introduction to Cybersecurity",
+      titlePl: "Wprowadzenie do cyberbezpieczeństwa",
+      titleEn: "Introduction to Cybersecurity",
       category: "IT",
       description: "Wprowadzenie do cyberbezpieczeństwa.",
       certificate: "/lovable-uploads/Introduction to Cybersecurity_page-0001.jpg",
@@ -363,7 +410,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Networking Fundamentals",
+      titlePl: "Podstawy sieci komputerowych",
+      titleEn: "Networking Fundamentals",
       category: "IT",
       description: "Podstawy sieci komputerowych.",
       certificate: "/lovable-uploads/Networking Fundamentals_page-0001.jpg",
@@ -372,7 +420,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Visual Design Using Adobe Photoshop",
+      titlePl: "Projektowanie graficzne w Adobe Photoshop",
+      titleEn: "Visual Design Using Adobe Photoshop",
       category: "IT",
       description: "Projektowanie graficzne w Adobe Photoshop.",
       certificate: "/lovable-uploads/Visual Design Using Adobe Photoshop_page-0001.jpg",
@@ -381,7 +430,8 @@ const Courses = () => {
       completedDate: "2024"
     },
     {
-      title: "Windows Server Administration Fundamentals",
+      titlePl: "Podstawy administracji Windows Server",
+      titleEn: "Windows Server Administration Fundamentals",
       category: "IT",
       description: "Podstawy administracji Windows Server.",
       certificate: "/lovable-uploads/Windows Server Administration Fundamentals_page-0001.jpg",
@@ -390,7 +440,10 @@ const Courses = () => {
       completedDate: "2024"
     }
   ];
-  const courses = coursesRaw.map(course => ({ ...course, featured: featuredTitles.includes(course.title) }));
+  const courses = coursesRaw.map(course => ({
+    ...course,
+    featured: featuredTitles.includes(course.titlePl || course.titleEn)
+  }));
 
   const filteredCourses = selectedCategory === "All"
     ? courses
@@ -464,7 +517,7 @@ const Courses = () => {
                       {course.featured && <Award className="h-5 w-5 text-accent" />}
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {course.title}
+                      {lang === 'pl' ? course.titlePl : course.titleEn}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
                       {course.description}
@@ -490,7 +543,7 @@ const Courses = () => {
               </DialogTrigger>
               <DialogContent className="max-w-2xl">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl mb-2">{course.title}</DialogTitle>
+                  <DialogTitle className="text-2xl mb-2">{lang === 'pl' ? course.titlePl : course.titleEn}</DialogTitle>
                   <DialogDescription className="text-base">
                     {course.description}
                   </DialogDescription>
@@ -498,7 +551,7 @@ const Courses = () => {
                 <div className="mt-6">
                   <img 
                     src={course.certificate} 
-                    alt={`${course.title} Certificate`}
+                    alt={`${lang === 'pl' ? course.titlePl : course.titleEn} Certificate`}
                     className="w-full h-64 object-cover rounded-lg mb-4"
                   />
                   <div className="grid grid-cols-2 gap-4 text-sm">
