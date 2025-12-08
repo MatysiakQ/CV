@@ -14,9 +14,9 @@ const Projects = () => {
     },
     {
       title: "Task Management App",
-      description: "Aplikacja do zarządzania projektami z funkcjami współpracy zespołowej i real-time updates.",
+      description: "Aplikacja do zarządzania projektami z aktualizacjami w czasie rzeczywistym i funkcjami współpracy zespołowej. Stack: React, TypeScript, Socket.io, MongoDB. Wynik: synchronizacja zadań w czasie rzeczywistym oraz architektura przygotowana do skalowania i produkcyjnego wdrożenia.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-      tags: ["React", "TypeScript", "Socket.io", "MongoDB"],
+      tags: ["React", "TypeScript", "Socket.io", "MongoDB", "Responsive Design"],
       github: "#",
       demo: "#"
     },

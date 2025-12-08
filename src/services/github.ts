@@ -49,7 +49,7 @@ export const fetchGitHubRepos = async (username: string): Promise<GitHubRepo[]> 
     return normalized;
   } catch (error) {
     // Keep logging for debugging; caller should handle empty array case
-    // eslint-disable-next-line no-console
+     
     console.error('Error fetching GitHub repositories:', error);
     return [];
   }
