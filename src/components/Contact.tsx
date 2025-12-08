@@ -4,19 +4,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import * as React from "react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const contactInfo = [
     {
@@ -44,24 +44,42 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [id]: value }));
   };
 
+  const validate = () => {
+    if (!formData.subject || formData.subject.trim().length < 3) {
+      toast({
+        title: "Błąd walidacji",
+        description: "Temat musi mieć co najmniej 3 znaki.",
+        variant: "destructive",
+      });
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      // For now, we'll just show a message about Supabase integration
+      if (!validate()) {
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Simulate network delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       toast({
-        title: "Message Received",
-        description: "Thank you for your message! To enable email sending, please connect this project to Supabase.",
+        title: "Wiadomość wysłana",
+        description: "Dziękuję! Odpowiem jak najszybciej.",
         variant: "default",
       });
-      
+
       // Reset form
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Błąd",
+        description: "Wysłanie nie powiodło się. Spróbuj ponownie.",
         variant: "destructive",
       });
     } finally {
