@@ -2,29 +2,30 @@ import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+import tsel from "@typescript-eslint/eslint-plugin";
+import parser from "@typescript-eslint/parser";
 
-export default tseslint.config(
+// Flat config compatible replacement. Uses @typescript-eslint plugin/parser
+// and keeps the original project rules (react-hooks + react-refresh tweak).
+export default [
   { ignores: ["dist"] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      sourceType: "module",
+      parser,
     },
     plugins: {
+      "@typescript-eslint": tsel,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      // This project intentionally exports helpers/constants from some component
-      // files (shadcn pattern). The fast-refresh rule is noisy for our setup,
-      // so disable it globally to keep the console clean. Consider refactoring
-      // helpers into separate modules if you want to re-enable the rule.
       "react-refresh/only-export-components": "off",
       "@typescript-eslint/no-unused-vars": "off",
     },
-  }
-);
+  },
+];
