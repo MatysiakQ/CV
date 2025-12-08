@@ -1,25 +1,5 @@
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "A polished personal portfolio built with React, TypeScript and Tailwind.",
-    image: null,
-    github: "https://github.com/MatysiakQ/portfolio",
-    demo: "https://matysiakq.github.io/portfolio",
-    tags: ["React", "TypeScript", "Tailwind"],
-  },
-  {
-    title: "Task Manager",
-    description: "A small task manager app demonstrating CRUD and local persistence.",
-    image: null,
-    github: "https://github.com/MatysiakQ/task-manager",
-    demo: "",
-    tags: ["React", "Vite"],
-  },
-];
-
-export default projects;
-const projects = [
-  {
     title: "E-commerce Platform",
     description: "Nowoczesna platforma e-commerce z zaawansowanym systemem płatności i zarządzaniem magazynem.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",

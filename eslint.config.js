@@ -19,10 +19,11 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
+      // This project intentionally exports helpers/constants from some component
+      // files (shadcn pattern). The fast-refresh rule is noisy for our setup,
+      // so disable it globally to keep the console clean. Consider refactoring
+      // helpers into separate modules if you want to re-enable the rule.
+      "react-refresh/only-export-components": "off",
       "@typescript-eslint/no-unused-vars": "off",
     },
   }
