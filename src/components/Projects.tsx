@@ -6,9 +6,9 @@ const Projects = () => {
   const projects = [
     {
       title: "E-commerce Platform",
-      description: "Nowoczesna platforma e-commerce z zaawansowanym systemem płatności i zarządzaniem magazynem.",
+      description: "E-commerce Platform — kompleksowa platforma sprzedażowa z integracją płatności (Stripe), zarządzaniem stanami magazynowymi oraz panelem administracyjnym. Stack: React, Node.js, PostgreSQL, Stripe. Wynik: bezpieczne płatności, modularna architektura gotowa do skalowania i CI/CD.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-      tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      tags: ["React", "Node.js", "PostgreSQL", "Stripe", "CI/CD", "Responsive Design"],
       github: "#",
       demo: "#"
     },
@@ -22,17 +22,17 @@ const Projects = () => {
     },
     {
       title: "Weather Dashboard",
-      description: "Interaktywny dashboard pogodowy z mapami, prognozami i alertami meteorologicznymi.",
+      description: "Weather Dashboard — interaktywny panel pogodowy z mapami, prognozami i alertami. Stack: Vue.js, D3.js, REST API, PWA. Wynik: szybkie wizualizacje danych, obsługa offline dzięki PWA i responsywne UI dla urządzeń mobilnych.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-      tags: ["Vue.js", "D3.js", "REST API", "PWA"],
+      tags: ["Vue.js", "D3.js", "REST API", "PWA", "Responsive Design"],
       github: "#",
       demo: "#"
     },
     {
       title: "Social Media Analytics",
-      description: "Narzędzie do analizy mediów społecznościowych z zaawansowanymi raportami i wizualizacjami.",
+      description: "Social Media Analytics — narzędzie do agregacji i analizy danych z mediów społecznościowych z zaawansowanymi raportami i wykresami. Stack: React, Python, FastAPI, Chart.js. Wynik: automatyczne raporty, eksport danych i przygotowanie do integracji z narzędziami BI.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-      tags: ["React", "Python", "FastAPI", "Chart.js"],
+      tags: ["React", "Python", "FastAPI", "Chart.js", "REST API"],
       github: "#",
       demo: "#"
     }
