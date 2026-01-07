@@ -31,8 +31,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: t('home.contact.phone') || 'Phone',
-      value: '+48 123 456 789',
-      href: 'tel:+48123456789'
+      value: '505 437 439',
+      href: 'tel:+48505437439'
     },
     {
       icon: MapPin,
