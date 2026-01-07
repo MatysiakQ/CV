@@ -1,33 +1,37 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Palette, Database, Smartphone } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
   const skills = [
     "React", "TypeScript", "JavaScript", "Node.js", "Python",
-    "Next.js", "Tailwind CSS", "PostgreSQL", "MongoDB", "Git"
+    "Next.js", "Tailwind CSS", "Responsive Design", "Mobile App Development",
+    "Kotlin", "Android SDK", "Firebase", "PostgreSQL", "MongoDB", "Git", "CI/CD"
   ];
+
+  const { t } = useLanguage();
 
   const services = [
     {
       icon: Code2,
-      title: "Frontend Development",
-      description: "Tworzę responsywne i interaktywne interfejsy użytkownika przy użyciu najnowszych technologii."
+      title: t('about.service.frontend.title'),
+      description: t('about.service.frontend.description')
     },
     {
       icon: Database,
-      title: "Backend Development", 
-      description: "Projektuję i implementuję skalowalne API oraz bazy danych dla aplikacji webowych."
+      title: t('about.service.backend.title'),
+      description: t('about.service.backend.description')
     },
     {
       icon: Smartphone,
-      title: "Mobile Development",
-      description: "Rozwijam aplikacje mobilne dla iOS i Android używając React Native."
+      title: t('about.service.mobile.title'),
+      description: t('about.service.mobile.description')
     },
     {
       icon: Palette,
-      title: "UI/UX Design",
-      description: "Projektuję intuicyjne i estetyczne interfejsy skupiając się na doświadczeniu użytkownika."
+      title: t('about.service.design.title'),
+      description: t('about.service.design.description')
     }
   ];
 
@@ -36,10 +40,10 @@ const About = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            O <span className="gradient-text">mnie</span>
+            {t('home.about.title').split(' ')[0]} <span className="gradient-text">{t('home.about.title').split(' ').slice(1).join(' ')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pasjonat technologii z wieloletnim doświadczeniem w tworzeniu aplikacji webowych i mobilnych.
+            {t('home.about.description')}
           </p>
         </div>
 

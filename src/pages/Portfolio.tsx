@@ -96,7 +96,7 @@ const Portfolio = () => {
               <CardHeader>
                 {/* Miniatura projektu */}
                 <div className="mb-4 w-full h-32 flex items-center justify-center rounded-lg bg-muted text-muted-foreground text-sm font-medium">
-                  Image there soon
+                  {t('portfolio.imagePlaceholder')}
                 </div>
                 <CardTitle className="text-xl mb-2 flex items-center justify-between">
                   {project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -130,7 +130,7 @@ const Portfolio = () => {
                       {project.language}
                     </Badge>
                   )}
-                  {project.topics.slice(0, 3).map((topic) => (
+                  {(project.topics ?? []).slice(0, 3).map((topic) => (
                     <Badge key={topic} variant="outline" className="text-xs">
                       {topic}
                     </Badge>
@@ -143,7 +143,7 @@ const Portfolio = () => {
                       {t('portfolio.viewCode')}
                     </a>
                   </Button>
-                  {project.topics.includes('website') || project.topics.includes('demo') ? (
+                  {(project.topics ?? []).includes('website') || (project.topics ?? []).includes('demo') ? (
                     <Button variant="gradient" size="sm" asChild>
                       <a href={`https://${project.name}.vercel.app`} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />

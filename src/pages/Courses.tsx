@@ -399,7 +399,6 @@ const Courses = () => {
       provider: "IT Academy",
       completedDate: "2024"
     },
-    ,
     // Nowe kursy/certyfikaty
     {
       titlePl: "Autodesk Certified User Inventor",

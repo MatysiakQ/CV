@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { motion } from 'framer-motion';
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -21,7 +22,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 glass-effect border-b border-border/50">
+    <header className="sticky top-0 z-50 glass-effect border-b border-border/50 bg-background/60 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-bold gradient-text">
@@ -31,16 +32,21 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  isActive(item.path) ? "text-primary" : "text-muted-foreground"
+              <div key={item.path} className="relative">
+                <Link
+                  to={item.path}
+                  aria-current={isActive(item.path) ? 'page' : undefined}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary py-1",
+                    isActive(item.path) ? "text-primary" : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+                {isActive(item.path) && (
+                  <motion.span layoutId="nav-underline" className="absolute left-0 right-0 -bottom-1 h-0.5 rounded bg-gradient-to-r from-primary to-secondary" />
                 )}
-              >
-                {item.label}
-              </Link>
+              </div>
             ))}
             <LanguageSwitcher />
           </nav>
