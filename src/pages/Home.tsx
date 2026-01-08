@@ -7,6 +7,7 @@ import { Download, Mail, Github, Linkedin, Instagram, Send } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext";
 import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
+import Skills from "@/components/Skills";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -65,7 +66,7 @@ const Home = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t('home.about.title')}
+              <span className="gradient-text">{t('home.about.title')}</span>
             </h2>
           </div>
           
@@ -80,6 +81,8 @@ const Home = () => {
           </Card>
         </div>
       </section>
+
+      <Skills />
 
       <Contact />
     </div>
