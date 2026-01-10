@@ -15,7 +15,7 @@ const Skills: React.FC = () => {
 
         <div className="border-t border-[hsl(var(--border))]" />
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* Frontend Ecosystem */}
           <article className="flex flex-col h-full p-6 bg-[hsl(var(--card))]/95 text-[hsl(var(--card-foreground))] border border-[hsl(var(--border))] rounded-lg text-left items-start shadow-sm hover:shadow-2xl hover:shadow-primary/30 hover:ring-4 hover:ring-primary/20 hover:scale-105 transition-all duration-500 ease-out">
             <div className="flex items-start gap-4 min-h-[140px]">
@@ -72,11 +72,6 @@ const Skills: React.FC = () => {
                 </li>
               </ul>
             </div>
-
-            <div className="mt-auto pt-6 flex items-center justify-between">
-              <a href="#projects" className="text-sm text-[hsl(var(--primary))] hover:underline">{t('skills.viewProjects')}</a>
-              <span className="text-xs text-[hsl(var(--muted-foreground))]">{t('skills.updated')}</span>
-            </div>
           </article>
 
           {/* Backend & Data */}
@@ -116,11 +111,6 @@ const Skills: React.FC = () => {
                   <span>{t('skills.backend.cloud')}</span>
                 </li>
               </ul>
-            </div>
-
-            <div className="mt-auto pt-6 flex items-center justify-between">
-              <a href="#projects" className="text-sm text-[hsl(var(--primary))] hover:underline">{t('skills.viewProjects')}</a>
-              <span className="text-xs text-[hsl(var(--muted-foreground))]">{t('skills.updated')}</span>
             </div>
           </article>
 
@@ -163,11 +153,6 @@ const Skills: React.FC = () => {
                 </li>
               </ul>
             </div>
-
-            <div className="mt-auto pt-6 flex items-center justify-between">
-              <a href="#projects" className="text-sm text-[hsl(var(--primary))] hover:underline">{t('skills.viewProjects')}</a>
-              <span className="text-xs text-[hsl(var(--muted-foreground))]">{t('skills.updated')}</span>
-            </div>
           </article>
 
           {/* Workflow & Tools */}
@@ -207,11 +192,6 @@ const Skills: React.FC = () => {
                   <span>{t('skills.workflow.testing')}</span>
                 </li>
               </ul>
-            </div>
-
-            <div className="mt-auto pt-6 flex items-center justify-between">
-              <a href="#projects" className="text-sm text-[hsl(var(--primary))] hover:underline">{t('skills.viewProjects')}</a>
-              <span className="text-xs text-[hsl(var(--muted-foreground))]">{t('skills.updated')}</span>
             </div>
           </article>
         </div>

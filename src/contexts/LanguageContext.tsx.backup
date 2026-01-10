@@ -1,0 +1,221 @@
+
+import React, { createContext, useContext, useState } from 'react';
+import translations from '@/i18n/translations';
+  en: {
+    // Header
+    'nav.home': 'Home',
+    'nav.portfolio': 'Portfolio',
+    'nav.courses': 'Courses',
+    
+    // Home Page
+    'home.hero.title': 'Junior Web & Mobile Developer — building reliable web & mobile MVPs',
+    'home.hero.description': 'I build production-ready web and mobile applications using React and TypeScript. I focus on responsive interfaces, clean architecture and reliable backend integrations (REST, Firebase).',
+    'home.hero.viewProjects': 'View My Projects',
+    'home.hero.contactMe': 'Contact Me',
+    'home.hero.downloadCV': 'Download CV',
+    'home.about.title': 'About Me',
+    'home.about.description': 'Junior Web & Mobile Developer focused on delivering practical solutions. I design and ship web and mobile apps using React, TypeScript and modern build/deploy tools. I prioritize responsive UI, maintainable code and stable REST/Firebase integrations.',
+    // About services
+    'about.service.frontend.title': 'Frontend Development',
+    'about.service.frontend.description': 'I build responsive and interactive user interfaces using modern frontend technologies.',
+    'about.service.backend.title': 'Backend Development',
+    'about.service.backend.description': 'I design and implement scalable APIs and databases for web applications.',
+    'about.service.mobile.title': 'Mobile Development',
+    'about.service.mobile.description': 'I develop native and cross-platform mobile apps (React Native) and I have familiarity with Android SDK and Kotlin. I focus on performant, responsive mobile UX.',
+    'about.service.design.title': 'UI/UX Design',
+    'about.service.design.description': 'I design intuitive and beautiful interfaces with a strong focus on user experience.',
+    'home.contact.title': 'Contact Me',
+    'home.contact.subtitle': 'Let\'s discuss your next project or collaboration opportunity',
+    'home.contact.name': 'Name',
+    'home.contact.namePlaceholder': 'Your name',
+    'home.contact.email': 'Email',
+    'home.contact.emailPlaceholder': 'your@email.com',
+    'home.contact.subject': 'Subject',
+    'home.contact.subjectPlaceholder': 'Project discussion',
+    'home.contact.message': 'Message',
+    'home.contact.messagePlaceholder': 'Tell me about your project...',
+    'home.contact.send': 'Send Message',
+    'contact.validation.subject': 'Subject must be at least 3 characters.',
+    'contact.validation.email': 'Please enter a valid email address.',
+    'contact.validation.message': 'Message must be at least 10 characters.',
+    'contact.validation.fixErrors': 'Please fix the errors in the form.',
+    'contact.success': 'Message sent — Thank you! I will reply as soon as possible.',
+    'contact.error': 'Failed to send message. Please try again.',
+    'home.contact.phone': 'Phone',
+    'home.contact.location': 'Location',
+    'contact.location.value': 'Lublin, Poland',
+    'contact.sending': 'Sending...',
+    
+    // Portfolio Page
+    'portfolio.title': 'My Portfolio',
+    'portfolio.subtitle': 'A collection of projects that showcase my skills and passion for front-end development',
+    'portfolio.imagePlaceholder': 'Image coming soon',
+    'portfolio.loading': 'Loading projects...',
+    'portfolio.error': 'Failed to load projects',
+    'portfolio.noDescription': 'No description available',
+    'portfolio.viewCode': 'View Code',
+    'portfolio.viewDemo': 'Demo',
+    
+    // Courses Page
+    'courses.title': 'My Courses',
+    'courses.subtitle': 'Professional development and continuous learning journey',
+    'courses.filterAll': 'All',
+    'courses.filterIT': 'IT',
+    'courses.filterBusiness': 'Business',
+    'courses.filterPersonal': 'Personal Development',
+    'courses.filterLanguage': 'Language',
+    'courses.filterOther': 'Other',
+    
+    // Skills Section
+    'skills.title': 'Tech Stack',
+    'skills.subtitle': 'Versatile front-end developer with full-stack and mobile engineering experience. (For recruiters to save time.)',
+    'skills.frontend.title': 'Frontend Ecosystem',
+    'skills.frontend.subtitle': 'Modern web technologies',
+    'skills.frontend.react': 'React.js — Hooks, Context, RWD',
+    'skills.frontend.typescript': 'TypeScript — Typing, Interfaces',
+    'skills.frontend.javascript': 'JavaScript ES6+ — Async/Await',
+    'skills.frontend.htmlcss': 'HTML5 & CSS3 — Flexbox, Grid, SASS',
+    'skills.frontend.uilibraries': 'UI Libraries — Tailwind, Bootstrap, Material',
+    'skills.frontend.tools': 'Tools — Vite, npm/yarn',
+    'skills.backend.title': 'Backend & Data',
+    'skills.backend.subtitle': 'Database and API development',
+    'skills.backend.databases': 'Databases — MySQL, PL/SQL, MongoDB, Firestore',
+    'skills.backend.logic': 'Backend Logic — PHP, Firebase, REST APIs',
+    'skills.backend.cloud': 'Cloud — Microsoft Azure (AZ-900)',
+    'skills.engineering.title': 'Engineering & Mobile',
+    'skills.engineering.subtitle': 'Core programming & mobile development',
+    'skills.engineering.languages': 'Core Languages — Java, C++, Kotlin',
+    'skills.engineering.labview': 'LabVIEW — Engineering logic',
+    'skills.engineering.architecture': 'Architecture — OOP, MVVM, Clean',
+    'skills.workflow.title': 'Workflow & Tools',
+    'skills.workflow.subtitle': 'Tools and project management',
+    'skills.workflow.versioncontrol': 'Version Control — Git, GitHub',
+    'skills.workflow.design': 'Design & Organization — Figma, Jira',
+    'skills.workflow.testing': 'Testing / API — Postman',
+    'skills.viewProjects': 'View related projects',
+    'skills.updated': 'Updated',
+  },
+  pl: {
+    // Header
+    'nav.home': 'Strona Główna',
+    'nav.portfolio': 'Portfolio',
+    'nav.courses': 'Kursy',
+    
+    // Home Page
+    'home.hero.title': 'Junior Web & Mobile Developer — szybko dostarczam działające MVP',
+    'home.hero.description': 'Buduję aplikacje webowe i mobilne gotowe do produkcji przy użyciu React i TypeScript. Skupiam się na responsywnym UI, czytelnej architekturze i stabilnych integracjach z backendem (REST, Firebase).',
+    'home.hero.viewProjects': 'Zobacz moje projekty',
+    'home.hero.contactMe': 'Skontaktuj się ze mną',
+    'home.hero.downloadCV': 'Pobierz CV',
+    'home.about.title': 'O mnie',
+    'home.about.description': 'Junior Web & Mobile Developer skupiony na praktycznych rozwiązaniach. Projektuję i wdrażam aplikacje webowe i mobilne przy użyciu React, TypeScript i nowoczesnych narzędzi build/deploy. Koncentruję się na responsywnym UI, czytelnej architekturze i stabilnych integracjach z backendem (REST, Firebase). Dostarczam działające prototypy i MVP gotowe do wdrożenia.',
+    // About services
+    'about.service.frontend.title': 'Frontend Development',
+    'about.service.frontend.description': 'Tworzę responsywne i interaktywne interfejsy użytkownika przy użyciu najnowszych technologii.',
+    'about.service.backend.title': 'Backend Development',
+    'about.service.backend.description': 'Projektuję i implementuję skalowalne API oraz bazy danych dla aplikacji webowych.',
+    'about.service.mobile.title': 'Mobile Development',
+    'about.service.mobile.description': 'Rozwijam aplikacje natywne i cross-platform (React Native). Posiadam znajomość Android SDK oraz podstaw Kotlin. Skupiam się na wydajnym, responsywnym UX mobilnym.',
+    'about.service.design.title': 'UI/UX Design',
+    'about.service.design.description': 'Projektuję intuicyjne i estetyczne interfejsy skupiając się na doświadczeniu użytkownika.',
+    'home.contact.title': 'Kontakt',
+    'home.contact.subtitle': 'Porozmawiajmy o Twoim następnym projekcie lub współpracy',
+    'home.contact.name': 'Imię',
+    'home.contact.namePlaceholder': 'Twoje imię',
+    'home.contact.email': 'Email',
+    'home.contact.emailPlaceholder': 'twoj@email.com',
+    'home.contact.subject': 'Temat',
+    'home.contact.subjectPlaceholder': 'Dyskusja o projekcie',
+    'home.contact.message': 'Wiadomość',
+    'home.contact.messagePlaceholder': 'Opowiedz mi o swoim projekcie...',
+    'home.contact.send': 'Wyślij Wiadomość',
+    'contact.validation.subject': 'Temat musi mieć co najmniej 3 znaki.',
+    'contact.validation.email': 'Wprowadź poprawny adres email.',
+    'contact.validation.message': 'Wiadomość musi mieć co najmniej 10 znaków.',
+    'contact.validation.fixErrors': 'Proszę poprawić błędy w formularzu.',
+    'contact.success': 'Wiadomość wysłana — Dziękuję! Odpowiem jak najszybciej.',
+    'contact.error': 'Wysłanie nie powiodło się. Spróbuj ponownie.',
+    'home.contact.phone': 'Telefon',
+    'home.contact.location': 'Lokalizacja',
+    'contact.location.value': 'Lublin, Polska',
+    'contact.sending': 'Wysyłanie...',
+    
+    // Portfolio Page
+    'portfolio.title': 'Moje Portfolio',
+    'portfolio.subtitle': 'Kolekcja projektów, które pokazują moje umiejętności i pasję do programowania front-end',
+    'portfolio.imagePlaceholder': 'Obraz wkrótce',
+    'portfolio.loading': 'Ładowanie projektów...',
+    'portfolio.error': 'Nie udało się załadować projektów',
+    'portfolio.noDescription': 'Brak opisu',
+    'portfolio.viewCode': 'Zobacz Kod',
+    'portfolio.viewDemo': 'Demo',
+    
+    // Courses Page
+    'courses.title': 'Moje Kursy',
+    'courses.subtitle': 'Rozwój zawodowy i ciągłe uczenie się',
+    'courses.filterAll': 'Wszystkie',
+    'courses.filterIT': 'Informatyczne',
+    'courses.filterBusiness': 'Biznesowe',
+    'courses.filterPersonal': 'Rozwój Osobisty',
+    'courses.filterLanguage': 'Językowe',
+    'courses.filterOther': 'Inne',
+    
+    // Skills Section
+    'skills.title': 'Stos Technologiczny',
+    'skills.subtitle': 'Wszechstronny programista frontend z doświadczeniem fullstack i inżynierii mobilnej. (Dla rekruterów, aby zaoszczędzić czas.)',
+    'skills.frontend.title': 'Ekosystem Frontend',
+    'skills.frontend.subtitle': 'Nowoczesne technologie webowe',
+    'skills.frontend.react': 'React.js — Hooks, Context, RWD',
+    'skills.frontend.typescript': 'TypeScript — Typowanie, Interfejsy',
+    'skills.frontend.javascript': 'JavaScript ES6+ — Async/Await',
+    'skills.frontend.htmlcss': 'HTML5 & CSS3 — Flexbox, Grid, SASS',
+    'skills.frontend.uilibraries': 'Biblioteki UI — Tailwind, Bootstrap, Material',
+    'skills.frontend.tools': 'Narzędzia — Vite, npm/yarn',
+    'skills.backend.title': 'Backend & Dane',
+    'skills.backend.subtitle': 'Rozwój baz danych i API',
+    'skills.backend.databases': 'Bazy danych — MySQL, PL/SQL, MongoDB, Firestore',
+    'skills.backend.logic': 'Logika backend — PHP, Firebase, REST APIs',
+    'skills.backend.cloud': 'Chmura — Microsoft Azure (AZ-900)',
+    'skills.engineering.title': 'Inżynieria & Mobile',
+    'skills.engineering.subtitle': 'Podstawy programowania i rozwój mobilny',
+    'skills.engineering.languages': 'Podstawowe języki — Java, C++, Kotlin',
+    'skills.engineering.labview': 'LabVIEW — Logika inżynierska',
+    'skills.engineering.architecture': 'Architektura — OOP, MVVM, Clean',
+    'skills.workflow.title': 'Workflow & Narzędzia',
+    'skills.workflow.subtitle': 'Narzędzia i zarządzanie projektami',
+    'skills.workflow.versioncontrol': 'Kontrola Wersji — Git, GitHub',
+    'skills.workflow.design': 'Design & Organizacja — Figma, Jira',
+    'skills.workflow.testing': 'Testowanie / API — Postman',
+    'skills.viewProjects': 'Zobacz powiązane projekty',
+    'skills.updated': 'Zaktualizowane',
+  }
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
+
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [language, setLanguage] = useState<Language>('en');
+
+  const t = (key: string): string => {
+    // Prefer selected language, fall back to English, then the key itself
+    const val = (translations as any)[language]?.[key];
+    if (val) return val;
+    const enVal = (translations as any)['en']?.[key];
+    if (enVal) return enVal;
+    return key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};

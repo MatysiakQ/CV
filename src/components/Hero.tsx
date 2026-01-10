@@ -24,13 +24,13 @@
           <div className="text-center max-w-4xl mx-auto">
             {/* Profile image */}
             <motion.div className="mb-8 relative" initial="hidden" whileInView="show" viewport={{ once: true }} variants={item}>
-              <div className="w-48 h-48 mx-auto relative">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-spin [animation-duration:8s]"></div>
                 <div className="absolute inset-2 bg-background rounded-full"></div>
                 <motion.img
                   src="/lovable-uploads/CVPhoto.jpeg"
                   alt="Profile photo of Adam Jastrzębski"
-                  className="absolute inset-4 w-40 h-40 rounded-full object-cover"
+                  className="absolute inset-4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover"
                   style={{ boxShadow: '0 8px 30px rgba(99,102,241,0.12), 0 0 40px rgba(139,92,246,0.12)' }}
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -40,21 +40,31 @@
             </motion.div>
 
             {/* Main heading */}
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight">
               <span className="gradient-text">Adam Jastrzębski</span>
             </h1>
             
-            <motion.h2 variants={item} className="text-3xl md:text-4xl font-semibold mb-6 text-slate-200">
+            <motion.h2 variants={item} className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-slate-200">
               {t('home.hero.title')}
             </motion.h2>
 
-            <motion.p variants={item} className="text-xl md:text-2xl text-slate-200/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <motion.p variants={item} className="text-lg sm:text-xl md:text-2xl text-slate-200/90 mb-12 max-w-2xl mx-auto leading-relaxed">
               {t('home.hero.description')}
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button variant="gradient" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="gradient" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => {
+                  const el = document.getElementById('projects');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 {t('home.hero.viewProjects')}
               </Button>
               <Button 
