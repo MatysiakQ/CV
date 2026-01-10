@@ -31,7 +31,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: t('home.contact.phone') || 'Phone',
-      value: '505 437 439',
+      value: '+48 505 437 439',
       href: 'tel:+48505437439'
     },
     {
