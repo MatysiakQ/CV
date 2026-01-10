@@ -524,7 +524,7 @@ const Courses = () => {
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-6">
             <Filter className="h-5 w-5 text-muted-foreground" />
-            <span className="text-sm font-medium text-muted-foreground">Filter by category:</span>
+            <span className="text-sm font-medium text-muted-foreground">{t('courses.filterByCategory')}:</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
@@ -590,7 +590,7 @@ const Courses = () => {
                   <img 
                     src={course.certificate} 
                     alt={`${lang === 'pl' ? course.titlePl : course.titleEn} Certificate`}
-                    className="w-full h-64 object-cover rounded-lg mb-4"
+                    className="w-full h-48 sm:h-64 object-contain rounded-lg mb-4"
                   />
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
@@ -621,7 +621,7 @@ const Courses = () => {
         {filteredCourses.length === 0 && (
           <div className="text-center py-12">
             <p className="text-xl text-muted-foreground">
-              No courses found in the selected category.
+              {t('courses.noCoursesFound')}
             </p>
           </div>
         )}
