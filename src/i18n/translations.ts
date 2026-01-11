@@ -54,7 +54,7 @@ const translations = {
 
     // Skills Page
     'skills.title': 'Tech Stack',
-    'skills.subtitle': 'Technologies and tools I work with',
+    'skills.subtitle': 'Technologies and tools I work with(For recruiters, to not waste their time!)',
     'skills.frontend.title': 'Frontend Ecosystem',
     'skills.frontend.subtitle': 'Building responsive and interactive user interfaces',
     'skills.frontend.react': 'React & React Native for cross-platform development',
@@ -139,7 +139,7 @@ const translations = {
 
     // Skills Page
     'skills.title': 'Stos Technologiczny',
-    'skills.subtitle': 'Technologie i narzędzia, z którymi pracuję',
+    'skills.subtitle': 'Technologie i narzędzia, z którymi pracuję(Dla rekruterów, aby nie marnować waszego czasu!)',
     'skills.frontend.title': 'Ekosystem Frontend',
     'skills.frontend.subtitle': 'Tworzenie responsywnych i interaktywnych interfejsów użytkownika',
     'skills.frontend.react': 'React & React Native do rozwoju międzyplatformowego',
