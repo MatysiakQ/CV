@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2, Github, Linkedin, Instagram } from "lucide-react";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -39,6 +39,24 @@ const Contact = () => {
       title: t('home.contact.location') || 'Location',
       value: t('contact.location.value') || 'Lublin, Polska',
       href: '#'
+    }
+  ];
+
+  const socials = [
+    {
+      icon: Github,
+      title: 'GitHub',
+      href: 'https://github.com/MatysiakQ'
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/adamjastrzębski'
+    },
+    {
+      icon: Instagram,
+      title: 'Instagram',
+      href: 'https://instagram.com/adamtheantagonist'
     }
   ];
 
@@ -143,6 +161,24 @@ const Contact = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            {/* Socials */}
+            <div>
+              <div className="flex justify-center space-x-4">
+                {socials.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center hover:shadow-glow transition-all duration-300 group"
+                    aria-label={social.title}
+                  >
+                    <social.icon className="h-5 w-5 text-primary-foreground group-hover:text-primary transition-colors" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

@@ -6,13 +6,13 @@ const translations = {
     'nav.courses': 'Courses',
 
     // Home Page
-    'home.hero.title': 'Junior Mobile & Web Developer',
+    'home.hero.title': 'Mobile & Web Developer',
     'home.hero.description': 'I build performant mobile and web applications using React Native, React and TypeScript. I focus on responsive UI, offline support, and shipping production-ready builds.',
     'home.hero.viewProjects': 'View My Projects',
     'home.hero.contactMe': 'Contact Me',
     'home.hero.downloadCV': 'Download CV',
     'home.about.title': 'About Me',
-    'home.about.description': 'Passionate junior developer skilled in modern frontend and mobile technologies. I deliver accessible, responsive interfaces, integrate APIs, and follow CI/CD, testing and performance best practices.',
+    'home.about.description': 'I focus on delivering clean, scalable code and high application performance. In my projects, I prioritize accessibility (a11y), full responsiveness, and optimal User Experience.',
     'home.contact.title': 'Contact Me',
     'home.contact.subtitle': 'Let\'s discuss your next project or collaboration opportunity',
     'home.contact.name': 'Name',
@@ -26,6 +26,9 @@ const translations = {
     'home.contact.messagePlaceholder': 'Tell me about your project...',
     'home.contact.send': 'Send Message',
     'home.contact.location': 'Location',
+
+    // Socials
+    'home.contact.socials': 'Socials',
 
     // Contact Page
     'contact.location.value': 'Lublin, Poland',
@@ -90,7 +93,7 @@ const translations = {
     'nav.courses': 'Kursy',
 
     // Home Page
-    'home.hero.title': 'Junior Developer Aplikacji Mobilnych i Webowych',
+    'home.hero.title': 'Developer Aplikacji Mobilnych i Webowych',
     'home.hero.description': 'Tworzę wydajne aplikacje mobilne i webowe w React Native, React i TypeScript. Skupiam się na responsywnym UI, wsparciu offline i dostarczaniu gotowych do produkcji buildów.',
     'home.hero.viewProjects': 'Zobacz moje projekty',
     'home.hero.contactMe': 'Skontaktuj się ze mną',
@@ -111,6 +114,9 @@ const translations = {
     'home.contact.messagePlaceholder': 'Opowiedz mi o swoim projekcie...',
     'home.contact.send': 'Wyślij Wiadomość',
     'home.contact.location': 'Lokalizacja',
+
+    // Socials
+    'home.contact.socials': 'Sociale',
 
     // Contact Page
     'contact.location.value': 'Lublin, Polska',
