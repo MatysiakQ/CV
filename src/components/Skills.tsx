@@ -1,199 +1,265 @@
 import React from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Briefcase,
+  Cloud,
+  Code2,
+  Cpu,
+  Database,
+  ExternalLink,
+  FileText,
+  GitBranch,
+  Globe,
+  ShieldCheck,
+  Smartphone,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Skills: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isPl = language === "pl";
+
+  const emphasisBadgeClass = "border-primary/30 bg-primary/10 text-primary";
+  const productBadgeClass = "border-accent/30 bg-accent/10 text-accent-foreground";
+
+  type CategoryTag = {
+    text: string;
+    className: string;
+  };
+
+  type CategoryItem = {
+    text: string;
+    strong?: boolean;
+    link?: {
+      to: string;
+      label: string;
+    };
+  };
+
+  type Category = {
+    key: "philosophy" | "core" | "data" | "cloud" | "engineering" | "business";
+    icon: LucideIcon;
+    title: string;
+    subtitle: string;
+    tags: CategoryTag[];
+    ring: boolean;
+    items: CategoryItem[];
+    note?: string;
+  };
+
+  const categories: Category[] = [
+    {
+      key: "philosophy",
+      icon: FileText,
+      title: isPl ? "Development Philosophy" : "Development Philosophy",
+      subtitle: isPl
+        ? "Jakość kodu, modularność i architektura (to moja wizytówka)."
+        : "Code quality, modularity and architecture (my calling card).",
+      tags: [],
+      ring: false,
+      items: [
+        { text: "Clean Code (czytelność, naming, refactoring)", strong: true },
+        { text: "Modularność i separacja odpowiedzialności" },
+        { text: "Architektura: MVVM w Androidzie" },
+        { text: "UI/UX: dopracowane detale i spójność" },
+        { text: "Czytelna dokumentacja i komunikacja" },
+      ],
+    },
+    {
+      key: "core",
+      icon: Code2,
+      title: isPl ? "Core Tech Stack" : "Core Tech Stack",
+      subtitle: isPl
+        ? "Najmocniejszy zestaw do budowy aplikacji web i mobile."
+        : "Primary stack for building web and mobile applications.",
+      tags: [
+        { text: isPl ? "Web" : "Web", className: emphasisBadgeClass },
+        { text: isPl ? "Mobile" : "Mobile", className: emphasisBadgeClass },
+      ],
+      ring: true,
+      items: [
+        { text: "React", strong: true },
+        { text: "Kotlin (Android SDK)", strong: true },
+        { text: "TypeScript", strong: true },
+        { text: "JavaScript (ES6+)" },
+        { text: "Firebase" },
+      ],
+    },
+    {
+      key: "data",
+      icon: Database,
+      title: isPl ? "Data & Backend" : "Data & Backend",
+      subtitle: isPl
+        ? "Relacyjne bazy danych + backend pod skalowalne produkty."
+        : "Relational databases + backend for scalable products.",
+      tags: [{ text: "SQL / PL/SQL", className: emphasisBadgeClass }],
+      ring: true,
+      items: [
+        { text: "SQL", strong: true },
+        { text: "PL/SQL (procedury, optymalizacja zapytań)", strong: true },
+        { text: "NoSQL (Firebase/Firestore)" },
+        { text: "Node.js" },
+        { text: "JDBC" },
+      ],
+    },
+    {
+      key: "cloud",
+      icon: Cloud,
+      title: isPl ? "Cloud & DevOps" : "Cloud & DevOps",
+      subtitle: isPl
+        ? "Chmura, wersjonowanie i praktyki wdrożeniowe."
+        : "Cloud, version control and deployment practices.",
+      tags: [{ text: "AZ-900", className: emphasisBadgeClass }],
+      ring: false,
+      items: [
+        {
+          text: "Microsoft Azure (certyfikat AZ-900)",
+          strong: true,
+          link: { to: "/courses", label: "View Certificate" },
+        },
+        { text: "Git / GitHub" },
+        { text: "Podstawy CI/CD" },
+        { text: "MTA Windows Server" },
+      ],
+    },
+    {
+      key: "engineering",
+      icon: Cpu,
+      title: isPl ? "Engineering & Math" : "Engineering & Math",
+      subtitle: isPl
+        ? "Fundamenty inżynierskie + rozwiązywanie problemów."
+        : "Engineering fundamentals + problem solving.",
+      tags: [],
+      ring: false,
+      items: [
+        { text: "Python (OpenCV / MediaPipe)" },
+        { text: "Algorytmy i struktury danych", strong: true },
+        { text: "C++" },
+        { text: "LabVIEW" },
+        { text: "AutoCAD" },
+      ],
+    },
+    {
+      key: "business",
+      icon: Briefcase,
+      title: isPl ? "Business & Agile" : "Business & Agile",
+      subtitle: isPl
+        ? "Product mindset: rozumiem procesy biznesowe, nie tylko kod."
+        : "Product mindset: I understand business processes, not just code.",
+      tags: [{ text: isPl ? "Product Mindset" : "Product Mindset", className: productBadgeClass }],
+      ring: false,
+      items: [
+        { text: "Scrum / Agile" },
+        {
+          text: "Harvard Business Publishing – Business for All",
+          strong: true,
+          link: { to: "/courses", label: "View Certificate" },
+        },
+        { text: "Zarządzanie projektami" },
+        { text: "Storytelling" },
+        { text: "SEO / Marketing" },
+      ],
+      note: isPl
+        ? "W projektach (m.in. NextAi, E-faktura) łączę perspektywę techniczną z produktem: priorytety, wartość biznesowa, komunikacja z interesariuszami."
+        : "In projects (incl. NextAi, E-faktura) I combine engineering with product: priorities, business value, and stakeholder communication.",
+    },
+  ];
+
   return (
     <section id="tech-stack" className="py-16 px-6">
-      <div className="max-w-5xl mx-auto">
-        <header className="mb-6 text-center">
+      <div className="max-w-6xl mx-auto">
+        <header className="mb-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="gradient-text">{t('skills.title')}</span>
+            <span className="gradient-text">{t("skills.title")}</span>
           </h2>
-          <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">{t('skills.subtitle')}</p>
+          <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">{t("skills.subtitle")}</p>
         </header>
 
         <div className="border-t border-[hsl(var(--border))]" />
 
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {/* Frontend Ecosystem */}
-          <article className="flex flex-col h-full p-6 bg-[hsl(var(--card))]/95 text-[hsl(var(--card-foreground))] border border-[hsl(var(--border))] rounded-lg text-left items-start shadow-sm hover:shadow-2xl hover:shadow-primary/30 hover:ring-4 hover:ring-primary/20 hover:scale-105 transition-all duration-500 ease-out">
-            <div className="flex items-start gap-4 min-h-[140px]">
-              <div className="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center text-[hsl(var(--primary))] border border-[hsl(var(--border))]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-[hsl(var(--primary))] leading-tight">{t('skills.frontend.title')}</h3>
-                <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{t('skills.frontend.subtitle')}</p>
-              </div>
-            </div>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((category) => {
+            const Icon = category.icon;
+            return (
+              <Card
+                key={category.key}
+                className={`glass-effect card-glow h-full transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-4 hover:ring-purple-500/20 hover:scale-[1.02] hover:border-purple-400/40 ${
+                  category.ring ? "ring-2 ring-primary/20" : ""
+                }`}
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center text-[hsl(var(--primary))] border border-[hsl(var(--border))]">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl font-bold text-[hsl(var(--primary))] leading-tight flex items-center gap-2">
+                        {category.title}
+                        {category.key === "core" ? <Globe className="h-4 w-4" /> : null}
+                        {category.key === "core" ? <Smartphone className="h-4 w-4" /> : null}
+                        {category.key === "data" ? <ShieldCheck className="h-4 w-4" /> : null}
+                        {category.key === "cloud" ? <GitBranch className="h-4 w-4" /> : null}
+                      </CardTitle>
+                      <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{category.subtitle}</p>
+                      {category.tags.length ? (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {category.tags.map((tag) => (
+                            <Badge key={tag.text} variant="outline" className={tag.className}>
+                              {tag.text}
+                            </Badge>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                </CardHeader>
 
-            <div className="border-t border-[hsl(var(--border))]" />
+                <CardContent className="pt-0">
+                  <div className="border-t border-[hsl(var(--border))]" />
+                  <ul className="mt-4 space-y-3 list-none text-left">
+                    {category.items.map((item) => (
+                      <li
+                        key={item.text}
+                        className={`flex items-start gap-2 text-sm leading-relaxed ${
+                          item.strong
+                            ? "text-[hsl(var(--foreground))] font-semibold"
+                            : "text-[hsl(var(--muted-foreground))]"
+                        }`}
+                      >
+                        <span className="mt-0.5 inline-block h-1.5 w-1.5 rounded-full bg-primary/70 flex-shrink-0" />
+                        <span className="flex-1">{item.text}</span>
+                        {item.link ? (
+                          <Link
+                            to={item.link.to}
+                            className="inline-flex items-center gap-1 text-xs text-primary hover:underline whitespace-nowrap"
+                          >
+                            {item.link.label}
+                            <ExternalLink className="h-3.5 w-3.5" />
+                          </Link>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
 
-            <div className="flex-grow mt-4">
-              <ul className="space-y-4 list-none text-left">
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.frontend.react')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.frontend.typescript')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.frontend.javascript')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.frontend.htmlcss')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.frontend.uilibraries')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.frontend.tools')}</span>
-                </li>
-              </ul>
-            </div>
-          </article>
+                  {category.key === "business" && "note" in category ? (
+                    <div className="mt-4 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]/60 p-3 text-sm text-[hsl(var(--muted-foreground))]">
+                      {category.note}
+                    </div>
+                  ) : null}
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
 
-          {/* Backend & Data */}
-          <article className="flex flex-col h-full p-6 bg-[hsl(var(--card))]/95 text-[hsl(var(--card-foreground))] border border-[hsl(var(--border))] rounded-lg text-left items-start shadow-sm hover:shadow-2xl hover:shadow-primary/30 hover:ring-4 hover:ring-primary/20 hover:scale-105 transition-all duration-500 ease-out">
-            <div className="flex items-start gap-4 min-h-[140px]">
-              <div className="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center text-[hsl(var(--primary))] border border-[hsl(var(--border))]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-[hsl(var(--primary))] leading-tight">{t('skills.backend.title')}</h3>
-                <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{t('skills.backend.subtitle')}</p>
-              </div>
-            </div>
-
-            <div className="border-t border-[hsl(var(--border))]" />
-
-            <div className="flex-grow mt-4">
-              <ul className="space-y-4 list-none text-left">
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.backend.databases')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.backend.logic')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.backend.cloud')}</span>
-                </li>
-              </ul>
-            </div>
-          </article>
-
-          {/* Engineering & Mobile */}
-          <article className="flex flex-col h-full p-6 bg-[hsl(var(--card))]/95 text-[hsl(var(--card-foreground))] border border-[hsl(var(--border))] rounded-lg text-left items-start shadow-sm hover:shadow-2xl hover:shadow-primary/30 hover:ring-4 hover:ring-primary/20 hover:scale-105 transition-all duration-500 ease-out">
-            <div className="flex items-start gap-4 min-h-[140px]">
-              <div className="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center text-[hsl(var(--primary))] border border-[hsl(var(--border))]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 1.143c.214.2.357.471.429.747a1.125 1.125 0 01-.234 1.105l-1.064.878a1.125 1.125 0 00-.26 1.43l.593 1.143a1.125 1.125 0 01-.965 1.605l-1.216.456a1.125 1.125 0 00-.75 1.218l.214 1.281c.09.542-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281a1.125 1.125 0 00-.645-.87.125.125 0 01-.22-.127l-.593-1.143a1.125 1.125 0 00-.26-1.43l-1.064-.878a1.125 1.125 0 01-.234-1.105l1.296-1.143a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.075-.124.073-.044.146-.086.22-.127.332-.184.582-.496.645-.87l.213-1.28z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-[hsl(var(--primary))] leading-tight">{t('skills.engineering.title')}</h3>
-                <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{t('skills.engineering.subtitle')}</p>
-              </div>
-            </div>
-
-            <div className="border-t border-[hsl(var(--border))]" />
-
-            <div className="flex-grow mt-4">
-              <ul className="space-y-4 list-none text-left">
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.engineering.languages')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.engineering.labview')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.engineering.architecture')}</span>
-                </li>
-              </ul>
-            </div>
-          </article>
-
-          {/* Workflow & Tools */}
-          <article className="flex flex-col h-full p-6 bg-[hsl(var(--card))]/95 text-[hsl(var(--card-foreground))] border border-[hsl(var(--border))] rounded-lg text-left items-start shadow-sm hover:shadow-2xl hover:shadow-primary/30 hover:ring-4 hover:ring-primary/20 hover:scale-105 transition-all duration-500 ease-out">
-            <div className="flex items-start gap-4 min-h-[140px]">
-              <div className="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center text-[hsl(var(--primary))] border border-[hsl(var(--border))]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-[hsl(var(--primary))] leading-tight">{t('skills.workflow.title')}</h3>
-                <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{t('skills.workflow.subtitle')}</p>
-              </div>
-            </div>
-
-            <div className="border-t border-[hsl(var(--border))]" />
-
-            <div className="flex-grow mt-4">
-              <ul className="space-y-4 list-none text-left">
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.workflow.versioncontrol')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.workflow.design')}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[hsl(var(--primary))]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                  <span>{t('skills.workflow.testing')}</span>
-                </li>
-              </ul>
-            </div>
-          </article>
+        <div className="mt-10 flex justify-center">
+          <Button asChild size="lg" className="px-8">
+            <Link to="/courses">Explore All 20+ Courses & Certifications</Link>
+          </Button>
         </div>
       </div>
     </section>
