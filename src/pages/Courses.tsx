@@ -10,6 +10,15 @@ const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { t, language } = useLanguage();
 
+  const lang = language || 'en';
+
+  const keepEnglishTitleInPl = new Set<string>([
+    'SEO and Content Marketing',
+    'Responsible Prompting: Maximize AI in Your Business',
+    'Azure Fundamentals',
+    'Harvard Business Publishing - Business for All',
+  ]);
+
   const categories = [
     "All",
     "Featured",
@@ -51,8 +60,8 @@ const Courses = () => {
       titlePl: "Algorytmy i struktury danych",
       titleEn: "Algorithms and Data Structures",
       category: "IT",
-      descriptionPl: "Podstawy algorytmiki i struktur danych.",
-      descriptionEn: "Basics of algorithms and data structures.",
+      descriptionPl: "Algorytmy i struktury danych — kluczowe koncepcje oraz praktyczne zastosowania.",
+      descriptionEn: "Algorithms and data structures — core concepts and practical applications.",
       certificate: "/lovable-uploads/Algorytmy i struktury danych-page-00001.jpg",
       duration: "30h",
       provider: "Akademia",
@@ -106,8 +115,8 @@ const Courses = () => {
       titlePl: "Copilot",
       titleEn: "Copilot",
       category: "IT",
-      descriptionPl: "Wprowadzenie do narzędzi AI Microsoft Copilot.",
-      descriptionEn: "Intro to Microsoft Copilot AI tools.",
+      descriptionPl: "Przegląd możliwości i zastosowań Microsoft Copilot w pracy inżynierskiej.",
+      descriptionEn: "Overview of Microsoft Copilot capabilities and engineering use cases.",
       certificate: "/lovable-uploads/Copilot-page-00001.jpg",
       duration: "5h",
       provider: "Microsoft",
@@ -172,8 +181,8 @@ const Courses = () => {
       titlePl: "Wprowadzenie do Data Science",
       titleEn: "Introduction to Data Science",
       category: "IT",
-      descriptionPl: "Podstawy analizy danych.",
-      descriptionEn: "Basics of data analysis.",
+      descriptionPl: "Fundamenty Data Science: analiza danych, wnioskowanie i interpretacja wyników.",
+      descriptionEn: "Data Science fundamentals: analysis, reasoning and results interpretation.",
       certificate: "/lovable-uploads/Introduction to Data Science-page-00001.jpg",
       duration: "12h",
       provider: "Data Academy",
@@ -238,8 +247,8 @@ const Courses = () => {
       titlePl: "Nauka konfiguracji sprzętu i zarządzania sieciami komputerowymi",
       titleEn: "Hardware Configuration and Network Management",
       category: "IT",
-      descriptionPl: "Podstawy sieci i sprzętu komputerowego.",
-      descriptionEn: "Basics of networks and computer hardware.",
+      descriptionPl: "Architektura sieci komputerowych oraz konfiguracja sprzętu i infrastruktury.",
+      descriptionEn: "Network architecture and hardware/infrastructure configuration.",
       certificate: "/lovable-uploads/Nauka konguracji sprzętu i zarządzania sieciami komputerowymi-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
@@ -260,8 +269,8 @@ const Courses = () => {
       titlePl: "Podstawy ChatGPT",
       titleEn: "ChatGPT Basics",
       category: "IT",
-      descriptionPl: "Jak używać ChatGPT w praktyce.",
-      descriptionEn: "How to use ChatGPT in practice.",
+      descriptionPl: "Praktyczne zastosowania ChatGPT: prompt engineering, automatyzacje i wsparcie pracy.",
+      descriptionEn: "Practical use of ChatGPT: prompt engineering, automations and productivity.",
       certificate: "/lovable-uploads/Podstawy ChatGPT-page-00001.jpg",
       duration: "4h",
       provider: "OpenAI",
@@ -282,8 +291,8 @@ const Courses = () => {
       titlePl: "Podstawy Pythona",
       titleEn: "Python Basics",
       category: "IT",
-      descriptionPl: "Programowanie w Pythonie od podstaw.",
-      descriptionEn: "Python programming from scratch.",
+      descriptionPl: "Fundamenty programowania w Pythonie: składnia, struktury danych i dobre praktyki.",
+      descriptionEn: "Python fundamentals: syntax, data structures and best practices.",
       certificate: "/lovable-uploads/Podstawy Pythona-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
@@ -392,8 +401,8 @@ const Courses = () => {
       titlePl: "Wprowadzenie do sieci komputerowych",
       titleEn: "Introduction to Computer Networks",
       category: "IT",
-      descriptionPl: "Podstawy działania sieci komputerowych.",
-      descriptionEn: "Basics of computer networks.",
+      descriptionPl: "Architektura i protokoły sieci komputerowych: model warstwowy, routing i podstawy bezpieczeństwa.",
+      descriptionEn: "Architecture and protocols of computer networks: layered model, routing, and security fundamentals.",
       certificate: "/lovable-uploads/Wprowadzenie do sieci komputerowych-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
@@ -415,8 +424,8 @@ const Courses = () => {
       titlePl: "Podstawy Microsoft Azure",
       titleEn: "Azure Fundamentals",
       category: "IT",
-      descriptionPl: "Wprowadzenie do chmury Azure.",
-      descriptionEn: "Intro to Azure cloud.",
+      descriptionPl: "Fundamenty platformy Azure: usługi chmurowe, bezpieczeństwo, zarządzanie i koszty.",
+      descriptionEn: "Azure fundamentals: cloud services, security, management and costs.",
       certificate: "/lovable-uploads/Azure Fundamentals_page-0001.jpg",
       duration: "8h",
       provider: "Microsoft",
@@ -437,8 +446,8 @@ const Courses = () => {
       titlePl: "Wprowadzenie do cyberbezpieczeństwa",
       titleEn: "Introduction to Cybersecurity",
       category: "IT",
-      descriptionPl: "Podstawy bezpieczeństwa w sieci.",
-      descriptionEn: "Basics of online security.",
+      descriptionPl: "Fundamenty cyberbezpieczeństwa: zagrożenia, kontrola dostępu, praktyki ochrony i higiena bezpieczeństwa.",
+      descriptionEn: "Cybersecurity fundamentals: threats, access control, protection practices and security hygiene.",
       certificate: "/lovable-uploads/Introduction to Cybersecurity_page-0001.jpg",
       duration: "8h",
       provider: "Cyber Academy",
@@ -448,8 +457,8 @@ const Courses = () => {
       titlePl: "Podstawy sieci komputerowych",
       titleEn: "Networking Fundamentals",
       category: "IT",
-      descriptionPl: "Jak działają sieci komputerowe.",
-      descriptionEn: "How computer networks work.",
+      descriptionPl: "Fundamenty sieci komputerowych: adresacja, protokoły i diagnozowanie problemów.",
+      descriptionEn: "Networking fundamentals: addressing, protocols and troubleshooting.",
       certificate: "/lovable-uploads/Networking Fundamentals_page-0001.jpg",
       duration: "8h",
       provider: "IT Academy",
@@ -492,7 +501,7 @@ const Courses = () => {
   const getCategoryTranslation = (category: string) => {
     switch (category) {
       case "All": return t('courses.filterAll');
-      case "Featured": return language === 'pl' ? 'Wyróżnione' : 'Featured';
+      case "Featured": return t('courses.filterFeatured');
       case "IT": return t('courses.filterIT');
       case "Business": return t('courses.filterBusiness');
       case "Personal Development": return t('courses.filterPersonal');
@@ -502,8 +511,21 @@ const Courses = () => {
     }
   };
 
+  const getCourseTitle = (course: (typeof courses)[number]) => {
+    if (lang === 'pl') {
+      // For IT courses keep English titles (industry standard), for others use Polish.
+      if (course.category === 'IT' || keepEnglishTitleInPl.has(course.titleEn)) return course.titleEn;
+      return course.titlePl;
+    }
+    return course.titleEn;
+  };
+
+  const getCourseDescription = (course: (typeof courses)[number]) => {
+    // Descriptions should follow UI language (PL fully Polish, EN fully English)
+    return lang === 'pl' ? course.descriptionPl : course.descriptionEn;
+  };
+
   // Tłumaczenia etykiet na podstawie języka z kontekstu
-  const lang = language || 'en';
   const labelDuration = lang === 'pl' ? 'Czas Trwania' : 'Duration';
   const labelProvider = lang === 'pl' ? 'Organizator' : 'Provider';
   const labelCompleted = lang === 'pl' ? 'Ukończony' : 'Completed';
@@ -555,10 +577,10 @@ const Courses = () => {
                       {course.featured && <Award className="h-5 w-5 text-accent" />}
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {lang === 'pl' ? course.titlePl : course.titleEn}
+                      {getCourseTitle(course)}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
-                      {lang === 'pl' ? course.descriptionPl : course.descriptionEn}
+                      {getCourseDescription(course)}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -581,9 +603,9 @@ const Courses = () => {
               </DialogTrigger>
               <DialogContent className="max-w-2xl">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl mb-2">{lang === 'pl' ? course.titlePl : course.titleEn}</DialogTitle>
+                  <DialogTitle className="text-2xl mb-2">{getCourseTitle(course)}</DialogTitle>
                   <DialogDescription className="text-base">
-                    {lang === 'pl' ? course.descriptionPl : course.descriptionEn}
+                    {getCourseDescription(course)}
                   </DialogDescription>
                 </DialogHeader>
                 <div className="mt-6">

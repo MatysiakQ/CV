@@ -211,7 +211,7 @@
               <a ref={mobileRef} role="menuitem" href="/assets/cv/cv-mobile.pdf" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} aria-label="Mobile Developer CV">
                 <span className="flex items-center gap-3">
                   <Smartphone className="h-5 w-5" />
-                  Mobile Developer CV
+                  {t('home.hero.downloadCV.mobile')}
                 </span>
               </a>
             </Button>
@@ -220,7 +220,7 @@
               <a ref={desktopRef} role="menuitem" href="/assets/cv/cv-desktop.pdf" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} aria-label="Desktop Developer CV">
                 <span className="flex items-center gap-3">
                   <Monitor className="h-5 w-5" />
-                  Desktop Developer CV
+                  {t('home.hero.downloadCV.desktop')}
                 </span>
               </a>
             </Button>

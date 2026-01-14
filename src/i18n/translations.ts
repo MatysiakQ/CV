@@ -11,6 +11,8 @@ const translations = {
     'home.hero.viewProjects': 'View My Projects',
     'home.hero.contactMe': 'Contact Me',
     'home.hero.downloadCV': 'Download CV',
+    'home.hero.downloadCV.mobile': 'Download CV (Mobile Developer)',
+    'home.hero.downloadCV.desktop': 'Download CV (Desktop Developer)',
     'home.about.title': 'About Me',
     'home.about.description': 'Passionate developer skilled in modern frontend and mobile technologies. I deliver accessible, responsive interfaces, integrate APIs, and follow CI/CD, testing and performance best practices.',
     'home.about.cyberskiller.title': 'CyberSkiller Challenge (6th place in Poland) — national olympiad finalist',
@@ -52,6 +54,7 @@ const translations = {
     'courses.filterByCategory': 'Filter by category',
     'courses.noCoursesFound': 'No courses found in the selected category.',
     'courses.filterAll': 'All',
+    'courses.filterFeatured': 'Featured',
     'courses.filterIT': 'IT',
     'courses.filterBusiness': 'Business',
     'courses.filterPersonal': 'Personal Development',
@@ -74,6 +77,15 @@ const translations = {
 
     // Common
     'common.viewCertificate': 'View Certificate',
+
+    // Contact (validation + status)
+    'contact.validation.subject': 'Subject must be at least 3 characters.',
+    'contact.validation.email': 'Please enter a valid email address.',
+    'contact.validation.message': 'Message must be at least 10 characters.',
+    'contact.validation.fixErrors': 'Please fix the highlighted fields.',
+    'contact.sending': 'Sending...',
+    'contact.success': 'Message sent successfully. I will get back to you soon.',
+    'contact.error': 'Failed to send message. Please try again.',
     'skills.frontend.title': 'Frontend Ecosystem',
     'skills.frontend.subtitle': 'Building responsive and interactive user interfaces',
     'skills.frontend.react': 'React & React Native for cross-platform development',
@@ -109,13 +121,15 @@ const translations = {
     'nav.courses': 'Kursy',
 
     // Home Page
-    'home.hero.title': 'Developer Aplikacji Mobilnych i Webowych',
+    'home.hero.title': 'Mobile & Web Developer',
     'home.hero.description': 'Tworzę wydajne aplikacje mobilne i webowe w React Native, React i TypeScript. Skupiam się na responsywnym UI, wsparciu offline i dostarczaniu gotowych do produkcji buildów.',
     'home.hero.viewProjects': 'Zobacz moje projekty',
     'home.hero.contactMe': 'Skontaktuj się ze mną',
     'home.hero.downloadCV': 'Pobierz CV',
+    'home.hero.downloadCV.mobile': 'Pobierz CV (Mobile Developer)',
+    'home.hero.downloadCV.desktop': 'Pobierz CV (Desktop Developer)',
     'home.about.title': 'O mnie',
-    'home.about.description': 'Pasjonat programowania z doświadczeniem w nowoczesnych technologiach frontendowych i mobilnych. Tworzę dostępne, responsywne interfejsy, integruję API oraz stosuję praktyki CI/CD, testowania i optymalizacji wydajności.',
+    'home.about.description': 'Tworzę nowoczesne aplikacje mobilne i webowe w oparciu o sprawdzone praktyki inżynierskie. Stosuję praktyki CI/CD, dbam o testy oraz optymalizację wydajności (performance). Projektuję dostępne, responsywne interfejsy, integruję API i dowożę rozwiązania gotowe do produkcji.',
 
     'home.about.cyberskiller.title': 'Finalista ogólnopolskiej olimpiady CyberSkiller Challenge (6. miejsce w Polsce)',
     'home.about.cyberskiller.subtitle': 'Sukces w obszarze cyberbezpieczeństwa i administracji systemami.',
@@ -126,8 +140,8 @@ const translations = {
     'home.contact.toast.receivedDescription': 'Dziękuję za wiadomość! Aby włączyć wysyłkę maili, podepnij projekt do Supabase.',
     'home.contact.toast.errorTitle': 'Błąd',
     'home.contact.toast.errorDescription': 'Nie udało się wysłać wiadomości. Spróbuj ponownie.',
-    'home.contact.name': 'Imię',
-    'home.contact.namePlaceholder': 'Twoje imię',
+    'home.contact.name': 'Imię i nazwisko',
+    'home.contact.namePlaceholder': 'Imię i nazwisko',
     'home.contact.email': 'Email',
     'home.contact.emailPlaceholder': 'twoj@email.com',
     'home.contact.phone': 'Telefon',
@@ -143,7 +157,7 @@ const translations = {
 
     // Portfolio Page
     'portfolio.title': 'Moje Portfolio',
-    'portfolio.subtitle': 'Zobacz moje ostatnie projekty i wkład w rozwój',
+    'portfolio.subtitle': 'Wybrane projekty i realizacje',
     'portfolio.loading': 'Ładowanie projektów...',
     'portfolio.error': 'Nie udało się załadować projektów',
     'portfolio.noDescription': 'Sprawdź szczegóły na GitHub',
@@ -157,6 +171,7 @@ const translations = {
     'courses.filterByCategory': 'Filtruj według kategorii',
     'courses.noCoursesFound': 'Nie znaleziono kursów w wybranej kategorii.',
     'courses.filterAll': 'Wszystkie',
+    'courses.filterFeatured': 'Wyróżnione',
     'courses.filterIT': 'Informatyczne',
     'courses.filterBusiness': 'Biznesowe',
     'courses.filterPersonal': 'Rozwój Osobisty',
@@ -164,8 +179,8 @@ const translations = {
     'courses.filterOther': 'Inne',
 
     // Skills Page
-    'skills.title': 'Stos Technologiczny',
-    'skills.subtitle': 'Technologie i narzędzia, z którymi pracuję(Dla rekruterów, aby nie marnować waszego czasu!)',
+    'skills.title': 'Tech Stack',
+    'skills.subtitle': 'Technologie i narzędzia, których używam w codziennej pracy (konkretne informacje dla rekruterów!)',
     'skills.cta.courses': 'Zobacz wszystkie 20+ kursów i certyfikatów',
 
     // Featured Projects
@@ -179,6 +194,15 @@ const translations = {
 
     // Common
     'common.viewCertificate': 'Zobacz certyfikat',
+
+    // Contact (validation + status)
+    'contact.validation.subject': 'Temat musi mieć co najmniej 3 znaki.',
+    'contact.validation.email': 'Podaj poprawny adres email.',
+    'contact.validation.message': 'Wiadomość musi mieć co najmniej 10 znaków.',
+    'contact.validation.fixErrors': 'Popraw zaznaczone pola.',
+    'contact.sending': 'Wysyłanie...',
+    'contact.success': 'Wiadomość wysłana. Odpowiem najszybciej jak to możliwe.',
+    'contact.error': 'Nie udało się wysłać wiadomości. Spróbuj ponownie.',
     'skills.frontend.title': 'Ekosystem Frontend',
     'skills.frontend.subtitle': 'Tworzenie responsywnych i interaktywnych interfejsów użytkownika',
     'skills.frontend.react': 'React & React Native do rozwoju międzyplatformowego',
