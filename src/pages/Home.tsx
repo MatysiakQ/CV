@@ -8,6 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -69,6 +70,19 @@ const Home = () => {
               <span className="gradient-text">{t('home.about.title')}</span>
             </h2>
           </div>
+
+          <div className="mb-8">
+            <div className="p-[1px] rounded-xl bg-gradient-to-r from-purple-500/40 via-fuchsia-500/40 to-indigo-500/40">
+              <div className="rounded-xl bg-[hsl(var(--card))]/70 border border-[hsl(var(--border))] px-6 py-4 text-center">
+                <p className="text-base md:text-lg font-semibold">
+                  Finalista ogólnopolskiej olimpiady CyberSkiller Challenge (6. miejsce w Polsce)
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Sukces w obszarze cyberbezpieczeństwa i administracji systemami.
+                </p>
+              </div>
+            </div>
+          </div>
           
           <Card className="glass-effect card-glow">
             <CardContent className="p-8">
@@ -83,6 +97,8 @@ const Home = () => {
       </section>
 
       <Skills />
+
+      <FeaturedProjects />
 
       <Contact />
     </div>
