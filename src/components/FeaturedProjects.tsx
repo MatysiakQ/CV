@@ -203,7 +203,7 @@ const FeaturedProjects = () => {
           {projects.map((project) => (
             <Card
               key={project.title}
-              className="glass-effect card-glow h-full transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-4 hover:ring-purple-500/20 hover:scale-[1.02] hover:border-purple-400/40"
+              className="glass-effect card-glow h-full flex flex-col transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-4 hover:ring-purple-500/20 hover:scale-[1.02] hover:border-purple-400/40"
             >
               <div className="px-6 pt-6">
                 {renderThumbnail(project.thumbnail)}
@@ -222,7 +222,7 @@ const FeaturedProjects = () => {
                 </div>
               </CardHeader>
 
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 flex-1 flex flex-col">
                 <div className="border-t border-[hsl(var(--border))]" />
 
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -248,7 +248,7 @@ const FeaturedProjects = () => {
                   </div>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-auto pt-6">
                   <Button asChild variant="outline" size="sm" className="w-full">
                     <Link to="/projects" className="inline-flex items-center justify-center gap-2">
                       <ExternalLink className="h-4 w-4" />
