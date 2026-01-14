@@ -7,6 +7,7 @@
 
   const Hero = () => {
     const { t, language } = useLanguage();
+    void language;
 
     const item = {
       hidden: { opacity: 0, y: 8 },
@@ -30,8 +31,7 @@
                 <motion.img
                   src="/lovable-uploads/CVPhoto.jpeg"
                   alt="Profile photo of Adam Jastrzębski"
-                  className="absolute inset-4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover"
-                  style={{ boxShadow: '0 8px 30px rgba(99,102,241,0.12), 0 0 40px rgba(139,92,246,0.12)' }}
+                  className="absolute inset-4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover shadow-[0_8px_30px_rgba(99,102,241,0.12)] shadow-purple-500/10"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
@@ -203,8 +203,7 @@
           id="cv-chooser-menu"
           initial={{ opacity: 0, y: -6 }}
           animate={open ? { opacity: 1, y: 0, transition: { duration: 0.18 } } : { opacity: 0, y: -6, transition: { duration: 0.12 } }}
-          className={`absolute z-20 mt-3 left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 sm:mt-4`}
-          style={{ pointerEvents: open ? 'auto' : 'none' }}
+          className={`absolute z-20 mt-3 left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 sm:mt-4 ${open ? 'pointer-events-auto' : 'pointer-events-none'}`}
           role="menu"
         >
           <div className="bg-background/80 backdrop-blur-md p-3 rounded-md shadow-lg flex flex-col sm:flex-row gap-3">

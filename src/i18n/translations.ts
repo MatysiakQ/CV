@@ -6,15 +6,21 @@ const translations = {
     'nav.courses': 'Courses',
 
     // Home Page
-    'home.hero.title': 'Junior Mobile & Web Developer',
+    'home.hero.title': 'Mobile & Web Developer',
     'home.hero.description': 'I build performant mobile and web applications using React Native, React and TypeScript. I focus on responsive UI, offline support, and shipping production-ready builds.',
     'home.hero.viewProjects': 'View My Projects',
     'home.hero.contactMe': 'Contact Me',
     'home.hero.downloadCV': 'Download CV',
     'home.about.title': 'About Me',
-    'home.about.description': 'Passionate junior developer skilled in modern frontend and mobile technologies. I deliver accessible, responsive interfaces, integrate APIs, and follow CI/CD, testing and performance best practices.',
+    'home.about.description': 'Passionate developer skilled in modern frontend and mobile technologies. I deliver accessible, responsive interfaces, integrate APIs, and follow CI/CD, testing and performance best practices.',
+    'home.about.cyberskiller.title': 'CyberSkiller Challenge (6th place in Poland) — national olympiad finalist',
+    'home.about.cyberskiller.subtitle': 'Achievement in cybersecurity and systems administration.',
     'home.contact.title': 'Contact Me',
     'home.contact.subtitle': 'Let\'s discuss your next project or collaboration opportunity',
+    'home.contact.toast.receivedTitle': 'Message Received',
+    'home.contact.toast.receivedDescription': 'Thank you for your message! To enable email sending, please connect this project to Supabase.',
+    'home.contact.toast.errorTitle': 'Error',
+    'home.contact.toast.errorDescription': 'Failed to send message. Please try again.',
     'home.contact.name': 'Name',
     'home.contact.namePlaceholder': 'Your name',
     'home.contact.email': 'Email',
@@ -55,6 +61,19 @@ const translations = {
     // Skills Page
     'skills.title': 'Tech Stack',
     'skills.subtitle': 'Technologies and tools I work with(For recruiters, to not waste their time!)',
+    'skills.cta.courses': 'Explore All 20+ Courses & Certifications',
+
+    // Featured Projects
+    'featuredProjects.title': 'Featured Projects',
+    'featuredProjects.subtitle': '3 projects demonstrating impact across mobile, SaaS and real-time engineering.',
+    'featuredProjects.viewProject': 'View Project',
+    'featuredProjects.thumb.mobile': 'Mobile mockup',
+    'featuredProjects.thumb.aiAnalytics': 'AI analytics',
+    'featuredProjects.thumb.cameraFeed': 'camera feed',
+    'featuredProjects.thumb.trackingPoints': 'tracking points',
+
+    // Common
+    'common.viewCertificate': 'View Certificate',
     'skills.frontend.title': 'Frontend Ecosystem',
     'skills.frontend.subtitle': 'Building responsive and interactive user interfaces',
     'skills.frontend.react': 'React & React Native for cross-platform development',
@@ -90,7 +109,7 @@ const translations = {
     'nav.courses': 'Kursy',
 
     // Home Page
-    'home.hero.title': 'Junior Developer Aplikacji Mobilnych i Webowych',
+    'home.hero.title': 'Developer Aplikacji Mobilnych i Webowych',
     'home.hero.description': 'Tworzę wydajne aplikacje mobilne i webowe w React Native, React i TypeScript. Skupiam się na responsywnym UI, wsparciu offline i dostarczaniu gotowych do produkcji buildów.',
     'home.hero.viewProjects': 'Zobacz moje projekty',
     'home.hero.contactMe': 'Skontaktuj się ze mną',
@@ -98,8 +117,15 @@ const translations = {
     'home.about.title': 'O mnie',
     'home.about.description': 'Pasjonat programowania z doświadczeniem w nowoczesnych technologiach frontendowych i mobilnych. Tworzę dostępne, responsywne interfejsy, integruję API oraz stosuję praktyki CI/CD, testowania i optymalizacji wydajności.',
 
+    'home.about.cyberskiller.title': 'Finalista ogólnopolskiej olimpiady CyberSkiller Challenge (6. miejsce w Polsce)',
+    'home.about.cyberskiller.subtitle': 'Sukces w obszarze cyberbezpieczeństwa i administracji systemami.',
+
     'home.contact.title': 'Kontakt',
     'home.contact.subtitle': 'Porozmawiajmy o Twoim następnym projekcie lub współpracy',
+    'home.contact.toast.receivedTitle': 'Wiadomość odebrana',
+    'home.contact.toast.receivedDescription': 'Dziękuję za wiadomość! Aby włączyć wysyłkę maili, podepnij projekt do Supabase.',
+    'home.contact.toast.errorTitle': 'Błąd',
+    'home.contact.toast.errorDescription': 'Nie udało się wysłać wiadomości. Spróbuj ponownie.',
     'home.contact.name': 'Imię',
     'home.contact.namePlaceholder': 'Twoje imię',
     'home.contact.email': 'Email',
@@ -140,6 +166,19 @@ const translations = {
     // Skills Page
     'skills.title': 'Stos Technologiczny',
     'skills.subtitle': 'Technologie i narzędzia, z którymi pracuję(Dla rekruterów, aby nie marnować waszego czasu!)',
+    'skills.cta.courses': 'Zobacz wszystkie 20+ kursów i certyfikatów',
+
+    // Featured Projects
+    'featuredProjects.title': 'Wybrane projekty',
+    'featuredProjects.subtitle': '3 projekty pokazujące wpływ: mobile, SaaS oraz inżynieria w czasie rzeczywistym.',
+    'featuredProjects.viewProject': 'Zobacz projekt',
+    'featuredProjects.thumb.mobile': 'Mockup mobile',
+    'featuredProjects.thumb.aiAnalytics': 'Analityka AI',
+    'featuredProjects.thumb.cameraFeed': 'podgląd kamery',
+    'featuredProjects.thumb.trackingPoints': 'punkty śledzenia',
+
+    // Common
+    'common.viewCertificate': 'Zobacz certyfikat',
     'skills.frontend.title': 'Ekosystem Frontend',
     'skills.frontend.subtitle': 'Tworzenie responsywnych i interaktywnych interfejsów użytkownika',
     'skills.frontend.react': 'React & React Native do rozwoju międzyplatformowego',

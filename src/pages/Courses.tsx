@@ -17,7 +17,7 @@ const Courses = () => {
     "Business", 
     "Personal Development",
     "Language",
-    "Other"
+    "Other" 
   ];
 
   // Lista tytułów kursów wyróżnionych

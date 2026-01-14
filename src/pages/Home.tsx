@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Download, Mail, Github, Linkedin, Instagram, Send } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Instagram, Send, Trophy } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
@@ -40,8 +40,8 @@ const Home = () => {
     try {
       // For now, we'll just show a message about Supabase integration
       toast({
-        title: "Message Received",
-        description: "Thank you for your message! To enable email sending, please connect this project to Supabase.",
+        title: t('home.contact.toast.receivedTitle'),
+        description: t('home.contact.toast.receivedDescription'),
         variant: "default",
       });
       
@@ -49,8 +49,8 @@ const Home = () => {
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: t('home.contact.toast.errorTitle'),
+        description: t('home.contact.toast.errorDescription'),
         variant: "destructive",
       });
     } finally {
@@ -70,26 +70,31 @@ const Home = () => {
               <span className="gradient-text">{t('home.about.title')}</span>
             </h2>
           </div>
-
-          <div className="mb-8">
-            <div className="p-[1px] rounded-xl bg-gradient-to-r from-purple-500/40 via-fuchsia-500/40 to-indigo-500/40">
-              <div className="rounded-xl bg-[hsl(var(--card))]/70 border border-[hsl(var(--border))] px-6 py-4 text-center">
-                <p className="text-base md:text-lg font-semibold">
-                  Finalista ogólnopolskiej olimpiady CyberSkiller Challenge (6. miejsce w Polsce)
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Sukces w obszarze cyberbezpieczeństwa i administracji systemami.
-                </p>
-              </div>
-            </div>
-          </div>
           
           <Card className="glass-effect card-glow">
             <CardContent className="p-8">
-              <div className="text-center max-w-2xl mx-auto">
+              <div className="max-w-2xl mx-auto">
+                <div className="mb-6 rounded-lg border border-purple-500/20 bg-primary/5 px-4 py-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-md border border-purple-500/20 bg-purple-500/10 text-primary">
+                      <Trophy className="h-5 w-5" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm md:text-base font-semibold leading-snug">
+                        {t('home.about.cyberskiller.title')}
+                      </p>
+                      <p className="mt-1 text-xs md:text-sm text-muted-foreground">
+                        {t('home.about.cyberskiller.subtitle')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center">
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {t('home.about.description')}
                 </p>
+                </div>
               </div>
             </CardContent>
           </Card>

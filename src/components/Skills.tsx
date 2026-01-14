@@ -10,10 +10,6 @@ import {
   Database,
   ExternalLink,
   FileText,
-  GitBranch,
-  Globe,
-  ShieldCheck,
-  Smartphone,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -23,8 +19,9 @@ const Skills: React.FC = () => {
   const { t, language } = useLanguage();
   const isPl = language === "pl";
 
+  const tr = (pl: string, en: string) => (isPl ? pl : en);
+
   const emphasisBadgeClass = "border-primary/30 bg-primary/10 text-primary";
-  const productBadgeClass = "border-accent/30 bg-accent/10 text-accent-foreground";
 
   type CategoryTag = {
     text: string;
@@ -46,41 +43,36 @@ const Skills: React.FC = () => {
     title: string;
     subtitle: string;
     tags: CategoryTag[];
-    ring: boolean;
     items: CategoryItem[];
-    note?: string;
   };
 
   const categories: Category[] = [
     {
       key: "philosophy",
       icon: FileText,
-      title: isPl ? "Development Philosophy" : "Development Philosophy",
-      subtitle: isPl
-        ? "Jakość kodu, modularność i architektura (to moja wizytówka)."
-        : "Code quality, modularity and architecture (my calling card).",
-      tags: [],
-      ring: false,
+      title: tr("Filozofia tworzenia", "Development Philosophy"),
+      subtitle: tr(
+        "Jakość kodu, modularność i architektura (to moja wizytówka).",
+        "Code quality, modularity and architecture (my calling card)."
+      ),
+      tags: [{ text: "Clean Code", className: emphasisBadgeClass }],
       items: [
-        { text: "Clean Code (czytelność, naming, refactoring)", strong: true },
-        { text: "Modularność i separacja odpowiedzialności" },
-        { text: "Architektura: MVVM w Androidzie" },
-        { text: "UI/UX: dopracowane detale i spójność" },
-        { text: "Czytelna dokumentacja i komunikacja" },
+        { text: tr("Clean Code (czytelność, naming, refactoring)", "Clean Code (readability, naming, refactoring)"), strong: true },
+        { text: tr("Modularność i separacja odpowiedzialności", "Modularity and separation of concerns") },
+        { text: tr("Architektura: MVVM w Androidzie", "Architecture: MVVM on Android") },
+        { text: tr("UI/UX: dopracowane detale i spójność", "UI/UX: attention to detail and consistency") },
+        { text: tr("Czytelna dokumentacja i komunikacja", "Clear documentation and communication") },
       ],
     },
     {
       key: "core",
       icon: Code2,
-      title: isPl ? "Core Tech Stack" : "Core Tech Stack",
-      subtitle: isPl
-        ? "Najmocniejszy zestaw do budowy aplikacji web i mobile."
-        : "Primary stack for building web and mobile applications.",
-      tags: [
-        { text: isPl ? "Web" : "Web", className: emphasisBadgeClass },
-        { text: isPl ? "Mobile" : "Mobile", className: emphasisBadgeClass },
-      ],
-      ring: true,
+      title: tr("Główny stack", "Core Tech Stack"),
+      subtitle: tr(
+        "Najmocniejszy zestaw do budowy aplikacji web i mobile.",
+        "Primary stack for building web and mobile applications."
+      ),
+      tags: [{ text: "Mobile & Web", className: emphasisBadgeClass }],
       items: [
         { text: "React", strong: true },
         { text: "Kotlin (Android SDK)", strong: true },
@@ -92,16 +84,16 @@ const Skills: React.FC = () => {
     {
       key: "data",
       icon: Database,
-      title: isPl ? "Data & Backend" : "Data & Backend",
-      subtitle: isPl
-        ? "Relacyjne bazy danych + backend pod skalowalne produkty."
-        : "Relational databases + backend for scalable products.",
+      title: tr("Dane i backend", "Data & Backend"),
+      subtitle: tr(
+        "Relacyjne bazy danych + backend pod skalowalne produkty.",
+        "Relational databases + backend for scalable products."
+      ),
       tags: [{ text: "SQL / PL/SQL", className: emphasisBadgeClass }],
-      ring: true,
       items: [
         { text: "SQL", strong: true },
-        { text: "PL/SQL (procedury, optymalizacja zapytań)", strong: true },
-        { text: "NoSQL (Firebase/Firestore)" },
+        { text: tr("PL/SQL (procedury, optymalizacja zapytań)", "PL/SQL (procedures, query optimization)"), strong: true },
+        { text: tr("NoSQL (Firebase/Firestore)", "NoSQL (Firebase/Firestore)") },
         { text: "Node.js" },
         { text: "JDBC" },
       ],
@@ -109,35 +101,35 @@ const Skills: React.FC = () => {
     {
       key: "cloud",
       icon: Cloud,
-      title: isPl ? "Cloud & DevOps" : "Cloud & DevOps",
-      subtitle: isPl
-        ? "Chmura, wersjonowanie i praktyki wdrożeniowe."
-        : "Cloud, version control and deployment practices.",
-      tags: [{ text: "AZ-900", className: emphasisBadgeClass }],
-      ring: false,
+      title: tr("Chmura i DevOps", "Cloud & DevOps"),
+      subtitle: tr(
+        "Chmura, wersjonowanie i praktyki wdrożeniowe.",
+        "Cloud, version control and deployment practices."
+      ),
+      tags: [{ text: "Azure", className: emphasisBadgeClass }],
       items: [
         {
-          text: "Microsoft Azure (certyfikat AZ-900)",
+          text: tr("Microsoft Azure (certyfikat AZ-900)", "Microsoft Azure (AZ-900 certification)"),
           strong: true,
-          link: { to: "/courses", label: "View Certificate" },
+          link: { to: "/courses", label: t('common.viewCertificate') },
         },
         { text: "Git / GitHub" },
-        { text: "Podstawy CI/CD" },
-        { text: "MTA Windows Server" },
+        { text: tr("Podstawy CI/CD", "CI/CD basics") },
+        { text: tr("MTA Windows Server", "MTA Windows Server") },
       ],
     },
     {
       key: "engineering",
       icon: Cpu,
-      title: isPl ? "Engineering & Math" : "Engineering & Math",
-      subtitle: isPl
-        ? "Fundamenty inżynierskie + rozwiązywanie problemów."
-        : "Engineering fundamentals + problem solving.",
-      tags: [],
-      ring: false,
+      title: tr("Inżynieria i matematyka", "Engineering & Math"),
+      subtitle: tr(
+        "Fundamenty inżynierskie + rozwiązywanie problemów.",
+        "Engineering fundamentals + problem solving."
+      ),
+      tags: [{ text: "Algorithms", className: emphasisBadgeClass }],
       items: [
         { text: "Python (OpenCV / MediaPipe)" },
-        { text: "Algorytmy i struktury danych", strong: true },
+        { text: tr("Algorytmy i struktury danych", "Algorithms and data structures"), strong: true },
         { text: "C++" },
         { text: "LabVIEW" },
         { text: "AutoCAD" },
@@ -146,26 +138,23 @@ const Skills: React.FC = () => {
     {
       key: "business",
       icon: Briefcase,
-      title: isPl ? "Business & Agile" : "Business & Agile",
-      subtitle: isPl
-        ? "Product mindset: rozumiem procesy biznesowe, nie tylko kod."
-        : "Product mindset: I understand business processes, not just code.",
-      tags: [{ text: isPl ? "Product Mindset" : "Product Mindset", className: productBadgeClass }],
-      ring: false,
+      title: tr("Biznes i Agile", "Business & Agile"),
+      subtitle: tr(
+        "Product mindset: rozumiem procesy biznesowe, nie tylko kod.",
+        "Product mindset: I understand business processes, not just code."
+      ),
+      tags: [{ text: "Product Mindset", className: emphasisBadgeClass }],
       items: [
         { text: "Scrum / Agile" },
         {
           text: "Harvard Business Publishing – Business for All",
           strong: true,
-          link: { to: "/courses", label: "View Certificate" },
+          link: { to: "/courses", label: t('common.viewCertificate') },
         },
-        { text: "Zarządzanie projektami" },
-        { text: "Storytelling" },
-        { text: "SEO / Marketing" },
+        { text: tr("Zarządzanie projektami", "Project management") },
+        { text: tr("Storytelling", "Storytelling") },
+        { text: tr("SEO / Marketing", "SEO / Marketing") },
       ],
-      note: isPl
-        ? "W projektach (m.in. NextAi, E-faktura) łączę perspektywę techniczną z produktem: priorytety, wartość biznesowa, komunikacja z interesariuszami."
-        : "In projects (incl. NextAi, E-faktura) I combine engineering with product: priorities, business value, and stakeholder communication.",
     },
   ];
 
@@ -187,9 +176,7 @@ const Skills: React.FC = () => {
             return (
               <Card
                 key={category.key}
-                className={`glass-effect card-glow h-full transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-4 hover:ring-purple-500/20 hover:scale-[1.02] hover:border-purple-400/40 ${
-                  category.ring ? "ring-2 ring-primary/20" : ""
-                }`}
+                className="glass-effect card-glow h-full flex flex-col transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-4 hover:ring-purple-500/20 hover:scale-[1.02] hover:border-purple-400/40"
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-start gap-4">
@@ -197,28 +184,22 @@ const Skills: React.FC = () => {
                       <Icon className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-[hsl(var(--primary))] leading-tight flex items-center gap-2">
+                      <CardTitle className="text-xl font-bold text-[hsl(var(--primary))] leading-tight">
                         {category.title}
-                        {category.key === "core" ? <Globe className="h-4 w-4" /> : null}
-                        {category.key === "core" ? <Smartphone className="h-4 w-4" /> : null}
-                        {category.key === "data" ? <ShieldCheck className="h-4 w-4" /> : null}
-                        {category.key === "cloud" ? <GitBranch className="h-4 w-4" /> : null}
                       </CardTitle>
                       <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{category.subtitle}</p>
-                      {category.tags.length ? (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {category.tags.map((tag) => (
-                            <Badge key={tag.text} variant="outline" className={tag.className}>
-                              {tag.text}
-                            </Badge>
-                          ))}
-                        </div>
-                      ) : null}
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {category.tags.map((tag) => (
+                          <Badge key={tag.text} variant="outline" className={tag.className}>
+                            {tag.text}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </CardHeader>
 
-                <CardContent className="pt-0">
+                <CardContent className="pt-0 flex-1 flex flex-col">
                   <div className="border-t border-[hsl(var(--border))]" />
                   <ul className="mt-4 space-y-3 list-none text-left">
                     {category.items.map((item) => (
@@ -244,12 +225,6 @@ const Skills: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-
-                  {category.key === "business" && "note" in category ? (
-                    <div className="mt-4 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]/60 p-3 text-sm text-[hsl(var(--muted-foreground))]">
-                      {category.note}
-                    </div>
-                  ) : null}
                 </CardContent>
               </Card>
             );
@@ -258,7 +233,7 @@ const Skills: React.FC = () => {
 
         <div className="mt-10 flex justify-center">
           <Button asChild size="lg" className="px-8">
-            <Link to="/courses">Explore All 20+ Courses & Certifications</Link>
+            <Link to="/courses">{t('skills.cta.courses')}</Link>
           </Button>
         </div>
       </div>
