@@ -45,43 +45,42 @@ const FeaturedProjects = () => {
     },
     {
       title: "E-faktura",
-      subtitle: isPl ? "Mobile" : "Mobile",
-      badges: ["Kotlin", "Firebase", "Firestore", "PDF"],
+      subtitle: isPl ? "Web / Fintech" : "Web / Fintech",
+      badges: ["PHP", "HTML", "CSS", "PDF", "Database"],
       thumbnail: "mobile",
       star: {
         situation: isPl
-          ? "Wyzwanie: synchronizacja danych księgowych w czasie rzeczywistym w aplikacji mobilnej."
-          : "Challenge: real-time synchronization of accounting data in a mobile app.",
+          ? "Zarządzanie dokumentacją sprzedażową w małych firmach często opiera się na ręcznym wypełnianiu szablonów, co sprzyja błędom i zajmuje czas. Postanowiłem stworzyć dedykowaną aplikację webową e-faktura, która zautomatyzuje proces wystawiania faktur VAT i proforma."
+          : "Managing sales documentation in small companies often relies on manual template filling, which is error-prone and time-consuming. I decided to create a dedicated web application e-faktura to automate the process of issuing VAT and proforma invoices.",
         task: isPl
-          ? "Zaprojektować stabilny przepływ danych oraz generowanie dokumentów bez obciążania UX."
-          : "Design a stable data flow and PDF generation without degrading UX.",
+          ? "Moim zadaniem było zbudowanie systemu, który pozwoli na bezpieczne przechowywanie danych kontrahentów i produktów, automatyczne obliczanie wartości netto/brutto oraz generowanie gotowych do druku plików PDF zgodnie z polskimi przepisami podatkowymi."
+          : "My task was to build a system that allows secure storage of contractor and product data, automatic calculation of net/gross values, and generation of ready-to-print PDF files compliant with Polish tax regulations.",
         action: isPl
-          ? "Wdrożyłem Firebase Firestore (real-time) oraz natywne generowanie PDF. Dodałem autorską walidację danych wejściowych."
-          : "Implemented Firebase Firestore (real-time) and native PDF generation. Added custom input validation."
-          ,
+          ? "Zaprojektowałem bazę danych do obsługi relacji między klientami a wystawionymi dokumentami. Wykorzystałem PHP do logiki backendowej (obliczenia podatkowe, walidacja danych) oraz HTML/CSS do stworzenia przejrzystego interfejsu użytkownika. Zintegrowałem bibliotekę do generowania PDF (np. FPDF/TCPDF), dbając o poprawne kodowanie polskich znaków i formatowanie zgodne ze standardami księgowymi."
+          : "I designed a database to handle relationships between clients and issued documents. I used PHP for backend logic (tax calculations, data validation) and HTML/CSS to create a clear user interface. I integrated a PDF generation library (e.g., FPDF/TCPDF), ensuring proper encoding of Polish characters and formatting compliant with accounting standards.",
         result: isPl
-          ? "Wynik: redukcja błędów wejściowych o ok. 30% dzięki walidacji i lepszej spójności danych."
-          : "Result: ~30% fewer input errors thanks to validation and improved data consistency.",
+          ? "Powstało funkcjonalne narzędzie e-faktura, które eliminuje błędy rachunkowe i skraca czas wystawiania dokumentu do kilkunastu sekund. System jest skalowalny i gotowy do rozbudowy o moduły statystyk sprzedaży czy eksportu danych do biur rachunkowych."
+          : "A functional e-faktura tool was created that eliminates accounting errors and reduces document issuance time to just a dozen seconds. The system is scalable and ready for expansion with sales statistics modules or data export for accounting offices.",
       },
     },
     {
       title: "Real-time Hand Tracking",
-      subtitle: isPl ? "Engineering" : "Engineering",
-      badges: ["Python", "OpenCV", "MediaPipe", "Real-time"],
+      subtitle: isPl ? "Robotics / Computer Vision" : "Robotics / Computer Vision",
+      badges: ["Python", "OpenCV", "MediaPipe", "Real-time", "Arduino", "LabVIEW"],
       thumbnail: "hand",
       star: {
         situation: isPl
-          ? "Wyzwanie: bezkontaktowe sterowanie systemami w czasie rzeczywistym."
-          : "Challenge: touchless control of systems in real time.",
+          ? "To jest świetny materiał do pokazania umiejętności z zakresu Robotics, Computer Vision oraz System Integration. Sytuacja: Sterowanie fizycznymi manipulatorami (jak robotyczna dłoń) w czasie rzeczywistym jest wyzwaniem ze względu na potrzebę niskich opóźnień oraz precyzyjnego mapowania ruchu ludzkiego na sygnały PWM. Postanowiłem zbudować system, który pozwoli na bezdotykowe sterowanie dłonią robota za pomocą gestów."
+          : "This is great material to showcase skills in Robotics, Computer Vision and System Integration. Situation: Controlling physical manipulators (like a robotic hand) in real-time is challenging due to the need for low latency and precise mapping of human motion to PWM signals. I decided to build a system that allows touchless control of a robot hand using gestures.",
         task: isPl
-          ? "Zaprojektować detekcję dłoni i śledzenie punktów kluczowych z niskim opóźnieniem."
-          : "Design low-latency hand detection and keypoint tracking.",
+          ? "Moim celem było stworzenie zintegrowanego systemu, który: (1) wykryje dłoń i obliczy kąty zgięcia 5 palców za pomocą AI, (2) prześle te dane bezprzewodowo/sieciowo do środowiska sterującego oraz (3) wysteruje fizyczne serwomechanizmy na Arduino z uwzględnieniem filtracji szumów."
+          : "My goal was to create an integrated system that: (1) detects hand and calculates flexion angles of 5 fingers using AI, (2) transmits this data wirelessly/network to control environment, and (3) controls physical servo mechanisms on Arduino with noise filtering.",
         action: isPl
-          ? "Wykorzystałem Pythona, OpenCV i MediaPipe do śledzenia punktów kluczowych dłoni oraz stabilizacji sygnału."
-          : "Used Python, OpenCV and MediaPipe for hand keypoint tracking and signal stabilization.",
+          ? "Wykorzystałem bibliotekę MediaPipe i OpenCV w Pythonie do trackingu 21 punktów dłoni. Zaimplementowałem algorytmy obliczające kąty zgięcia oraz obrót (Yaw) z filtrami EMA/Median dla stabilizacji ruchu. Do komunikacji między Pythonem a LabVIEW wykorzystałem protokół UDP (Port 5010). W LabVIEW stworzyłem logikę parsującą dane i przeliczającą kąty na sygnał Duty Cycle dla Arduino przy użyciu toolkitu LINX."
+          : "I used MediaPipe and OpenCV libraries in Python for tracking 21 hand points. I implemented algorithms calculating flexion angles and rotation (Yaw) with EMA/Median filters for motion stabilization. For communication between Python and LabVIEW, I used UDP protocol (Port 5010). In LabVIEW, I created logic parsing data and converting angles to Duty Cycle signal for Arduino using LINX toolkit.",
         result: isPl
-          ? "Wynik: płynne śledzenie dłoni w czasie rzeczywistym, gotowe do integracji z interfejsami sterowania."
-          : "Result: smooth real-time tracking, ready for integration with control interfaces.",
+          ? "Powstał w pełni funkcjonalny Smart Robotic Hand Controller, który umożliwia płynne sterowanie dłonią robota w czasie rzeczywistym. System automatycznie rozpoznaje gesty, filtruje drgania dłoni użytkownika i zapewnia bezpieczne zakresy pracy serwomechanizmów, co pozwala na bezpieczną i intuicyjną interakcję człowiek-maszyna."
+          : "A fully functional Smart Robotic Hand Controller was created, enabling smooth control of a robot hand in real-time. The system automatically recognizes gestures, filters user hand tremors, and ensures safe operating ranges for servo mechanisms, allowing for safe and intuitive human-machine interaction.",
       },
     },
   ];
