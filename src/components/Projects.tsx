@@ -5,6 +5,22 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "NextAI",
+      description: "NextAI — platforma SaaS oferująca gotowe rozwiązania AI i automatyzacji procesów dla małych i średnich przedsiębiorstw. Zintegrowane systemy płatności, LLM i wielokanałowa komunikacja. Stack: React, TypeScript, GPT-4, Stripe, n8n. Wynik: w pełni funkcjonalna platforma next-ai.pl z realnymi oszczędnościami czasu dla firm.",
+      image: "/images/nextai-preview.png",
+      tags: ["React", "TypeScript", "GPT-4", "Stripe", "n8n", "SaaS"],
+      github: "https://github.com/MatysiakQ",
+      demo: "https://next-ai.pl"
+    },
+    {
+      title: "Portfolio/CV Website",
+      description: "Portfolio/CV Website — profesjonalna przestrzeń w sieci jako centralny hub Personal Brand. Sytuacja: Jako Junior Developer potrzebowałem wizytówki technologicznej. Zadanie: zaprojektować responsywną stronę Bio/Portfolio pokazującą umiejętności. Działanie: samodzielna architektura z przejrzystymi sekcjami Tech Stack, funkcjonalność pobierania CV, formularz kontaktowy. Wynik: platforma adamjastrzebski.bio pozwala rekruterom ocenić dopasowanie w <30 sekund. Stack: React, TypeScript, TailwindCSS, Vite.",
+      image: "/images/Portfolio.png",
+      tags: ["React", "TypeScript", "TailwindCSS", "Vite", "Personal Brand"],
+      github: "https://github.com/MatysiakQ",
+      demo: "https://adamjastrzebski.bio"
+    },
+    {
       title: "E-commerce Platform",
       description: "E-commerce Platform — kompleksowa platforma sprzedażowa z integracją płatności (Stripe), zarządzaniem stanami magazynowymi oraz panelem administracyjnym. Stack: React, Node.js, PostgreSQL, Stripe. Wynik: bezpieczne płatności, modularna architektura gotowa do skalowania i CI/CD.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
@@ -25,6 +41,14 @@ const Projects = () => {
       description: "Weather Dashboard — interaktywny panel pogodowy z mapami, prognozami i alertami. Stack: Vue.js, D3.js, REST API, PWA. Wynik: szybkie wizualizacje danych, obsługa offline dzięki PWA i responsywne UI dla urządzeń mobilnych.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
       tags: ["Vue.js", "D3.js", "REST API", "PWA", "Responsive Design"],
+      github: "#",
+      demo: "#"
+    },
+    {
+      title: "PRINTWALL",
+      description: "PRINTWALL — projekt systemu do zarządzania i druku cyfrowego z interfejsem webowym. Stack: React, TypeScript, Node.js, Web. Wynik: funkcjonalny system do zarządzania drukiem cyfrowym z interfejsem webowym.",
+      image: "/images/PrintwallOverview.png",
+      tags: ["React", "TypeScript", "Node.js", "Web"],
       github: "#",
       demo: "#"
     },

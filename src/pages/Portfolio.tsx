@@ -36,6 +36,28 @@ const projectDescriptions: Record<string, { pl: string; en: string }> = {
   },
 };
 
+// Function to get project image
+const getProjectImage = (projectName: string) => {
+  const normalizedName = projectName.toLowerCase().replace(/[^a-z0-9]/gi, '');
+  
+  // Special cases for known projects
+  if (normalizedName.includes('next') || normalizedName.includes('ai')) {
+    return '/images/nextai-preview.png';
+  }
+  
+  if (normalizedName.includes('portfolio') || normalizedName.includes('cv')) {
+    return '/images/Portfolio.png';
+  }
+  
+  // You can add more mappings here as needed
+  const imageMap: Record<string, string> = {
+    'efaktura': '/images/Portfolio.png',
+    'printwall': '/images/PrintwallOverview.png',
+  };
+  
+  return imageMap[normalizedName] || null;
+};
+
 const Portfolio = () => {
   const { t, language } = useLanguage();
   
@@ -95,8 +117,23 @@ const Portfolio = () => {
             <Card key={project.id} className="glass-effect card-glow group hover:scale-[1.03] hover:shadow-xl transition-all duration-300 overflow-hidden">
               <CardHeader>
                 {/* Miniatura projektu */}
-                <div className="mb-4 w-full h-32 flex items-center justify-center rounded-lg bg-muted text-muted-foreground text-sm font-medium">
-                  {t('portfolio.imagePlaceholder')}
+                <div className="mb-4 w-full h-32 flex items-center justify-center rounded-lg overflow-hidden bg-muted relative">
+                  {getProjectImage(project.name) ? (
+                    <img 
+                      src={getProjectImage(project.name)!} 
+                      alt={`${project.name} preview`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full flex items-center justify-center text-muted-foreground text-sm font-medium">${t('portfolio.imagePlaceholder')}</div>`;
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm font-medium">
+                      {t('portfolio.imagePlaceholder')}
+                    </div>
+                  )}
                 </div>
                 <CardTitle className="text-xl mb-2 flex items-center justify-between">
                   {project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -143,9 +180,9 @@ const Portfolio = () => {
                       {t('portfolio.viewCode')}
                     </a>
                   </Button>
-                  {(project.topics ?? []).includes('website') || (project.topics ?? []).includes('demo') ? (
+                  {(project.topics ?? []).includes('website') || (project.topics ?? []).includes('demo') || project.name.toLowerCase().includes('next') ? (
                     <Button variant="gradient" size="sm" asChild>
-                      <a href={`https://${project.name}.vercel.app`} target="_blank" rel="noopener noreferrer">
+                      <a href={project.name.toLowerCase().includes('next') ? "https://next-ai.pl" : `https://${project.name}.vercel.app`} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         {t('portfolio.viewDemo')}
                       </a>

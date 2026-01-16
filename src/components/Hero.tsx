@@ -29,7 +29,7 @@
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-spin [animation-duration:8s]"></div>
                 <div className="absolute inset-2 bg-background rounded-full"></div>
                 <motion.img
-                  src="/lovable-uploads/CVPhoto.jpeg"
+                  src="/images/CVPhoto.jpeg"
                   alt="Profile photo of Adam Jastrzębski"
                   className="absolute inset-4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover shadow-[0_8px_30px_rgba(99,102,241,0.12)] shadow-purple-500/10"
                   initial={{ opacity: 0, scale: 0.98 }}
@@ -59,6 +59,22 @@
                 size="lg" 
                 className="text-lg px-8 py-6"
                 onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/images/Adam Jastrzębski CV English.pdf';
+                  link.download = 'Adam-Jastrzebski-CV.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                <Download className="h-5 w-5 mr-2" />
+                {t('home.hero.downloadCV')}
+              </Button>
+              <Button 
+                variant="glass" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => {
                   const el = document.getElementById('projects');
                   if (el) {
                     el.scrollIntoView({ behavior: 'smooth' });
@@ -66,19 +82,6 @@
                 }}
               >
                 {t('home.hero.viewProjects')}
-              </Button>
-              <Button 
-                variant="glass" 
-                size="lg" 
-                className="text-lg px-8 py-6"
-                onClick={() => {
-                  const el = document.getElementById('contact');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                {t('home.hero.contactMe')}
               </Button>
 
               {/* Collapsible CV chooser: single button that expands into two links */}

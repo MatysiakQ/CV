@@ -24,6 +24,26 @@ const FeaturedProjects = () => {
 
   const projects: Project[] = [
     {
+      title: "NextAI",
+      subtitle: isPl ? "SaaS / Web" : "SaaS / Web",
+      badges: ["React", "TypeScript", "GPT-4", "Stripe", "n8n"],
+      thumbnail: "web",
+      star: {
+        situation: isPl
+          ? "Wraz ze współzałożycielem zidentyfikowaliśmy lukę na rynku małych i średnich przedsiębiorstw, które chcą korzystać z dobrodziejstw AI, ale nie mają zasobów na budowę własnych narzędzi."
+          : "With a co-founder, we identified a gap in the SME market where companies want to benefit from AI but lack resources to build their own tools.",
+        task: isPl
+          ? "Zaprojektowanie i zbudowanie od zera kompleksowej platformy webowej, która nie tylko prezentuje ofertę, ale w przyszłości pozwoli na zarządzanie subskrypcjami i integrację z zewnętrznymi systemami."
+          : "Design and build from scratch a comprehensive web platform that not only presents the offering but will future allow subscription management and integration with external systems.",
+        action: isPl
+          ? "Samodzielnie zaprogramowałem całą architekturę front-endową i back-endową strony. Zaimplementowałem system pakietów, zintegrowałem zaawansowane modele LLM oraz przygotowałem infrastrukturę pod wielokanałową komunikację."
+          : "I independently programmed the entire front-end and back-end architecture. Implemented package system, integrated advanced LLM models and prepared infrastructure for multi-channel communication.",
+        result: isPl
+          ? "Powstała w pełni funkcjonalna platforma next-ai.pl, która oferuje realne oszczędności czasu dla firm poprzez automatyzację powtarzalnych zadań z gotową strukturą pod skalowanie usług RPA i agentów głosowych."
+          : "A fully functional platform next-ai.pl was created, offering real time savings for companies through automation of repetitive tasks with ready structure for scaling RPA services and voice agents.",
+      },
+    },
+    {
       title: "E-faktura",
       subtitle: isPl ? "Mobile" : "Mobile",
       badges: ["Kotlin", "Firebase", "Firestore", "PDF"],
@@ -42,26 +62,6 @@ const FeaturedProjects = () => {
         result: isPl
           ? "Wynik: redukcja błędów wejściowych o ok. 30% dzięki walidacji i lepszej spójności danych."
           : "Result: ~30% fewer input errors thanks to validation and improved data consistency.",
-      },
-    },
-    {
-      title: "NextAi",
-      subtitle: isPl ? "SaaS / Web" : "SaaS / Web",
-      badges: ["React", "TypeScript", "GPT-4", "Stripe", "n8n"],
-      thumbnail: "web",
-      star: {
-        situation: isPl
-          ? "Wyzwanie: automatyzacja procesów B2B za pomocą AI w modelu subskrypcyjnym."
-          : "Challenge: automate B2B processes using AI in a subscription model.",
-        task: isPl
-          ? "Dostarczyć platformę SaaS z płatnościami i inteligentnymi asystentami."
-          : "Deliver a SaaS platform with payments and intelligent assistants.",
-        action: isPl
-          ? "Zintegrowałem GPT-4, system płatności Stripe oraz automatyzacje n8n pod procesy operacyjne."
-          : "Integrated GPT-4, Stripe payments and n8n automations for operational workflows.",
-        result: isPl
-          ? "Wynik: w pełni funkcjonalna platforma subskrypcyjna z inteligentnymi asystentami."
-          : "Result: fully functional subscription platform with intelligent assistants.",
       },
     },
     {
@@ -119,6 +119,19 @@ const FeaturedProjects = () => {
     }
 
     if (kind === "web") {
+      // Special case for NextAI project - use actual image
+      if (projects.find(p => p.title === "NextAI")) {
+        return (
+          <div className="relative w-full h-44 overflow-hidden rounded-lg border border-[hsl(var(--border))]">
+            <img 
+              src="/images/nextai-preview.png" 
+              alt="NextAI Platform Preview"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+      }
+      
       return (
         <div className="relative w-full h-44 overflow-hidden rounded-lg border border-[hsl(var(--border))]">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/40 via-background to-background" />

@@ -62,7 +62,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Algorytmy i struktury danych — kluczowe koncepcje oraz praktyczne zastosowania.",
       descriptionEn: "Algorithms and data structures — core concepts and practical applications.",
-      certificate: "/lovable-uploads/Algorytmy i struktury danych-page-00001.jpg",
+      certificate: "/images/Algorytmy i struktury danych-page-00001.jpg",
       duration: "30h",
       provider: "Akademia",
       completedDate: "2024"
@@ -73,7 +73,7 @@ const Courses = () => {
       category: "Language",
       descriptionPl: "Angielski w biznesie, poziom podstawowy.",
       descriptionEn: "Business English, beginner level.",
-      certificate: "/lovable-uploads/Business English 1-page-00001.jpg",
+      certificate: "/images/Business English 1-page-00001.jpg",
       duration: "20h",
       provider: "Language School",
       completedDate: "2024"
@@ -84,7 +84,7 @@ const Courses = () => {
       category: "Language",
       descriptionPl: "Angielski w biznesie, poziom średni.",
       descriptionEn: "Business English, intermediate level.",
-      certificate: "/lovable-uploads/Business English 2-page-00001.jpg",
+      certificate: "/images/Business English 2-page-00001.jpg",
       duration: "20h",
       provider: "Language School",
       completedDate: "2024"
@@ -95,7 +95,7 @@ const Courses = () => {
       category: "Language",
       descriptionPl: "Angielski w biznesie, poziom zaawansowany.",
       descriptionEn: "Business English, advanced level.",
-      certificate: "/lovable-uploads/Business English 3-page-00001.jpg",
+      certificate: "/images/Business English 3-page-00001.jpg",
       duration: "20h",
       provider: "Language School",
       completedDate: "2024"
@@ -106,7 +106,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Jak klienci podejmują decyzje zakupowe.",
       descriptionEn: "How customers make buying decisions.",
-      certificate: "/lovable-uploads/Consumer Behavior Essentials-page-00001.jpg",
+      certificate: "/images/Consumer Behavior Essentials-page-00001.jpg",
       duration: "10h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -117,7 +117,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Przegląd możliwości i zastosowań Microsoft Copilot w pracy inżynierskiej.",
       descriptionEn: "Overview of Microsoft Copilot capabilities and engineering use cases.",
-      certificate: "/lovable-uploads/Copilot-page-00001.jpg",
+      certificate: "/images/Copilot-page-00001.jpg",
       duration: "5h",
       provider: "Microsoft",
       completedDate: "2024"
@@ -128,7 +128,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Nowoczesne technologie w firmach.",
       descriptionEn: "Modern technologies in business.",
-      certificate: "/lovable-uploads/Digital Transformation-page-00001.jpg",
+      certificate: "/images/Digital Transformation-page-00001.jpg",
       duration: "8h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -139,7 +139,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Pisanie skutecznych wiadomości biznesowych.",
       descriptionEn: "Writing effective business messages.",
-      certificate: "/lovable-uploads/Efektywna komunikacja pisemna w biznesie-page-00001.jpg",
+      certificate: "/images/Efektywna komunikacja pisemna w biznesie-page-00001.jpg",
       duration: "6h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -150,7 +150,7 @@ const Courses = () => {
       category: "Personal Development",
       descriptionPl: "Jak lepiej rozmawiać i słuchać.",
       descriptionEn: "How to speak and listen better.",
-      certificate: "/lovable-uploads/Efektywna komunikacja-page-00001.jpg",
+      certificate: "/images/Efektywna komunikacja-page-00001.jpg",
       duration: "6h",
       provider: "Personal Academy",
       completedDate: "2024"
@@ -161,7 +161,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Praktyczne umiejętności pracy w Excelu.",
       descriptionEn: "Practical Excel skills.",
-      certificate: "/lovable-uploads/Excel - Od Podstaw do zaawansowanego użytkownika-page-00001.jpg",
+      certificate: "/images/Excel - Od Podstaw do zaawansowanego użytkownika-page-00001.jpg",
       duration: "15h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -172,7 +172,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "AI Google w codziennej pracy.",
       descriptionEn: "Google AI for everyday work.",
-      certificate: "/lovable-uploads/Google Artificial intelligence and productivity-page-00001.jpg",
+      certificate: "/images/Google Artificial intelligence and productivity-page-00001.jpg",
       duration: "4h",
       provider: "Google",
       completedDate: "2024"
@@ -183,7 +183,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Fundamenty Data Science: analiza danych, wnioskowanie i interpretacja wyników.",
       descriptionEn: "Data Science fundamentals: analysis, reasoning and results interpretation.",
-      certificate: "/lovable-uploads/Introduction to Data Science-page-00001.jpg",
+      certificate: "/images/Introduction to Data Science-page-00001.jpg",
       duration: "12h",
       provider: "Data Academy",
       completedDate: "2024"
@@ -194,7 +194,7 @@ const Courses = () => {
       category: "Personal Development",
       descriptionPl: "Jak analizować i rozwiązywać trudne sytuacje.",
       descriptionEn: "How to analyze and solve tough situations.",
-      certificate: "/lovable-uploads/Krytyczne myślenie i rozwiązywanie problemów-page-00001.jpg",
+      certificate: "/images/Krytyczne myślenie i rozwiązywanie problemów-page-00001.jpg",
       duration: "8h",
       provider: "Personal Academy",
       completedDate: "2024"
@@ -205,7 +205,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Zarządzanie zespołem w nowoczesnej firmie.",
       descriptionEn: "Managing teams in modern companies.",
-      certificate: "/lovable-uploads/Leading in a Digital World-page-00001.jpg",
+      certificate: "/images/Leading in a Digital World-page-00001.jpg",
       duration: "10h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -216,7 +216,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Narzędzia do automatyzacji działań marketingowych.",
       descriptionEn: "Tools for automating marketing tasks.",
-      certificate: "/lovable-uploads/Marketing Automation-page-00001.jpg",
+      certificate: "/images/Marketing Automation-page-00001.jpg",
       duration: "7h",
       provider: "Marketing Academy",
       completedDate: "2024"
@@ -227,7 +227,7 @@ const Courses = () => {
       category: "Personal Development",
       descriptionPl: "Techniki relaksacji i zarządzania stresem.",
       descriptionEn: "Relaxation and stress management techniques.",
-      certificate: "/lovable-uploads/Mindfulness & Worklife balance-page-00001.jpg",
+      certificate: "/images/Mindfulness & Worklife balance-page-00001.jpg",
       duration: "6h",
       provider: "Personal Academy",
       completedDate: "2024"
@@ -238,7 +238,7 @@ const Courses = () => {
       category: "Personal Development",
       descriptionPl: "Planowanie i podejmowanie decyzji.",
       descriptionEn: "Planning and decision making.",
-      certificate: "/lovable-uploads/Myślenie strategiczne i nastawienie strategiczne-page-00001.jpg",
+      certificate: "/images/Myślenie strategiczne i nastawienie strategiczne-page-00001.jpg",
       duration: "8h",
       provider: "Personal Academy",
       completedDate: "2024"
@@ -249,7 +249,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Architektura sieci komputerowych oraz konfiguracja sprzętu i infrastruktury.",
       descriptionEn: "Network architecture and hardware/infrastructure configuration.",
-      certificate: "/lovable-uploads/Nauka konguracji sprzętu i zarządzania sieciami komputerowymi-page-00001.jpg",
+      certificate: "/images/Nauka konguracji sprzętu i zarządzania sieciami komputerowymi-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -260,7 +260,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Techniki skutecznych negocjacji.",
       descriptionEn: "Effective negotiation techniques.",
-      certificate: "/lovable-uploads/Negocjacje-page-00001.jpg",
+      certificate: "/images/Negocjacje-page-00001.jpg",
       duration: "6h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -271,7 +271,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Praktyczne zastosowania ChatGPT: prompt engineering, automatyzacje i wsparcie pracy.",
       descriptionEn: "Practical use of ChatGPT: prompt engineering, automations and productivity.",
-      certificate: "/lovable-uploads/Podstawy ChatGPT-page-00001.jpg",
+      certificate: "/images/Podstawy ChatGPT-page-00001.jpg",
       duration: "4h",
       provider: "OpenAI",
       completedDate: "2024"
@@ -282,7 +282,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Tworzenie interaktywnych stron WWW.",
       descriptionEn: "Building interactive web pages.",
-      certificate: "/lovable-uploads/Podstawy języka Javascript - języka przeglądarek internetowych-page-00001.jpg",
+      certificate: "/images/Podstawy języka Javascript - języka przeglądarek internetowych-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -293,7 +293,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Fundamenty programowania w Pythonie: składnia, struktury danych i dobre praktyki.",
       descriptionEn: "Python fundamentals: syntax, data structures and best practices.",
-      certificate: "/lovable-uploads/Podstawy Pythona-page-00001.jpg",
+      certificate: "/images/Podstawy Pythona-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -304,7 +304,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Zasady pracy zespołowej w Scrum.",
       descriptionEn: "Teamwork principles in Scrum.",
-      certificate: "/lovable-uploads/Podstawy Scruma - zwinne zarządzanie projektami-page-00001.jpg",
+      certificate: "/images/Podstawy Scruma - zwinne zarządzanie projektami-page-00001.jpg",
       duration: "8h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -315,7 +315,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Tworzenie raportów i wizualizacji danych.",
       descriptionEn: "Creating reports and data visualizations.",
-      certificate: "/lovable-uploads/Power BI-page-00001.jpg",
+      certificate: "/images/Power BI-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -326,7 +326,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Tworzenie nowoczesnych stron WWW.",
       descriptionEn: "Creating modern websites.",
-      certificate: "/lovable-uploads/Projektowanie Witryn Internetowych-page-00001.jpg",
+      certificate: "/images/Projektowanie Witryn Internetowych-page-00001.jpg",
       duration: "12h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -337,7 +337,7 @@ const Courses = () => {
       category: "Personal Development",
       descriptionPl: "Umiejętności zarządzania zespołem.",
       descriptionEn: "Team management skills.",
-      certificate: "/lovable-uploads/Przywództwo-page-00001.jpg",
+      certificate: "/images/Przywództwo-page-00001.jpg",
       duration: "8h",
       provider: "Personal Academy",
       completedDate: "2024"
@@ -348,7 +348,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Bezpieczne wdrażanie AI w firmie.",
       descriptionEn: "Safe implementation of AI in business.",
-      certificate: "/lovable-uploads/Responsible prompting maximize AI in your business-page-00001.jpg",
+      certificate: "/images/Responsible prompting maximize AI in your business-page-00001.jpg",
       duration: "4h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -359,7 +359,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Pozycjonowanie i promocja treści online.",
       descriptionEn: "SEO and online content promotion.",
-      certificate: "/lovable-uploads/SEO and Content Marketing-page-00001.jpg",
+      certificate: "/images/SEO and Content Marketing-page-00001.jpg",
       duration: "8h",
       provider: "Marketing Academy",
       completedDate: "2024"
@@ -370,7 +370,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Jak opowiadać historie w reklamie.",
       descriptionEn: "How to tell stories in advertising.",
-      certificate: "/lovable-uploads/Storytelling for Digital Marketing-page-00001.jpg",
+      certificate: "/images/Storytelling for Digital Marketing-page-00001.jpg",
       duration: "6h",
       provider: "Marketing Academy",
       completedDate: "2024"
@@ -381,7 +381,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Współpraca i komunikacja w zespole.",
       descriptionEn: "Collaboration and communication in teams.",
-      certificate: "/lovable-uploads/Strategic Communication & Teamwork-page-00001.jpg",
+      certificate: "/images/Strategic Communication & Teamwork-page-00001.jpg",
       duration: "8h",
       provider: "Business Academy",
       completedDate: "2024"
@@ -392,7 +392,7 @@ const Courses = () => {
       category: "Personal Development",
       descriptionPl: "Jak dbać o zdrowie psychiczne w pracy.",
       descriptionEn: "How to care for mental health at work.",
-      certificate: "/lovable-uploads/Workplace well-being and stress-page-00001.jpg",
+      certificate: "/images/Workplace well-being and stress-page-00001.jpg",
       duration: "6h",
       provider: "Personal Academy",
       completedDate: "2024"
@@ -403,7 +403,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Architektura i protokoły sieci komputerowych: model warstwowy, routing i podstawy bezpieczeństwa.",
       descriptionEn: "Architecture and protocols of computer networks: layered model, routing, and security fundamentals.",
-      certificate: "/lovable-uploads/Wprowadzenie do sieci komputerowych-page-00001.jpg",
+      certificate: "/images/Wprowadzenie do sieci komputerowych-page-00001.jpg",
       duration: "10h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -415,7 +415,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Certyfikat obsługi Autodesk Inventor.",
       descriptionEn: "Autodesk Inventor user certificate.",
-      certificate: "/lovable-uploads/Autodesk Certified User Inventor_page-0001.jpg",
+      certificate: "/images/Autodesk Certified User Inventor_page-0001.jpg",
       duration: "10h",
       provider: "Autodesk",
       completedDate: "2024"
@@ -426,7 +426,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Fundamenty platformy Azure: usługi chmurowe, bezpieczeństwo, zarządzanie i koszty.",
       descriptionEn: "Azure fundamentals: cloud services, security, management and costs.",
-      certificate: "/lovable-uploads/Azure Fundamentals_page-0001.jpg",
+      certificate: "/images/Azure Fundamentals_page-0001.jpg",
       duration: "8h",
       provider: "Microsoft",
       completedDate: "2024"
@@ -437,7 +437,7 @@ const Courses = () => {
       category: "Business",
       descriptionPl: "Podstawy zarządzania według Harvard Business Publishing.",
       descriptionEn: "Business basics by Harvard Business Publishing.",
-      certificate: "/lovable-uploads/Harvard Business Publishing - Business for All.png",
+      certificate: "/images/Harvard Business Publishing - Business for All.png",
       duration: "10h",
       provider: "Harvard Business Publishing",
       completedDate: "2025"
@@ -448,7 +448,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Fundamenty cyberbezpieczeństwa: zagrożenia, kontrola dostępu, praktyki ochrony i higiena bezpieczeństwa.",
       descriptionEn: "Cybersecurity fundamentals: threats, access control, protection practices and security hygiene.",
-      certificate: "/lovable-uploads/Introduction to Cybersecurity_page-0001.jpg",
+      certificate: "/images/Introduction to Cybersecurity_page-0001.jpg",
       duration: "8h",
       provider: "Cyber Academy",
       completedDate: "2024"
@@ -459,7 +459,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Fundamenty sieci komputerowych: adresacja, protokoły i diagnozowanie problemów.",
       descriptionEn: "Networking fundamentals: addressing, protocols and troubleshooting.",
-      certificate: "/lovable-uploads/Networking Fundamentals_page-0001.jpg",
+      certificate: "/images/Networking Fundamentals_page-0001.jpg",
       duration: "8h",
       provider: "IT Academy",
       completedDate: "2024"
@@ -470,7 +470,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Tworzenie grafik w Photoshopie.",
       descriptionEn: "Creating graphics in Photoshop.",
-      certificate: "/lovable-uploads/Visual Design Using Adobe Photoshop_page-0001.jpg",
+      certificate: "/images/Visual Design Using Adobe Photoshop_page-0001.jpg",
       duration: "10h",
       provider: "Adobe",
       completedDate: "2024"
@@ -481,7 +481,7 @@ const Courses = () => {
       category: "IT",
       descriptionPl: "Zarządzanie serwerem Windows.",
       descriptionEn: "Managing Windows Server.",
-      certificate: "/lovable-uploads/Windows Server Administration Fundamentals_page-0001.jpg",
+      certificate: "/images/Windows Server Administration Fundamentals_page-0001.jpg",
       duration: "10h",
       provider: "Microsoft",
       completedDate: "2024"

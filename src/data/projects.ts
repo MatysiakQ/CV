@@ -1,5 +1,13 @@
 const projects = [
   {
+    title: "NextAI",
+    description: "Platforma SaaS oferująca gotowe rozwiązania AI i automatyzacji procesów dla małych i średnich przedsiębiorstw. Zintegrowane systemy płatności, LLM i wielokanałowa komunikacja.",
+    image: "/images/nextai-preview.png",
+    tags: ["React", "TypeScript", "GPT-4", "Stripe", "n8n", "SaaS"],
+    github: "https://github.com/MatysiakQ",
+    demo: "https://next-ai.pl"
+  },
+  {
     title: "E-commerce Platform",
     description: "Nowoczesna platforma e-commerce z zaawansowanym systemem płatności i zarządzaniem magazynem.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
@@ -20,6 +28,14 @@ const projects = [
     description: "Interaktywny dashboard pogodowy z mapami, prognozami i alertami meteorologicznymi.",
     image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
     tags: ["Vue.js", "D3.js", "REST API", "PWA"],
+    github: "#",
+    demo: "#"
+  },
+  {
+    title: "PRINTWALL",
+    description: "Projekt systemu do zarządzania i druku cyfrowego z interfejsem webowym.",
+    image: "/images/PrintwallOverview.png",
+    tags: ["React", "TypeScript", "Node.js", "Web"],
     github: "#",
     demo: "#"
   },
