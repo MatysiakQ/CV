@@ -111,7 +111,8 @@ const Skills: React.FC = () => {
         {
           text: tr("Microsoft Azure (certyfikat AZ-900)", "Microsoft Azure (AZ-900 certification)"),
           strong: true,
-          link: { to: "/courses#podstawy-microsoft-azure", label: t('common.viewCertificate') },
+          // POPRAWKA: Azure to kategoria IT, więc Courses.tsx szuka angielskiego tytułu
+          link: { to: "/courses#azure-fundamentals", label: t('common.viewCertificate') },
         },
         { text: "Git / GitHub" },
         { text: tr("Podstawy CI/CD", "CI/CD basics") },
@@ -149,7 +150,8 @@ const Skills: React.FC = () => {
         {
           text: "Harvard Business Publishing – Business for All",
           strong: true,
-          link: { to: "/courses#harvard-business-publishing-business-for-all", label: t('common.viewCertificate') },
+          // POPRAWKA: Tytuł zawiera spacje i myślnik, Courses.tsx robi z tego "---"
+          link: { to: "/courses#harvard-business-publishing---business-for-all", label: t('common.viewCertificate') },
         },
         { text: tr("Zarządzanie projektami", "Project management") },
         { text: tr("Storytelling", "Storytelling") },
