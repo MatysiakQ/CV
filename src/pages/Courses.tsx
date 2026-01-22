@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +11,20 @@ const Courses = () => {
   const { t, language } = useLanguage();
 
   const lang = language || 'en';
+
+  // Handle URL hash for scrolling to specific course
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      // Find course by title (case-insensitive)
+      const courseElement = document.querySelector(`[data-course-title="${hash.toLowerCase()}"]`);
+      if (courseElement) {
+        setTimeout(() => {
+          courseElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }
+  }, []);
 
   const keepEnglishTitleInPl = new Set<string>([
     'SEO and Content Marketing',
@@ -568,7 +582,10 @@ const Courses = () => {
           {filteredCourses.map((course, index) => (
             <Dialog key={index}>
               <DialogTrigger asChild>
-                <Card className="glass-effect card-glow group hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+                <Card 
+                  className="glass-effect card-glow group hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+                  data-course-title={getCourseTitle(course).toLowerCase().replace(/\s+/g, '-')}
+                >
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
                       <Badge variant="secondary" className="text-xs">
