@@ -55,6 +55,33 @@
             {/* CTA Buttons */}
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
+                variant="secondary" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <Mail className="h-5 w-5 mr-2" />
+                {t('home.hero.contactMe')}
+              </Button>
+              <Button 
+                variant="glass" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => {
+                  const el = document.getElementById('projects');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                {t('home.hero.viewProjects')}
+              </Button>
+              <Button 
                 variant="gradient" 
                 size="lg" 
                 className="text-lg px-8 py-6"
@@ -70,22 +97,6 @@
                 <Download className="h-5 w-5 mr-2" />
                 {t('home.hero.downloadCV')}
               </Button>
-              <Button 
-                variant="glass" 
-                size="lg" 
-                className="text-lg px-8 py-6"
-                onClick={() => {
-                  const el = document.getElementById('projects');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                {t('home.hero.viewProjects')}
-              </Button>
-
-              {/* Collapsible CV chooser: single button that expands into two links */}
-              <CVChooser />
             </motion.div>
 
             {/* Social links */}
