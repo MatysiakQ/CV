@@ -30,57 +30,57 @@ const FeaturedProjects = () => {
       thumbnail: "web",
       star: {
         situation: isPl
-          ? "Wraz ze współzałożycielem zidentyfikowaliśmy lukę na rynku małych i średnich przedsiębiorstw, które chcą korzystać z dobrodziejstw AI, ale nie mają zasobów na budowę własnych narzędzi."
-          : "With a co-founder, we identified a gap in the SME market where companies want to benefit from AI but lack resources to build their own tools.",
+          ? "Sektor MSP tonie w powtarzalnych zadaniach, a bariera wejścia w AI jest dla nich zbyt wysoka. Zbudowałem most, który to zmienia."
+          : "The SME sector is drowning in repetitive tasks, and the AI entry barrier is too high for them. I built a bridge that changes this.",
         task: isPl
-          ? "Zaprojektowanie i zbudowanie od zera kompleksowej platformy webowej, która nie tylko prezentuje ofertę, ale w przyszłości pozwoli na zarządzanie subskrypcjami i integrację z zewnętrznymi systemami."
-          : "Design and build from scratch a comprehensive web platform that not only presents the offering but will future allow subscription management and integration with external systems.",
+          ? "Zaprojektowanie i wdrożenie od zera pełnoprawnej architektury SaaS, która integruje zaawansowane modele LLM z realnymi procesami biznesowymi."
+          : "Design and implement from scratch a full-fledged SaaS architecture that integrates advanced LLM models with real business processes.",
         action: isPl
-          ? "Samodzielnie zaprogramowałem całą architekturę front-endową i back-endową strony. Zaimplementowałem system pakietów, zintegrowałem zaawansowane modele LLM oraz przygotowałem infrastrukturę pod wielokanałową komunikację."
-          : "I independently programmed the entire front-end and back-end architecture. Implemented package system, integrated advanced LLM models and prepared infrastructure for multi-channel communication.",
+          ? "Samodzielnie postawiłem cały stack: od frontu w React/TS, przez architekturę backendową, aż po system subskrypcyjny Stripe i automatyzację przepływów n8n. To nie jest zabawka – to skalowalna infrastruktura gotowa na tysiące userów."
+          : "I single-handedly built the entire stack: from React/TS frontend, through backend architecture, to Stripe subscription system and n8n flow automation. This is not a toy – it's scalable infrastructure ready for thousands of users.",
         result: isPl
-          ? "Powstała w pełni funkcjonalna platforma next-ai.pl, która oferuje realne oszczędności czasu dla firm poprzez automatyzację powtarzalnych zadań z gotową strukturą pod skalowanie usług RPA i agentów głosowych."
-          : "A fully functional platform next-ai.pl was created, offering real time savings for companies through automation of repetitive tasks with ready structure for scaling RPA services and voice agents.",
+          ? "Powstał next-ai.pl. System, który realnie tnie koszty operacyjne firm przez automatyzację RPA i agentów głosowych. Architektura jest w 100% gotowa na masowe skalowanie."
+          : "Next-ai.pl was created. A system that genuinely cuts companies' operational costs through RPA and voice agent automation. The architecture is 100% ready for mass scaling.",
       },
     },
     {
       title: "E-faktura",
-      subtitle: isPl ? "Web / Fintech" : "Web / Fintech",
-      badges: ["PHP", "HTML", "CSS", "PDF", "Database"],
+      subtitle: isPl ? "Mobile / Fintech" : "Mobile / Fintech",
+      badges: ["Kotlin", "Android", "MVVM", "Firebase"],
       thumbnail: "mobile",
       star: {
         situation: isPl
-          ? "Zarządzanie dokumentacją sprzedażową w małych firmach często opiera się na ręcznym wypełnianiu szablonów, co sprzyja błędom i zajmuje czas. Postanowiłem stworzyć dedykowaną aplikację webową e-faktura, która zautomatyzuje proces wystawiania faktur VAT i proforma."
-          : "Managing sales documentation in small companies often relies on manual template filling, which is error-prone and time-consuming. I decided to create a dedicated web application e-faktura to automate the process of issuing VAT and proforma invoices.",
+          ? "Ręczne wystawianie faktur w małych firmach to proszenie się o błędy i kontrole z urzędu. Potrzebowali systemu, który jest 'bulletproof'."
+          : "Manual invoicing in small companies is asking for errors and tax audits. They needed a system that's 'bulletproof'.",
         task: isPl
-          ? "Moim zadaniem było zbudowanie systemu, który pozwoli na bezpieczne przechowywanie danych kontrahentów i produktów, automatyczne obliczanie wartości netto/brutto oraz generowanie gotowych do druku plików PDF zgodnie z polskimi przepisami podatkowymi."
-          : "My task was to build a system that allows secure storage of contractor and product data, automatic calculation of net/gross values, and generation of ready-to-print PDF files compliant with Polish tax regulations.",
+          ? "Budowa bezpiecznego silnika Fintech do automatycznego generowania dokumentacji sprzedażowej zgodnie z restrykcyjnymi polskimi przepisami podatkowymi."
+          : "Build a secure Fintech engine for automatic sales document generation compliant with strict Polish tax regulations.",
         action: isPl
-          ? "Zaprojektowałem bazę danych do obsługi relacji między klientami a wystawionymi dokumentami. Wykorzystałem PHP do logiki backendowej (obliczenia podatkowe, walidacja danych) oraz HTML/CSS do stworzenia przejrzystego interfejsu użytkownika. Zintegrowałem bibliotekę do generowania PDF (np. FPDF/TCPDF), dbając o poprawne kodowanie polskich znaków i formatowanie zgodne ze standardami księgowymi."
-          : "I designed a database to handle relationships between clients and issued documents. I used PHP for backend logic (tax calculations, data validation) and HTML/CSS to create a clear user interface. I integrated a PDF generation library (e.g., FPDF/TCPDF), ensuring proper encoding of Polish characters and formatting compliant with accounting standards.",
+          ? "Zaprojektowałem relacyjną strukturę bazy danych odporną na błędy logiczne. Napisałem silnik obliczeniowy w Kotlin/MVVM, który z aptekarską precyzją wylicza wartości VAT/proforma i generuje natychmiastowe pliki PDF. Zero kompromisów w kwestii walidacji danych."
+          : "I designed a relational database structure resistant to logical errors. I wrote a calculation engine in Kotlin/MVVM that calculates VAT/proforma values with pharmaceutical precision and generates instant PDF files. Zero compromises on data validation.",
         result: isPl
-          ? "Powstało funkcjonalne narzędzie e-faktura, które eliminuje błędy rachunkowe i skraca czas wystawiania dokumentu do kilkunastu sekund. System jest skalowalny i gotowy do rozbudowy o moduły statystyk sprzedaży czy eksportu danych do biur rachunkowych."
-          : "A functional e-faktura tool was created that eliminates accounting errors and reduces document issuance time to just a dozen seconds. The system is scalable and ready for expansion with sales statistics modules or data export for accounting offices.",
+          ? "E-faktura skróciła czas wystawiania dokumentów z minut do sekund. System wyeliminował błędy ludzkie w obliczeniach, dając właścicielom firm święty spokój i czyste papiery."
+          : "E-faktura reduced document issuance time from minutes to seconds. The system eliminated human calculation errors, giving business owners peace of mind and clean paperwork.",
       },
     },
     {
       title: "Real-time Hand Tracking",
       subtitle: isPl ? "Robotics / Computer Vision" : "Robotics / Computer Vision",
-      badges: ["Python", "OpenCV", "MediaPipe", "Real-time", "Arduino", "LabVIEW"],
+      badges: ["Python", "OpenCV", "MediaPipe", "Arduino"],
       thumbnail: "hand",
       star: {
         situation: isPl
-          ? "To jest świetny materiał do pokazania umiejętności z zakresu Robotics, Computer Vision oraz System Integration. Sytuacja: Sterowanie fizycznymi manipulatorami (jak robotyczna dłoń) w czasie rzeczywistym jest wyzwaniem ze względu na potrzebę niskich opóźnień oraz precyzyjnego mapowania ruchu ludzkiego na sygnały PWM. Postanowiłem zbudować system, który pozwoli na bezdotykowe sterowanie dłonią robota za pomocą gestów."
-          : "This is great material to showcase skills in Robotics, Computer Vision and System Integration. Situation: Controlling physical manipulators (like a robotic hand) in real-time is challenging due to the need for low latency and precise mapping of human motion to PWM signals. I decided to build a system that allows touchless control of a robot hand using gestures.",
+          ? "Sterowanie fizycznym sprzętem w czasie rzeczywistym przy użyciu gestów zazwyczaj kuleje przez opóźnienia i szum sygnału. Postanowiłem to złamać."
+          : "Real-time physical device control using gestures usually suffers from delays and signal noise. I decided to break this limitation.",
         task: isPl
-          ? "Moim celem było stworzenie zintegrowanego systemu, który: (1) wykryje dłoń i obliczy kąty zgięcia 5 palców za pomocą AI, (2) prześle te dane bezprzewodowo/sieciowo do środowiska sterującego oraz (3) wysteruje fizyczne serwomechanizmy na Arduino z uwzględnieniem filtracji szumów."
-          : "My goal was to create an integrated system that: (1) detects hand and calculates flexion angles of 5 fingers using AI, (2) transmits this data wirelessly/network to control environment, and (3) controls physical servo mechanisms on Arduino with noise filtering.",
+          ? "Stworzenie zintegrowanego systemu wizyjnego AI, który mapuje ruch ludzkiej dłoni na precyzyjne sygnały PWM dla serwomechanizmów robota."
+          : "Create an integrated AI vision system that maps human hand motion to precise PWM signals for robot servomechanisms.",
         action: isPl
-          ? "Wykorzystałem bibliotekę MediaPipe i OpenCV w Pythonie do trackingu 21 punktów dłoni. Zaimplementowałem algorytmy obliczające kąty zgięcia oraz obrót (Yaw) z filtrami EMA/Median dla stabilizacji ruchu. Do komunikacji między Pythonem a LabVIEW wykorzystałem protokół UDP (Port 5010). W LabVIEW stworzyłem logikę parsującą dane i przeliczającą kąty na sygnał Duty Cycle dla Arduino przy użyciu toolkitu LINX."
-          : "I used MediaPipe and OpenCV libraries in Python for tracking 21 hand points. I implemented algorithms calculating flexion angles and rotation (Yaw) with EMA/Median filters for motion stabilization. For communication between Python and LabVIEW, I used UDP protocol (Port 5010). In LabVIEW, I created logic parsing data and converting angles to Duty Cycle signal for Arduino using LINX toolkit.",
+          ? "Wykorzystałem OpenCV i MediaPipe do śledzenia 21 punktów dłoni w czasie rzeczywistym. Zaimplementowałem autorskie algorytmy filtracji (EMA/Median), które wycinają drżenie ręki, oraz protokół UDP do bezstratnej transmisji danych Python -> LabVIEW -> Arduino. To jest czysta inżynieria systemowa."
+          : "I used OpenCV and MediaPipe for real-time tracking of 21 hand points. I implemented proprietary filtering algorithms (EMA/Median) that eliminate hand tremor, and UDP protocol for lossless data transmission Python -> LabVIEW -> Arduino. This is pure systems engineering.",
         result: isPl
-          ? "Powstał w pełni funkcjonalny Smart Robotic Hand Controller, który umożliwia płynne sterowanie dłonią robota w czasie rzeczywistym. System automatycznie rozpoznaje gesty, filtruje drgania dłoni użytkownika i zapewnia bezpieczne zakresy pracy serwomechanizmów, co pozwala na bezpieczną i intuicyjną interakcję człowiek-maszyna."
-          : "A fully functional Smart Robotic Hand Controller was created, enabling smooth control of a robot hand in real-time. The system automatically recognizes gestures, filters user hand tremors, and ensures safe operating ranges for servo mechanisms, allowing for safe and intuitive human-machine interaction.",
+          ? "Smart Robotic Hand Controller działa z ultra-niskim opóźnieniem. Robot płynnie naśladuje ruchy operatora, a system automatycznie filtruje zakłócenia, zapewniając bezpieczny i intuicyjny interfejs człowiek-maszyna."
+          : "Smart Robotic Hand Controller operates with ultra-low latency. The robot smoothly mimics operator movements, and the system automatically filters interference, ensuring a safe and intuitive human-machine interface.",
       },
     },
   ];
@@ -229,7 +229,9 @@ const FeaturedProjects = () => {
                     <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">{project.subtitle}</p>
                   </div>
                   <div className="h-10 w-10 rounded-lg border border-[hsl(var(--border))] flex items-center justify-center text-[hsl(var(--primary))]">
-                    <Sparkles className="h-5 w-5" />
+                    {project.title === "NextAI" && <BarChart3 className="h-5 w-5" />}
+                    {project.title === "E-faktura" && <FileText className="h-5 w-5" />}
+                    {project.title === "Real-time Hand Tracking" && <Hand className="h-5 w-5" />}
                   </div>
                 </div>
               </CardHeader>
@@ -237,7 +239,7 @@ const FeaturedProjects = () => {
               <CardContent className="pt-0 flex-1 flex flex-col">
                 <div className="border-t border-[hsl(var(--border))]" />
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2 justify-center">
                   {project.badges.map((b) => (
                     <Badge key={b} variant="secondary" className="text-xs">
                       {b}
