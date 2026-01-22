@@ -28,6 +28,7 @@ const translations = {
     'home.contact.email': 'Email',
     'home.contact.emailPlaceholder': 'your@email.com',
     'home.contact.phone': 'Phone',
+    'home.contact.phonePlaceholder': '+48 ...',
     'home.contact.subject': 'Subject',
     'home.contact.subjectPlaceholder': 'Project discussion',
     'home.contact.message': 'Message',
@@ -79,6 +80,8 @@ const translations = {
     'common.viewCertificate': 'View Certificate',
 
     // Contact (validation + status)
+    'contact.validation.name': 'Name must be at least 2 characters.',
+    'contact.validation.phone': 'Please enter a valid phone number.',
     'contact.validation.subject': 'Subject must be at least 3 characters.',
     'contact.validation.email': 'Please enter a valid email address.',
     'contact.validation.message': 'Message must be at least 10 characters.',
@@ -145,6 +148,7 @@ const translations = {
     'home.contact.email': 'Email',
     'home.contact.emailPlaceholder': 'twoj@email.com',
     'home.contact.phone': 'Telefon',
+    'home.contact.phonePlaceholder': '+48 ...',
     'home.contact.subject': 'Temat',
     'home.contact.subjectPlaceholder': 'Dyskusja o projekcie',
     'home.contact.message': 'Wiadomość',
@@ -196,6 +200,8 @@ const translations = {
     'common.viewCertificate': 'Zobacz certyfikat',
 
     // Contact (validation + status)
+    'contact.validation.name': 'Imię musi mieć co najmniej 2 znaki.',
+    'contact.validation.phone': 'Podaj poprawny numer telefonu.',
     'contact.validation.subject': 'Temat musi mieć co najmniej 3 znaki.',
     'contact.validation.email': 'Podaj poprawny adres email.',
     'contact.validation.message': 'Wiadomość musi mieć co najmniej 10 znaków.',

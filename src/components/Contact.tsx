@@ -12,11 +12,12 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; email?: string; subject?: string; message?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; subject?: string; message?: string }>({});
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const { t } = useLanguage();
@@ -50,6 +51,10 @@ const Contact = () => {
   const validate = () => {
     const newErrors: typeof errors = {};
 
+    if (!formData.name || formData.name.trim().length < 2) {
+      newErrors.name = t('contact.validation.name');
+    }
+
     if (!formData.subject || formData.subject.trim().length < 3) {
       newErrors.subject = t('contact.validation.subject');
     }
@@ -57,6 +62,10 @@ const Contact = () => {
     const emailRe = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/;
     if (!formData.email || !emailRe.test(formData.email)) {
       newErrors.email = t('contact.validation.email');
+    }
+
+    if (formData.phone && formData.phone.trim().length < 5) {
+      newErrors.phone = t('contact.validation.phone');
     }
 
     if (!formData.message || formData.message.trim().length < 10) {
@@ -92,7 +101,7 @@ const Contact = () => {
       setSuccessMessage(msg);
 
       // Reset form
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
     } catch (error) {
       toast.error(t('contact.error'));
     } finally {
@@ -184,6 +193,18 @@ const Contact = () => {
                   </div>
                 </div>
                 
+                <div className="space-y-2">
+                  <Label htmlFor="phone">{t('home.contact.phone')}</Label>
+                  <Input 
+                    id="phone" 
+                    type="tel"
+                    placeholder={t('home.contact.phonePlaceholder') || '+48 ...'}
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
+                  {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
+                </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="subject">{t('home.contact.subject')}</Label>
                   <Input 
