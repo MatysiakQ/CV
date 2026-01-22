@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Award, Filter } from "lucide-react";
+import { Award, Filter, ExternalLink, Download } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Courses = () => {
@@ -13,27 +13,11 @@ const Courses = () => {
 
   const lang = language || 'en';
 
-  // Handle URL hash for scrolling to specific course
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        const decodedHash = decodeURIComponent(hash).toLowerCase();
-        const courseElement = document.querySelector(`[data-course-title="${decodedHash}"]`);
-        
-        if (courseElement) {
-          setTimeout(() => {
-            courseElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setOpenDialog(decodedHash);
-          }, 300);
-        }
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  // KLUCZOWA FUNKCJA: Generuje identyczny ID co w Skills.tsx
+  const createSlug = (text: string) => 
+    text.toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") 
+      .replace(/^-+|-+$/g, "");
 
   const keepEnglishTitleInPl = new Set<string>([
     'SEO and Content Marketing',
@@ -43,15 +27,6 @@ const Courses = () => {
   ]);
 
   const categories = ["All", "Featured", "IT", "Business", "Personal Development", "Language", "Other"];
-
-  const featuredTitles = [
-    "Algorytmy i struktury danych", "Automatyzacja marketingu", "Nauka konfiguracji sprzętu i zarządzania sieciami komputerowymi",
-    "Projektowanie Witryn Internetowych", "Harvard Business Publishing - Business for All", "Podstawy Microsoft Azure",
-    "Autodesk Certified User Inventor", "Podstawy sieci komputerowych", "Projektowanie graficzne w Adobe Photoshop",
-    "Podstawy administracji Windows Server", "Algorithms and Data Structures", "Marketing Automation",
-    "Hardware Configuration and Network Management", "Web Design", "Azure Fundamentals", "Networking Fundamentals",
-    "Visual Design Using Adobe Photoshop", "Windows Server Administration Fundamentals"
-  ];
 
   const coursesRaw = [
     {
@@ -485,10 +460,47 @@ const Courses = () => {
     }
   ];
 
+  const featuredTitles = [
+    "Algorytmy i struktury danych", "Automatyzacja marketingu", "Nauka konfiguracji sprzętu i zarządzania sieciami komputerowymi",
+    "Projektowanie Witryn Internetowych", "Harvard Business Publishing - Business for All", "Podstawy Microsoft Azure",
+    "Autodesk Certified User Inventor", "Podstawy sieci komputerowych", "Projektowanie graficzne w Adobe Photoshop",
+    "Podstawy administracji Windows Server", "Algorithms and Data Structures", "Marketing Automation",
+    "Hardware Configuration and Network Management", "Web Design", "Azure Fundamentals", "Networking Fundamentals",
+    "Visual Design Using Adobe Photoshop", "Windows Server Administration Fundamentals"
+  ];
+
+  const getCourseTitle = (course: any) => {
+    if (lang === 'pl') {
+      if (course.category === 'IT' || keepEnglishTitleInPl.has(course.titleEn)) return course.titleEn;
+      return course.titlePl;
+    }
+    return course.titleEn;
+  };
+
   const courses = coursesRaw.map(course => ({
     ...course,
-    featured: featuredTitles.includes(course.titlePl) || featuredTitles.includes(course.titleEn)
+    featured: featuredTitles.includes(course.titlePl) || featuredTitles.includes(course.titleEn),
+    slug: createSlug(getCourseTitle(course))
   }));
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const decodedHash = decodeURIComponent(hash).toLowerCase();
+        setTimeout(() => {
+          const element = document.querySelector(`[data-course-title="${decodedHash}"]`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setOpenDialog(decodedHash);
+          }
+        }, 400);
+      }
+    };
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const filteredCourses = selectedCategory === "All"
     ? courses
@@ -509,21 +521,7 @@ const Courses = () => {
     }
   };
 
-  const getCourseTitle = (course: (typeof courses)[number]) => {
-    if (lang === 'pl') {
-      if (course.category === 'IT' || keepEnglishTitleInPl.has(course.titleEn)) return course.titleEn;
-      return course.titlePl;
-    }
-    return course.titleEn;
-  };
-
-  const getCourseDescription = (course: (typeof courses)[number]) => {
-    return lang === 'pl' ? course.descriptionPl : course.descriptionEn;
-  };
-
-  const labelDuration = lang === 'pl' ? 'Czas Trwania' : 'Duration';
-  const labelProvider = lang === 'pl' ? 'Organizator' : 'Provider';
-  const labelCompleted = lang === 'pl' ? 'Ukończony' : 'Completed';
+  const getCourseDescription = (course: any) => lang === 'pl' ? course.descriptionPl : course.descriptionEn;
 
   return (
     <div className="min-h-screen py-20 px-6">
@@ -532,16 +530,10 @@ const Courses = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             {t('courses.title').split(' ')[0]} <span className="gradient-text">{t('courses.title').split(' ')[1]}</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t('courses.subtitle')}
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t('courses.subtitle')}</p>
         </div>
 
         <div className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
-            <Filter className="h-5 w-5 text-muted-foreground" />
-            <span className="text-sm font-medium text-muted-foreground">{t('courses.filterByCategory')}:</span>
-          </div>
           <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <Button
@@ -549,7 +541,6 @@ const Courses = () => {
                 variant={selectedCategory === category ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-300"
               >
                 {getCategoryTranslation(category)}
               </Button>
@@ -558,118 +549,50 @@ const Courses = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredCourses.map((course, index) => {
-            const courseTitleKey = getCourseTitle(course).toLowerCase().replace(/\s+/g, "-");
-            const isOpen = openDialog === courseTitleKey;
-            
-            return (
-              <Dialog 
-                key={index} 
-                open={isOpen} 
-                onOpenChange={(open) => setOpenDialog(open ? courseTitleKey : null)}
-              >
-                <DialogTrigger asChild>
-                  <Card 
-                    className="glass-effect card-glow group hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col"
-                    data-course-title={courseTitleKey}
-                    onClick={() => setOpenDialog(courseTitleKey)}
-                  >
-                    <CardHeader>
-                      <div className="flex items-start justify-between mb-2">
-                        <Badge variant="secondary" className="text-xs">
-                          {getCategoryTranslation(course.category)}
-                        </Badge>
-                        {course.featured && <Award className="h-5 w-5 text-yellow-500" />}
-                      </div>
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {getCourseTitle(course)}
-                      </CardTitle>
-                      <CardDescription className="text-muted-foreground line-clamp-2">
-                        {getCourseDescription(course)}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto">
-                      <div className="space-y-2 text-sm text-muted-foreground">
-                        <div className="flex justify-between">
-                          <span>{labelDuration}:</span>
-                          <span className="font-medium text-foreground">{course.duration}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>{labelProvider}:</span>
-                          <span className="font-medium text-foreground">{course.provider}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>{labelCompleted}:</span>
-                          <span className="font-medium text-foreground">{course.completedDate}</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </DialogTrigger>
-                
-                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl mb-2">{getCourseTitle(course)}</DialogTitle>
-                    <DialogDescription className="text-base">
-                      {getCourseDescription(course)}
-                    </DialogDescription>
-                  </DialogHeader>
-                  
-                  <div className="mt-6 flex flex-col items-center gap-6">
-                    <div className="w-full bg-muted rounded-lg overflow-hidden flex items-center justify-center p-2">
-                       <img 
-                        src={course.certificate} 
-                        alt="Certificate"
-                        className="max-w-full h-auto max-h-[400px] object-contain rounded-md shadow-sm"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://placehold.co/600x400?text=Certificate+Not+Found';
-                        }}
-                      />
+          {filteredCourses.map((course, index) => (
+            <Dialog 
+              key={index} 
+              open={openDialog === course.slug} 
+              onOpenChange={(open) => setOpenDialog(open ? course.slug : null)}
+            >
+              <DialogTrigger asChild>
+                <Card 
+                  className="glass-effect card-glow group hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col"
+                  data-course-title={course.slug}
+                  onClick={() => setOpenDialog(course.slug)}
+                >
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-2">
+                      <Badge variant="secondary" className="text-xs">{getCategoryTranslation(course.category)}</Badge>
+                      {course.featured && <Award className="h-5 w-5 text-yellow-500" />}
                     </div>
-                    
-                    <Button asChild className="w-full sm:w-auto">
-                      <a 
-                        href={course.certificate} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        download
-                      >
-                        {t('common.viewCertificate')}
-                      </a>
-                    </Button>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-6 border-t text-sm">
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-muted-foreground">Category:</span>
-                      <Badge variant="outline">{getCategoryTranslation(course.category)}</Badge>
+                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{getCourseTitle(course)}</CardTitle>
+                    <CardDescription className="text-muted-foreground line-clamp-2">{getCourseDescription(course)}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="mt-auto">
+                    <div className="space-y-1 text-sm text-muted-foreground">
+                       <p>{course.duration} | {course.provider}</p>
+                       <p>{lang === 'pl' ? 'Ukończony' : 'Completed'}: {course.completedDate}</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-muted-foreground">{labelDuration}:</span>
-                      <span>{course.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-muted-foreground">{labelProvider}:</span>
-                      <span>{course.provider}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-muted-foreground">{labelCompleted}:</span>
-                      <span>{course.completedDate}</span>
-                    </div>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            );
-          })}
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl mb-2">{getCourseTitle(course)}</DialogTitle>
+                  <DialogDescription>{getCourseDescription(course)}</DialogDescription>
+                </DialogHeader>
+                <div className="mt-6 flex flex-col items-center gap-6">
+                   <img src={course.certificate} alt="Cert" className="w-full rounded-lg shadow-md" />
+                   <div className="flex gap-4">
+                     <Button asChild><a href={course.certificate} target="_blank" rel="noopener noreferrer"><ExternalLink className="mr-2 h-4 w-4" /> {t('common.viewCertificate')}</a></Button>
+                     <Button asChild variant="outline"><a href={course.certificate} download><Download className="mr-2 h-4 w-4" /> Download</a></Button>
+                   </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          ))}
         </div>
-
-        {filteredCourses.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-xl text-muted-foreground">
-              {t('courses.noCoursesFound')}
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
