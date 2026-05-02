@@ -50,6 +50,10 @@ const Contact = () => {
   const validate = () => {
     const newErrors: typeof errors = {};
 
+    if (!formData.name || formData.name.trim().length < 2) {
+      newErrors.name = t('contact.validation.name') || 'Name must be at least 2 characters.';
+    }
+
     if (!formData.subject || formData.subject.trim().length < 3) {
       newErrors.subject = t('contact.validation.subject');
     }

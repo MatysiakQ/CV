@@ -8,6 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -83,6 +84,8 @@ const Home = () => {
       </section>
 
       <Skills />
+
+      <FeaturedProjects />
 
       <Contact />
     </div>

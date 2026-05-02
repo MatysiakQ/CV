@@ -49,24 +49,22 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Moja historia</h3>
+            <h3 className="text-2xl font-semibold mb-6">{t('about.history.title')}</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Jestem deweloperem z pasją do tworzenia innowacyjnych rozwiązań technologicznych. 
-                Moje doświadczenie obejmuje zarówno frontend jak i backend development.
+                {t('about.history.description1')}
               </p>
               <p>
-                Specjalizuję się w ekosystemie JavaScript/TypeScript, szczególnie w React i Node.js. 
-                Lubię tworzyć aplikacje, które nie tylko dobrze wyglądają, ale też są wydajne i skalowalne.
+                {t('about.history.description2')}
               </p>
               <p>
-                Ciągle się uczę i śledzę najnowsze trendy w branży, aby dostarczać najlepsze możliwe rozwiązania.
+                {t('about.history.description3')}
               </p>
             </div>
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Umiejętności</h3>
+            <h3 className="text-2xl font-semibold mb-6">{t('about.skills.title')}</h3>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <Badge 
