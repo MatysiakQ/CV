@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Github, Linkedin, Menu, X } from "lucide-react";
 import { motion } from 'framer-motion';
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -48,12 +48,64 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <LanguageSwitcher />
+            <div className="flex items-center gap-2">
+              <LanguageSwitcher />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 hover:text-primary hover:bg-primary/10"
+                asChild
+              >
+                <a href="https://github.com/MatysiakQ" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 hover:text-primary hover:bg-primary/10"
+                asChild
+              >
+                <a
+                  href="https://www.linkedin.com/in/adamjastrzębski"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
             <LanguageSwitcher />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8 hover:text-primary hover:bg-primary/10"
+              asChild
+            >
+              <a href="https://github.com/MatysiakQ" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8 hover:text-primary hover:bg-primary/10"
+              asChild
+            >
+              <a
+                href="https://www.linkedin.com/in/adamjastrzębski"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </Button>
             <Button
               variant="ghost"
               size="icon"
