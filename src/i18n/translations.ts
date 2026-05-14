@@ -13,6 +13,8 @@ const translations = {
     'home.hero.downloadCV': 'Download CV',
     'home.about.title': 'About Me',
     'home.about.description': 'Passionate junior developer skilled in modern frontend and mobile technologies. I deliver accessible, responsive interfaces, integrate APIs, and follow CI/CD, testing and performance best practices.',
+    'home.about.cyberskiller.title': 'Cybersecurity Minded Developer',
+    'home.about.cyberskiller.subtitle': 'I build resilient applications with an eye for security, reliability and clean architecture.',
     'home.contact.title': 'Contact Me',
     'home.contact.subtitle': 'Let\'s discuss your next project or collaboration opportunity',
     'home.contact.name': 'Name',
@@ -169,6 +171,8 @@ const translations = {
     'home.hero.downloadCV': 'Pobierz CV',
     'home.about.title': 'O mnie',
     'home.about.description': 'Pasjonat programowania z doświadczeniem w nowoczesnych technologiach frontendowych i mobilnych. Tworzę dostępne, responsywne interfejsy, integruję API oraz stosuję praktyki CI/CD, testowania i optymalizacji wydajności.',
+    'home.about.cyberskiller.title': 'Developer z mindsetem cyberbezpieczeństwa',
+    'home.about.cyberskiller.subtitle': 'Tworzę odporne aplikacje z dbałością o bezpieczeństwo, niezawodność i czystą architekturę.',
 
     'home.contact.title': 'Kontakt',
     'home.contact.subtitle': 'Porozmawiajmy o Twoim następnym projekcie lub współpracy',

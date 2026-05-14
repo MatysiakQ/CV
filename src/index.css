@@ -130,3 +130,17 @@
     @apply backdrop-blur-sm bg-card/80 border border-white/10;
   }
 }
+
+/* Prevent closed/fullscreen overlays from accidentally covering the app.
+   Radix components often render overlays with `data-state="closed"` during
+   transitions — hide them fully while closed to avoid a fullscreen cover. */
+[data-state="closed"][class*="inset-0"] {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+/* Ensure body has a reliable minimum height to avoid layout jump issues */
+html, body {
+  min-height: 100vh;
+}

@@ -1,58 +1,44 @@
-import React from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Code, Star, GitFork } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { GitHubRepo } from "@/types/github";
+import type { Project } from "@/types/project";
 
-// Cast to any so TypeScript won't complain about custom props (asChild etc.)
-const MotionCard = motion<any>(Card);
-const MotionButton = motion<any>(Button);
+const MotionCard = motion(Card);
 
-export interface Project {
-  title: string;
-  description?: string;
-  image?: string | null;
-  github: string;
-  demo?: string;
-  tags: string[];
+interface ProjectCardProps {
+  project: Project | GitHubRepo;
+  index?: number;
+  isGitHub?: boolean;
+  titleOverride?: string;
+  descriptionOverride?: string;
 }
 
-// GitHub Repo type
-interface GitHubRepo {
-  id: number;
-  name: string;
-  description: string | null;
-  html_url: string;
-  language: string | null;
-  topics: string[];
-  stargazers_count: number;
-  forks_count: number;
-}
-
-const ProjectCard: React.FC<{ project: Project | GitHubRepo; index?: number; isGitHub?: boolean }> = ({ project, index = 0, isGitHub = false }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  index = 0,
+  isGitHub = false,
+  titleOverride,
+  descriptionOverride,
+}) => {
   const { t } = useLanguage();
-  
-  // Convert GitHub repo to Project format for consistent rendering
-  let displayProject: Project;
-  
-  if (isGitHub && 'html_url' in project) {
-    const gitHubRepo = project as GitHubRepo;
-    displayProject = {
-      title: gitHubRepo.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-      description: gitHubRepo.description || t('portfolio.noDescription'),
-      image: null,
-      github: gitHubRepo.html_url,
-      demo: gitHubRepo.html_url,
-      tags: [
-        ...(gitHubRepo.language ? [gitHubRepo.language] : []),
-        ...(gitHubRepo.topics || []).slice(0, 2)
-      ]
-    };
-  } else {
-    displayProject = project as Project;
-  }
+
+  const displayProject: Project = isGitHub && 'html_url' in project
+    ? {
+        title: titleOverride ?? project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        description: descriptionOverride ?? project.description ?? t('portfolio.noDescription'),
+        image: null,
+        github: project.html_url,
+        demo: project.html_url,
+        tags: [
+          ...(project.language ? [project.language] : []),
+          ...(project.topics || []).slice(0, 2),
+        ],
+      }
+    : (project as Project);
 
   return (
     <MotionCard
@@ -62,7 +48,6 @@ const ProjectCard: React.FC<{ project: Project | GitHubRepo; index?: number; isG
       viewport={{ once: true, amount: 0.15 }}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      onMouseEnter={() => {}}
     >
       <div className="relative overflow-hidden">
         {displayProject.image ? (
@@ -141,7 +126,6 @@ const ProjectCard: React.FC<{ project: Project | GitHubRepo; index?: number; isG
           </motion.div>
         </div>
       </CardContent>
-      <style jsx>{``}</style>
     </MotionCard>
   );
 };

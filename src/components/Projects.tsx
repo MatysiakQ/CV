@@ -2,10 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchStarredRepos } from "@/services/github";
 import ProjectCard from "./ProjectCard";
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { GitHubRepo } from "@/types/github";
 
 // Project images mapping - add image paths for projects that have them
 const PROJECT_IMAGES: Record<string, string> = {
-  'hand-tracking': '/lovable-uploads/c37ccb7a-5662-447b-9d38-c871374ff306.png',
+  'hand-tracking': '/images/c37ccb7a-5662-447b-9d38-c871374ff306.png',
   // Add more project images here as needed
   // 'project-name': '/path/to/image.jpg',
 };
@@ -13,16 +14,16 @@ const PROJECT_IMAGES: Record<string, string> = {
 const Projects = () => {
   const { t } = useLanguage();
   
-  const { data: allProjects, isLoading, error } = useQuery({
+  const { data: allProjects, isLoading, error } = useQuery<GitHubRepo[], Error>({
     queryKey: ['github-starred', 'MatysiakQ'],
     queryFn: () => fetchStarredRepos('MatysiakQ'),
   });
 
   // Add images to projects that have them
-  const projects = allProjects?.map(repo => ({
+  const projects = allProjects?.map((repo: GitHubRepo) => ({
     ...repo,
-    image: PROJECT_IMAGES[repo.name] || null
-  })) || [];
+    image: PROJECT_IMAGES[repo.name as keyof typeof PROJECT_IMAGES] ?? null,
+  })) ?? [];
 
   if (isLoading) {
     return (
