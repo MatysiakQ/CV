@@ -32,16 +32,13 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
-      className={`group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-background/95 to-background/80 backdrop-blur-sm p-8 shadow-lg hover:shadow-2xl hover:border-primary/20 transition-all duration-500 ${index === 0 ? 'lg:col-span-2' : ''}`}
+      className={`group relative overflow-hidden rounded-[2rem] border border-border/30 bg-background/95 p-8 shadow-[0_30px_90px_-70px_rgba(15,23,42,0.55)] transition-all duration-500 hover:shadow-[0_30px_120px_-80px_rgba(79,70,229,0.35)] hover:-translate-y-0.5 ${index === 0 ? 'lg:col-span-2' : ''}`}
     >
       {project.image ? (
-        <div className={`${reverse ? 'lg:order-2' : ''} relative group overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-500`}>
-          {/* Device frame effect */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-          {/* Image or video container with glassmorphism */}
-          <div className="relative overflow-hidden rounded-t-2xl bg-gradient-to-br from-slate-900/20 to-slate-800/40 backdrop-blur-sm">
+        <div className={`${reverse ? 'lg:order-2' : ''} relative overflow-hidden rounded-[1.75rem] border border-border/40 bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm shadow-sm transition-all duration-500`}> 
+          <div className="absolute inset-0 rounded-[1.75rem] bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 rounded-[1.75rem] ring-1 ring-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-950/50">
             {project.image?.endsWith('.mp4') ? (
               <video
                 src={project.image}
@@ -58,14 +55,8 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
                 className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             )}
-
-            {/* Subtle overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-
-            {/* Glow effect on hover */}
-            <div className="absolute inset-0 rounded-t-2xl bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
-
-            {/* Bottom info overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-60 transition-opacity duration-500" />
+            <div className="absolute inset-0 rounded-[1.75rem] bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <p className="text-xs uppercase tracking-[0.35em] text-white/80 mb-2 font-medium">{project.visualLabel}</p>
               <p className="text-sm font-semibold text-white leading-6">Interface proof, workflow preview, system architecture.</p>
@@ -74,25 +65,25 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
         </div>
       ) : null}
 
-      <div className="space-y-6">
+      <div className="space-y-6 pt-6">
         <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
           <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-xs uppercase tracking-[0.35em] font-semibold text-primary border border-primary/20">
-            {project.category}
+            Case study
           </span>
-          <span className="text-xs uppercase tracking-[0.35em] text-primary/70 font-semibold">Built proof</span>
+          <span className="text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold">{project.category}</span>
         </div>
 
         <div>
-          <h3 className="text-2xl font-bold tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{project.name}</h3>
+          <h3 className="text-3xl font-semibold tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{project.name}</h3>
           <p className="text-base text-muted-foreground leading-7">{project.summary}</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-xl border border-border/60 p-5 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
+          <div className="rounded-3xl border border-border/60 p-5 bg-background/70 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
             <p className="text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-3">Problem</p>
             <p className="text-sm text-foreground leading-6">{project.challenge}</p>
           </div>
-          <div className="rounded-xl border border-border/60 p-5 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
+          <div className="rounded-3xl border border-border/60 p-5 bg-background/70 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
             <p className="text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-3">Impact</p>
             <p className="text-sm text-foreground leading-6">{project.outcome}</p>
           </div>
@@ -101,7 +92,7 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
         <div className="space-y-3">
           {project.decisions.map((decision) => (
             <div key={decision} className="flex gap-3 group/item">
-              <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary/60 group-hover/item:bg-primary transition-colors duration-300" />
+              <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary/70 group-hover/item:bg-primary transition-colors duration-300" />
               <p className="text-sm text-muted-foreground leading-6 group-hover/item:text-foreground transition-colors duration-300">{decision}</p>
             </div>
           ))}
@@ -109,7 +100,7 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
 
         <div className="flex flex-wrap gap-2">
           {project.stack.map((item) => (
-            <Badge key={item} variant="secondary" className="text-xs px-3 py-1.5 bg-primary/5 text-primary border-primary/20 hover:bg-primary/10 transition-colors duration-300">
+            <Badge key={item} variant="secondary" className="text-xs px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 transition-colors duration-300 hover:bg-primary/15">
               {item}
             </Badge>
           ))}

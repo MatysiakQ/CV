@@ -86,10 +86,10 @@ const FeaturedProjects = () => {
     <section id="featured-projects" className="py-24 px-6 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.35em] text-primary font-semibold mb-4">Selected work</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">Featured projects with real interface proof.</h2>
+          <p className="text-sm uppercase tracking-[0.35em] text-primary font-semibold mb-4">Selected case studies</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">Product-focused projects with interface proof.</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-8">
-            These stories are built around products, not resumes: a clear problem, a practical product decision, and a visible outcome.
+            Each project highlights a technical challenge, a product decision, and the business outcome it enabled.
           </p>
         </div>
 

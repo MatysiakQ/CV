@@ -30,7 +30,7 @@ const workflowSteps = [
 
 const WorkflowSection = () => {
   return (
-    <section id="workflow" className="py-24 px-6">
+    <section id="workflow" className="py-24 px-6 overflow-x-hidden">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.35em] text-primary font-semibold mb-4">My Process</p>
@@ -55,7 +55,7 @@ const WorkflowSection = () => {
               initial={{ x: "-100%" }}
               whileInView={{ x: "100%" }}
               viewport={{ once: true }}
-              transition={{ duration: 3, delay: 1, ease: "easeInOut" }}
+              transition={{ duration: 5, delay: 1, ease: "easeInOut" }}
               className="absolute top-0 left-0 w-full h-full"
             >
               <div className="absolute w-2 h-2 bg-primary rounded-full -translate-x-1 -translate-y-0.5 animate-pulse" />

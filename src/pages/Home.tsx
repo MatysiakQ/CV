@@ -112,39 +112,46 @@ const Home = () => {
                 </a>
               </div>
 
-              <div className="grid gap-8 md:grid-cols-3 max-w-3xl mx-auto">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-center group"
+                  className="rounded-[1.75rem] border border-border bg-background/80 p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="text-3xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform duration-300">20+</div>
-                  <div className="text-muted-foreground font-medium">Projects Completed</div>
-                  <div className="w-12 h-0.5 bg-primary/30 mx-auto mt-3 group-hover:bg-primary/60 transition-colors duration-300" />
+                  <div className="text-3xl font-semibold text-primary mb-3">20+</div>
+                  <div className="text-sm uppercase tracking-[0.3em] text-muted-foreground font-semibold">Completed projects</div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                  className="rounded-[1.75rem] border border-border bg-background/80 p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="text-3xl font-semibold text-primary mb-3">Modern</div>
+                  <div className="text-sm uppercase tracking-[0.3em] text-muted-foreground font-semibold">Tech stack</div>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-center group"
+                  className="rounded-[1.75rem] border border-border bg-background/80 p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="text-3xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform duration-300">500+</div>
-                  <div className="text-muted-foreground font-medium">Commits</div>
-                  <div className="w-12 h-0.5 bg-primary/30 mx-auto mt-3 group-hover:bg-primary/60 transition-colors duration-300" />
+                  <div className="text-3xl font-semibold text-primary mb-3">Responsive</div>
+                  <div className="text-sm uppercase tracking-[0.3em] text-muted-foreground font-semibold">& optimized</div>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-center group"
+                  transition={{ duration: 0.6, delay: 0.25 }}
+                  className="rounded-[1.75rem] border border-border bg-background/80 p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="text-3xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform duration-300">100%</div>
-                  <div className="text-muted-foreground font-medium">Client Satisfaction</div>
-                  <div className="w-12 h-0.5 bg-primary/30 mx-auto mt-3 group-hover:bg-primary/60 transition-colors duration-300" />
+                  <div className="text-3xl font-semibold text-primary mb-3">Clean</div>
+                  <div className="text-sm uppercase tracking-[0.3em] text-muted-foreground font-semibold">Architecture</div>
                 </motion.div>
               </div>
             </div>
