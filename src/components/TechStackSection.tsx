@@ -45,7 +45,7 @@ const TechStackSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                className="rounded-[2rem] border border-border bg-background/80 p-8 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="rounded-[2rem] border border-border bg-background/80 p-8 shadow-sm transition-all duration-500 hover:shadow-[0_30px_120px_-80px_rgba(79,70,229,0.35)] hover:-translate-y-0.5"
               >
                 <div className="text-center mb-6">
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary mb-4">
