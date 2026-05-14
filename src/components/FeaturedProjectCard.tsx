@@ -7,7 +7,7 @@ interface FeaturedProject {
   name: string;
   category: string;
   visualLabel: string;
-  image: string;
+  image?: string;
   summary: string;
   challenge: string;
   outcome: string;
@@ -32,56 +32,84 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
-      className={`grid gap-6 rounded-[2rem] border border-border bg-background/95 p-8 shadow-sm hover:shadow-lg transition-shadow ${index === 0 ? 'lg:col-span-2' : ''}`}
+      className={`group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-background/95 to-background/80 backdrop-blur-sm p-8 shadow-lg hover:shadow-2xl hover:border-primary/20 transition-all duration-500 ${index === 0 ? 'lg:col-span-2' : ''}`}
     >
-      <div className={`${reverse ? 'lg:order-2' : ''} relative overflow-hidden rounded-t-xl border border-border/60 bg-slate-950/5`}>
-        <img
-          src={project.image}
-          alt={`${project.name} preview`}
-          className="aspect-[16/9] w-full object-cover"
-        />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-[1.75rem] bg-gradient-to-t from-slate-950/95 to-transparent p-6">
-          <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground mb-2">{project.visualLabel}</p>
-          <p className="text-sm font-semibold text-white">Interface proof, workflow preview, system sketch.</p>
-        </div>
-      </div>
+      {project.image ? (
+        <div className={`${reverse ? 'lg:order-2' : ''} relative group overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-500`}>
+          {/* Device frame effect */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="space-y-4">
+          {/* Image or video container with glassmorphism */}
+          <div className="relative overflow-hidden rounded-t-2xl bg-gradient-to-br from-slate-900/20 to-slate-800/40 backdrop-blur-sm">
+            {project.image?.endsWith('.mp4') ? (
+              <video
+                src={project.image}
+                muted
+                autoPlay
+                loop
+                playsInline
+                className="aspect-[16/9] w-full object-cover"
+              />
+            ) : (
+              <img
+                src={project.image}
+                alt={`${project.name} preview`}
+                className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            )}
+
+            {/* Subtle overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+
+            {/* Glow effect on hover */}
+            <div className="absolute inset-0 rounded-t-2xl bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+
+            {/* Bottom info overlay */}
+            <div className="absolute inset-x-0 bottom-0 p-6">
+              <p className="text-xs uppercase tracking-[0.35em] text-white/80 mb-2 font-medium">{project.visualLabel}</p>
+              <p className="text-sm font-semibold text-white leading-6">Interface proof, workflow preview, system architecture.</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div className="space-y-6">
         <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-          <span className="inline-flex items-center rounded-full bg-slate-100/70 px-3 py-1 text-xs uppercase tracking-[0.35em] font-semibold text-slate-700">
+          <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-xs uppercase tracking-[0.35em] font-semibold text-primary border border-primary/20">
             {project.category}
           </span>
-          <span className="text-xs uppercase tracking-[0.35em] text-primary font-semibold">Built proof</span>
+          <span className="text-xs uppercase tracking-[0.35em] text-primary/70 font-semibold">Built proof</span>
         </div>
 
         <div>
-          <h3 className="text-3xl font-semibold tracking-tight text-foreground mb-4">{project.name}</h3>
-          <p className="text-base text-muted-foreground leading-8">{project.summary}</p>
+          <h3 className="text-2xl font-bold tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{project.name}</h3>
+          <p className="text-base text-muted-foreground leading-7">{project.summary}</p>
         </div>
 
-        <div className="flex flex-col gap-5 md:flex-row md:gap-5">
-          <div className="rounded-3xl border border-border p-5 bg-background/90">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-3">Problem</p>
-            <p className="text-sm text-foreground leading-7">{project.challenge}</p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-border/60 p-5 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
+            <p className="text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-3">Problem</p>
+            <p className="text-sm text-foreground leading-6">{project.challenge}</p>
           </div>
-          <div className="rounded-3xl border border-border p-5 bg-background/90">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-3">Impact</p>
-            <p className="text-sm text-foreground leading-7">{project.outcome}</p>
+          <div className="rounded-xl border border-border/60 p-5 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-colors duration-300">
+            <p className="text-xs uppercase tracking-[0.3em] text-primary font-semibold mb-3">Impact</p>
+            <p className="text-sm text-foreground leading-6">{project.outcome}</p>
           </div>
         </div>
 
         <div className="space-y-3">
           {project.decisions.map((decision) => (
-            <div key={decision} className="flex gap-3">
-              <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary" />
-              <p className="text-sm text-muted-foreground leading-7">{decision}</p>
+            <div key={decision} className="flex gap-3 group/item">
+              <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-primary/60 group-hover/item:bg-primary transition-colors duration-300" />
+              <p className="text-sm text-muted-foreground leading-6 group-hover/item:text-foreground transition-colors duration-300">{decision}</p>
             </div>
           ))}
         </div>
 
         <div className="flex flex-wrap gap-2">
           {project.stack.map((item) => (
-            <Badge key={item} variant="secondary" className="text-xs px-3 py-1">
+            <Badge key={item} variant="secondary" className="text-xs px-3 py-1.5 bg-primary/5 text-primary border-primary/20 hover:bg-primary/10 transition-colors duration-300">
               {item}
             </Badge>
           ))}
@@ -92,10 +120,10 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
             href={project.href}
             target={isInternalAnchor ? undefined : "_blank"}
             rel={isInternalAnchor ? undefined : "noopener noreferrer"}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-primary/80"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300 group/link"
           >
             {project.ctaLabel ?? 'Learn more'}
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
           </a>
         ) : null}
       </div>

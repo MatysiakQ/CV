@@ -17,22 +17,31 @@ const Hero = () => {
           <span className="uppercase tracking-[0.35em]">technical founder</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6">
-          I build products and systems that turn complex workflows into reliable software.
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-none mb-4">
+          Software Engineer
         </h1>
-        <p className="text-lg text-muted-foreground max-w-xl mb-8 leading-8">
-          I move beyond prototypes and slide decks. I ship functional systems with automation, clear interfaces, and product depth.
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wide text-primary mb-8">
+          Building products that solve real problems
+        </h2>
+        <p className="text-xl text-muted-foreground max-w-2xl mb-10 leading-9">
+          I transform complex business workflows into reliable, scalable software systems. From mobile apps to backend architectures, I deliver end-to-end solutions with clean code, automation, and production-ready deployments.
         </p>
 
-        <div className="flex flex-wrap gap-4 items-center mb-6">
+        <div className="flex flex-wrap gap-6 items-center mb-8">
           <button
             type="button"
             onClick={() => scrollToSection('featured-projects')}
-            className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-background transition hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-5 text-base font-semibold text-background transition hover:bg-primary/90 hover:scale-105"
           >
-            View featured work
+            View My Work
           </button>
-          <CVChooser />
+          <button
+            type="button"
+            onClick={() => scrollToSection('contact')}
+            className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-10 py-5 text-base font-semibold text-primary transition hover:bg-primary hover:text-background hover:scale-105"
+          >
+            Let's Build Together
+          </button>
         </div>
 
         <p className="text-sm text-muted-foreground mb-10 max-w-xl">
@@ -75,9 +84,6 @@ const Hero = () => {
               <p className="font-semibold text-foreground leading-6">Real interfaces and workflows, not concepts.</p>
             </div>
           </div>
-        </div>
-        <div className="absolute -left-10 bottom-12 hidden md:block rotate-3 rounded-3xl border border-primary/10 bg-primary/10 px-6 py-4 text-sm text-foreground/80">
-          <p className="font-semibold">I prefer systems that run, not decks that impress.</p>
         </div>
       </div>
     </section>
