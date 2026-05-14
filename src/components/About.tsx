@@ -5,9 +5,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
   const skills = [
-    "React", "TypeScript", "JavaScript", "Node.js", "Python",
+    "React", "TypeScript", "JavaScript", "Node.js", "Python", "C#", ".NET", "Java", "Spring",
     "Next.js", "Tailwind CSS", "Responsive Design", "Mobile App Development",
-    "Kotlin", "Android SDK", "Firebase", "PostgreSQL", "MongoDB", "Git", "CI/CD"
+    "Kotlin", "Android SDK", "Firebase", "PostgreSQL", "MongoDB", "Git", "CI/CD", "Docker"
   ];
 
   const { t } = useLanguage();

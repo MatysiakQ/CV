@@ -32,13 +32,13 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
-      className="grid gap-8 rounded-[2rem] border border-border bg-background/95 p-8 shadow-sm lg:grid-cols-[0.95fr_1.05fr]"
+      className={`grid gap-6 rounded-[2rem] border border-border bg-background/95 p-8 shadow-sm hover:shadow-lg transition-shadow ${index === 0 ? 'lg:col-span-2' : ''}`}
     >
-      <div className={`${reverse ? 'lg:order-2' : ''} relative overflow-hidden rounded-[1.75rem] border border-border/60 bg-slate-950/5`}>
+      <div className={`${reverse ? 'lg:order-2' : ''} relative overflow-hidden rounded-t-xl border border-border/60 bg-slate-950/5`}>
         <img
           src={project.image}
           alt={`${project.name} preview`}
-          className="aspect-[4/3] w-full object-cover"
+          className="aspect-[16/9] w-full object-cover"
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-[1.75rem] bg-gradient-to-t from-slate-950/95 to-transparent p-6">
           <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground mb-2">{project.visualLabel}</p>
@@ -59,7 +59,7 @@ const FeaturedProjectCard = ({ project, index }: FeaturedProjectCardProps) => {
           <p className="text-base text-muted-foreground leading-8">{project.summary}</p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="flex flex-col gap-5 md:flex-row md:gap-5">
           <div className="rounded-3xl border border-border p-5 bg-background/90">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-3">Problem</p>
             <p className="text-sm text-foreground leading-7">{project.challenge}</p>
