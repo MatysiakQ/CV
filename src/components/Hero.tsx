@@ -1,18 +1,7 @@
 
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ArrowDown, Instagram } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
 import CVChooser from "./CVChooser";
 
 const Hero = () => {
-  const { t } = useLanguage();
-
-  const item = {
-    hidden: { opacity: 0, y: 8 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
-  };
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -21,77 +10,74 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
+    <section className="min-h-screen grid items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] bg-background text-foreground">
+      <div className="max-w-2xl">
+        <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-muted-foreground">
+          <span className="uppercase tracking-[0.35em] text-primary font-semibold">Adam Jastrzębski</span>
+          <span className="uppercase tracking-[0.35em]">technical founder</span>
+        </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div className="mb-8 relative" initial="hidden" whileInView="show" viewport={{ once: true }} variants={item}>
-            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-spin [animation-duration:8s]" />
-              <div className="absolute inset-2 bg-background rounded-full" />
-              <motion.img
-                src="/images/CVPhoto.jpeg"
-                alt="Profile photo of Adam Jastrzębski"
-                className="absolute inset-4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover"
-                style={{ boxShadow: '0 8px 30px rgba(99,102,241,0.12), 0 0 40px rgba(139,92,246,0.12)' }}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-              />
-            </div>
-          </motion.div>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6">
+          I build products and systems that turn complex workflows into reliable software.
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-xl mb-8 leading-8">
+          I move beyond prototypes and slide decks. I ship functional systems with automation, clear interfaces, and product depth.
+        </p>
 
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            <span className="gradient-text">Adam Jastrzębski</span>
-          </h1>
+        <div className="flex flex-wrap gap-4 items-center mb-6">
+          <button
+            type="button"
+            onClick={() => scrollToSection('featured-projects')}
+            className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-background transition hover:bg-primary/90"
+          >
+            View featured work
+          </button>
+          <CVChooser />
+        </div>
 
-          <motion.h2 variants={item} className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-slate-200">
-            {t('home.hero.title')}
-          </motion.h2>
+        <p className="text-sm text-muted-foreground mb-10 max-w-xl">
+          <a
+            href="#contact"
+            className="font-semibold text-foreground transition hover:text-primary"
+          >
+            Start the build
+          </a>{' '}
+          — a shorter path to product systems that actually move.
+        </p>
 
-          <motion.p variants={item} className="text-lg sm:text-xl md:text-2xl text-slate-200/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-            {t('home.hero.description')}
-          </motion.p>
-
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button variant="gradient" size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('projects')}>
-              {t('home.hero.viewProjects')}
-            </Button>
-            <Button variant="glass" size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('contact')}>
-              {t('home.hero.contactMe')}
-            </Button>
-            <CVChooser />
-          </motion.div>
-
-          <motion.div variants={item} className="flex justify-center space-x-6 mb-12">
-            <Button variant="ghost" size="icon" className="hover:text-primary" asChild>
-              <a href="https://github.com/MatysiakQ" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="hover:text-primary" asChild>
-              <a href="https://www.linkedin.com/in/adamjastrzębski" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="hover:text-primary" asChild>
-              <a href="https://instagram.com/adamtheantagonist" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <Instagram className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="hover:text-primary" asChild>
-              <a href="mailto:ajastrzebski2104@gmail.com" aria-label="Email">
-                <Mail className="h-6 w-6" />
-              </a>
-            </Button>
-          </motion.div>
-
-          <div className="animate-bounce">
-            <ArrowDown className="h-6 w-6 mx-auto text-slate-200/70" />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-[2rem] border border-border bg-background/80 p-6 shadow-sm">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-2">Built work</p>
+            <p className="font-medium text-foreground leading-7">Systems that support real workflows, not just presentational interfaces.</p>
           </div>
+          <div className="rounded-[2rem] border border-border bg-background/80 p-6 shadow-sm">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-2">Work proof</p>
+            <p className="font-medium text-foreground leading-7">Product visuals and interface proof are part of the story, not an add-on.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative flex justify-center lg:justify-end">
+        <div className="absolute -right-10 top-12 hidden h-80 w-80 rounded-full border border-primary/10 bg-slate-950/5 blur-3xl lg:block" />
+        <div className="relative rounded-[2rem] border border-border bg-background/95 p-6 shadow-[0_40px_120px_-80px_rgba(15,23,42,0.45)] overflow-hidden">
+          <img
+            src="/images/CVPhoto.jpeg"
+            alt="Portrait of Adam Jastrzębski"
+            className="aspect-square w-full rounded-[1.75rem] object-cover border border-border/50"
+          />
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-3xl border border-border bg-background/90 p-4">
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-2">Built for</p>
+              <p className="font-semibold text-foreground leading-6">teams that need code-first products.</p>
+            </div>
+            <div className="rounded-3xl border border-border bg-background/90 p-4">
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-2">Proof layer</p>
+              <p className="font-semibold text-foreground leading-6">Real interfaces and workflows, not concepts.</p>
+            </div>
+          </div>
+        </div>
+        <div className="absolute -left-10 bottom-12 hidden md:block rotate-3 rounded-3xl border border-primary/10 bg-primary/10 px-6 py-4 text-sm text-foreground/80">
+          <p className="font-semibold">I prefer systems that run, not decks that impress.</p>
         </div>
       </div>
     </section>

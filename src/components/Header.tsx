@@ -48,6 +48,15 @@ const Header = () => {
                 )}
               </div>
             ))}
+            <a
+              href="/assets/cv/cv-desktop.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="text-sm font-semibold uppercase tracking-[0.25em] text-muted-foreground transition hover:text-primary"
+            >
+              Resume
+            </a>
             <div className="flex items-center gap-2">
               <LanguageSwitcher />
               <Button
@@ -133,6 +142,16 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href="/assets/cv/cv-desktop.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="text-sm font-medium transition-colors hover:text-primary py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Resume
+              </a>
             </div>
           </nav>
         )}

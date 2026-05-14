@@ -148,6 +148,30 @@ const Contact = () => {
                 </Card>
               ))}
             </div>
+
+            <Card className="rounded-[2rem] border border-border bg-background/90 p-6 shadow-sm">
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold">Resume</p>
+                  <h3 className="text-2xl font-semibold mt-2">Download the full CV</h3>
+                  <p className="text-muted-foreground leading-7">
+                    Choose the version that fits your review: detailed desktop or concise mobile format.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild size="lg">
+                    <a href="/assets/cv/cv-desktop.pdf" target="_blank" rel="noopener noreferrer" download>
+                      Desktop CV
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="lg">
+                    <a href="/assets/cv/cv-mobile.pdf" target="_blank" rel="noopener noreferrer" download>
+                      Mobile CV
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Card>
           </div>
 
           {/* Contact Form */}
